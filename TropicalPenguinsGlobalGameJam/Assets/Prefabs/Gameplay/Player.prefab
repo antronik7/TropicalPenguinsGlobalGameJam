@@ -59,6 +59,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nbrPressToPickUp: 1
   isHoldingShape: 0
+  playerController: {fileID: 4187060022934643739}
 --- !u!1 &4187060022570898091
 GameObject:
   m_ObjectHideFlags: 0

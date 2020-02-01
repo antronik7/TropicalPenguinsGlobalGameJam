@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
 	[SerializeField]
 	private float currentVelocity = 0f;
 	private Vector3 velocityBeforeDash;
+	Vector3 lastPosition = Vector3.zero;
 
 	void Awake()
 	{
@@ -112,15 +113,35 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
-	public void Move()
+	private void Move()
 	{
-		float movementVelocity = (axisLeftTrigger * speedPlayer * Time.deltaTime) + (axisRightTrigger * speedPlayer * Time.deltaTime * -1);
+		//float signVelocity = Mathf.Sign(Vector3.Dot(myRigidbody.velocity.normalized, transform.forward));
+		//myRigidbody.velocity = transform.forward * myRigidbody.velocity.magnitude * signVelocity;
+
+		//myRigidbody.AddForce(transform.forward * axisRightTrigger * 40f);
+		//myRigidbody.AddForce(transform.forward * axisLeftTrigger * 25f * -1f);
+
+		//if (Mathf.Abs(myRigidbody.velocity.magnitude) >= maxSpeedPlayer)
+		//{
+		//    myRigidbody.velocity = maxSpeedPlayer * transform.forward * signVelocity;
+		//}
+
+		//return;
+
+		float speed = (transform.position - lastPosition).magnitude;
+		if (speed <= 0.001f)
+		{
+			currentVelocity = 0f;
+		}
+
+		lastPosition = transform.position;
+
+		float movementVelocity = (axisRightTrigger * speedPlayer * Time.deltaTime) + (axisLeftTrigger * speedPlayer * Time.deltaTime * -1f);
 		currentVelocity += movementVelocity;
 
 		if (Mathf.Abs(movementVelocity) == 0f || Mathf.Sign(currentVelocity) != Mathf.Sign(movementVelocity))
 		{
 			float currentVelocityAbsolute = Mathf.Abs(currentVelocity) - speedDecreasePlayer;
-
 
 			if (currentVelocityAbsolute < 0f)
 				currentVelocityAbsolute = 0f;

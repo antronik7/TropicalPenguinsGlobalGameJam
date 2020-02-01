@@ -31,7 +31,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody myRigidbody;
 
     //Variables
-    private bool isDashing;
+    private bool isDashing = false;
+    private bool canDestroyBlock = true;
     private bool areControlsEnable = true;
     private float axisLeftTrigger;
     private float axisRightTrigger;
@@ -78,19 +79,33 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if(isDashing)
-        {
-            if (collision.transform.GetComponent<Shape>() != null)
-            {
-                Debug.Log("test");
-                collision.transform.GetComponent<Shape>().Crumble();
-            }
-            else if (collision.transform.GetComponent<PlayerController>())
-            {
-                Shape shapeToCrumble = collision.transform.parent.GetComponent<PlayerController>().pickUpController.GetHoldedShape();
+        DestroyBlock(collision);
+    }
 
-                if (shapeToCrumble != null)
-                    shapeToCrumble.Crumble();
+    void OnCollisionStay(Collision collision)
+    {
+        DestroyBlock(collision);
+    }
+
+    void DestroyBlock(Collision collision)
+    {
+        if (isDashing)
+        {
+            if (canDestroyBlock)
+            {
+                if (collision.transform.GetComponent<Shape>() != null)
+                {
+                    collision.transform.GetComponent<Shape>().Crumble();
+                }
+                else if (collision.transform.GetComponent<PlayerController>())
+                {
+                    Shape shapeToCrumble = collision.transform.parent.GetComponent<PlayerController>().pickUpController.GetHoldedShape();
+
+                    if (shapeToCrumble != null)
+                        shapeToCrumble.Crumble();
+                }
+
+                canDestroyBlock = false;
             }
         }
     }
@@ -142,6 +157,7 @@ public class PlayerController : MonoBehaviour
     {
         isDashing = false;
         EnableControls(true);
+        canDestroyBlock = true;
         //currentVelocity = myRigidbody.velocity.magnitude;
     }
 

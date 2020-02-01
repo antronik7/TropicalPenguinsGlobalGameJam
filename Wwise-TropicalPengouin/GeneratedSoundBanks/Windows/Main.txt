@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	2908458614	Shotgun_Blast_Player			\Default Work Unit\Shotgun_Blast_Player	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	924354743	Shotgun_Blast	C:\Users\emile\Unity Projects\TropicalPenguinsGlobalGameJam\Wwise-TropicalPengouin\.cache\Windows\SFX\Shotgun_Blast_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Shotgun_Blast		179026
+

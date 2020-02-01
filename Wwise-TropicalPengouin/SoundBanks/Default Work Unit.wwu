@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{26D6A70C-78A1-4F73-A597-A590EB23076F}" SchemaVersion="94">
+	<SoundBanks>
+		<WorkUnit Name="Default Work Unit" ID="{26D6A70C-78A1-4F73-A597-A590EB23076F}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="Main" ID="{C00EEB70-A63B-4E4C-9787-84DDE35A537A}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Shotgun_Blast_Player" ID="{5A973697-9482-46FF-AF5F-7E74F95D96E1}" WorkUnitID="{6B199D65-53A6-49AF-8DFF-DB836CD06945}" Filter="7" Origin="Manual"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundBanks>
+</WwiseDocument>

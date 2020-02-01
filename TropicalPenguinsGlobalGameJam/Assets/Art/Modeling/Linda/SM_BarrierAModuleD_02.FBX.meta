@@ -3,7 +3,13 @@ guid: e6a2242c2dbc38f41b2bba8e4a45c75c
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_ClotureA_01
+    second: {fileID: 3372201823374286319, guid: e6a2242c2dbc38f41b2bba8e4a45c75c,
+      type: 3}
   materials:
     importMaterials: 1
     materialName: 0

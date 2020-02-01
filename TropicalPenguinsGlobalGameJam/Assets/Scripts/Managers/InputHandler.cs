@@ -7,7 +7,7 @@ public class InputHandler : Singleton<InputHandler>
 {
 	protected override void Awake()
 	{
-		EventManager.PlayerSpawn.AddListener((id) => OnPlayerSpawn(id));
+		EventManager.PlayerSpawn.AddListener((player) => OnPlayerSpawn(player.playerId));
 	}
 
 	private void OnPlayerSpawn(int id)

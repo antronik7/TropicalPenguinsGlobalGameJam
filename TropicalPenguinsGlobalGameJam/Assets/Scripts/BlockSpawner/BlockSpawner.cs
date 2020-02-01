@@ -102,7 +102,7 @@ public class BlockSpawner : Singleton<BlockSpawner>
 
 	public Shape SpawnBlock(ShapeType type, Transform inheritedTransform)
 	{
-		Shape newShape = Instantiate(ShapePrefabs[type], inheritedTransform, BlocksContainer.transform);
+		Shape newShape = Instantiate(ShapePrefabs[type], inheritedTransform.position, inheritedTransform.rotation, BlocksContainer.transform);
 		BlockInstances.Add(new WeakReference<Shape>(newShape));
 		return newShape;
 	}
@@ -154,5 +154,9 @@ public class BlockSpawner : Singleton<BlockSpawner>
 			Gizmos.DrawCube(PlayZone.position, PlayZone.localScale);
 
 		Gizmos.color = prevColor;
+	}
+
+	public void GetPositions(Vector2Int pivot)
+	{
 	}
 }

@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 
+using Random = UnityEngine.Random;
+
 public enum ShapeType
 {
 	Block,     // .
@@ -53,13 +55,47 @@ public class Shape : MonoBehaviour
 		transform.hasChanged = false;
 	}
 
+	public void Crumble()
+	{
+		double rand = Random.value;
+		ShapeType newType = ShapeType.Count;
+
+		switch (Type)
+		{
+			case ShapeType.Block:
+				break;
+			case ShapeType.ShortLine:
+				newType = ShapeType.Block;
+				break;
+			case ShapeType.MedLine:
+			case ShapeType.ShortL:
+				newType = ShapeType.ShortLine;
+				break;
+			case ShapeType.LongLine:
+			case ShapeType.LongL when rand < 0.5:
+				newType = ShapeType.MedLine;
+				break;
+			case ShapeType.LongL:
+			case ShapeType.Square:
+			case ShapeType.Zigzag:
+			case ShapeType.T when rand < 0.66f:
+				newType = ShapeType.ShortL;
+				break;
+			case ShapeType.T:
+				newType = ShapeType.MedLine;
+				break;
+			case ShapeType.Count:
+				throw new ArgumentOutOfRangeException("Type", "A shape has a Count Type, this should not happen");
+		}
+
+		if (newType != ShapeType.Count)
+			BlockSpawner.Instance.SpawnBlock(newType, transform);
+
+		Destroy(gameObject);
+	}
+
 	public void Release()
 	{
 		Owner = null;
-	}
-
-	public void Destroy()
-	{
-		Destroy(this);
 	}
 }

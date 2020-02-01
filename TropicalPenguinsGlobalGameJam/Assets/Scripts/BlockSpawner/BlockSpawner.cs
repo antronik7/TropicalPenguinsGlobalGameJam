@@ -13,7 +13,7 @@ public class ShapedGO
 	public GameObject GO;
 }
 
-public class BlockSpawner : MonoBehaviour
+public class BlockSpawner : Singleton<BlockSpawner>
 {
 	[SerializeField]
 	[FormerlySerializedAs("m_ShapesPrefab")]

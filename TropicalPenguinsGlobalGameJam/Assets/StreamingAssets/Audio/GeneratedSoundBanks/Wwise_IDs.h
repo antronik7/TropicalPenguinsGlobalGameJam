@@ -18,7 +18,7 @@ namespace AK
         static const AkUniqueID BLOCKPLACEMENT_WRONG = 1970298975U;
         static const AkUniqueID HOUSE_COMPLETE = 3181923571U;
         static const AkUniqueID PLAY_BACKGROUND_MUSIC = 65769146U;
-        static const AkUniqueID TRACTOR_ENGINE = 1009548007U;
+        static const AkUniqueID STARTENGINE = 1087172201U;
         static const AkUniqueID TRACTOR_IMPACT = 2651855531U;
     } // namespace EVENTS
 

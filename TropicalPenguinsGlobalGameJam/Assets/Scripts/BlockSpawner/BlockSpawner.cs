@@ -100,6 +100,13 @@ public class BlockSpawner : Singleton<BlockSpawner>
 		}
 	}
 
+	public Shape SpawnBlock(ShapeType type, Transform inheritedTransform)
+	{
+		Shape newShape = Instantiate(ShapePrefabs[type], inheritedTransform, BlocksContainer.transform);
+		BlockInstances.Add(new WeakReference<Shape>(newShape));
+		return newShape;
+	}
+
 	public void SpawnBlock()
 	{
 		ShapeType randomType = (ShapeType)(int)Random.Range(0, (int)ShapeType.Count - Mathf.Epsilon);

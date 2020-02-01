@@ -20,5 +20,8 @@ public class Shape : MonoBehaviour
 
 	public PlayerController Owner { get; set; }
 	public bool IsPicked => Owner != null;
-	//public bool[,] shapeArray = new bool[4, 4];
+
+	public bool IsFlipped { get; set; } // Tell / Set if shape is on a symmetry
+	public bool IsRotated { get; set; } // Tell / Set if shape is rotated 90deg
+	public bool IsInverted { get; set; } // Tell / Set if shape is rotated 90deg
 }

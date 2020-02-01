@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="134">
+	<RootPaths>
+		<ProjectRoot>C:\Users\emile\Unity Projects\TropicalPenguinsGlobalGameJam\Wwise-TropicalPengouin\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\emile\Unity Projects\TropicalPenguinsGlobalGameJam\Wwise-TropicalPengouin\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\emile\Unity Projects\TropicalPenguinsGlobalGameJam\TropicalPenguinsGlobalGameJam\Assets\StreamingAssets\Audio\GeneratedSoundBanks\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>C:\Users\emile\Unity Projects\TropicalPenguinsGlobalGameJam\Wwise-TropicalPengouin\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="3161908922" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
+			<ShortName>Main</ShortName>
+			<Path>Main.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2908458614" Name="Shotgun_Blast_Player" ObjectPath="\Events\Default Work Unit\Shotgun_Blast_Player" DurationType="OneShot" DurationMin="2.029048" DurationMax="2.029048"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="924354743" Language="SFX">
+					<ShortName>Shotgun_Blast.wav</ShortName>
+					<Path>SFX\Shotgun_Blast_10C4C929.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>

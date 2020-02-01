@@ -137,7 +137,7 @@ public class PlayerController : MonoBehaviour
         myRigidbody.velocity = new Vector3 (velocityPlayer.x, myRigidbody.velocity.y, velocityPlayer.z);
     }
 
-    public void Rotate(float input)
+    public void Rotate()
     {
         float turn = axisHorizontal * turnSpeedPlayer * Time.deltaTime;
         Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);

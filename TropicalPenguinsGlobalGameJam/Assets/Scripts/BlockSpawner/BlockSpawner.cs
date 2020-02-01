@@ -6,13 +6,6 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
-[Serializable]
-public class ShapedGO
-{
-	public ShapeType Type;
-	public GameObject GO;
-}
-
 public class BlockSpawner : Singleton<BlockSpawner>
 {
 	[SerializeField]

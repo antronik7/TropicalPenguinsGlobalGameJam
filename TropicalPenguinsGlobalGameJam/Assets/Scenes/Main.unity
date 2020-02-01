@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.16788329, g: 0.21073541, b: 0.2899403, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -121,6 +121,73 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &135088292
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 135088294}
+  - component: {fileID: 135088293}
+  m_Layer: 0
+  m_Name: BlockSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &135088293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135088292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c34fd891703b39148ae71e418550a7f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dontDestroyOnLoad: 0
+  m_ShapePrefabs:
+  - {fileID: -1412468971789922456, guid: 05968d5df6d88d14eaa9bc28a713a858, type: 3}
+  - {fileID: -5625452399281351746, guid: ea9c3d2c52a1b464d9f92d2248a94573, type: 3}
+  - {fileID: 6748050530178452961, guid: 6da42b589000e4943bd12ba663602d00, type: 3}
+  - {fileID: -9014434137492350090, guid: e5d338fb8d0213d479fd548bf09c40a4, type: 3}
+  - {fileID: -8097083698268235883, guid: f5ba05b46fceb2c4aaf67fcfa112295e, type: 3}
+  - {fileID: 291847475341293804, guid: 00824afb41ea963418ea024424a37bae, type: 3}
+  - {fileID: 3714310637206555329, guid: cb68fa3aae390244cbfe9c166f011013, type: 3}
+  - {fileID: 5544111309749574158, guid: 2aa156da9e98bbb4c8e75b600be9624b, type: 3}
+  - {fileID: 6154297050607659053, guid: 65f867f41b41bc4488597b589b2000e1, type: 3}
+  PlayZone: {fileID: 1536094474}
+  ForbidenZones:
+  - {fileID: 1526651878}
+  - {fileID: 1803263141}
+  - {fileID: 400986533}
+  - {fileID: 358708495}
+  - {fileID: 1038587500}
+  - {fileID: 916397596}
+  - {fileID: 347956195}
+  - {fileID: 1741089340}
+  SpawnHeight: 6
+  SpawningRateInSeconds: 3
+--- !u!4 &135088294
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135088292}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1536094474}
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &262472876
 GameObject:
   m_ObjectHideFlags: 0
@@ -1200,6 +1267,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1526651877}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1536094473
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1536094474}
+  m_Layer: 0
+  m_Name: PlayZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1536094474
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536094473}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 62, y: 1, z: 34}
+  m_Children: []
+  m_Father: {fileID: 135088294}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1628614530
 PrefabInstance:
   m_ObjectHideFlags: 0

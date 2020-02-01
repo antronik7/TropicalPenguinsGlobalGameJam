@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:TropicalPenguinsGlobalGameJam/Assets/Scripts/Audio.meta
 guid: fe233f88053d7934eb5345cbc4790ecd
+=======
+guid: 29375b7358a538f4d89dde614df737dc
+>>>>>>> 0d3cce23d32c2cf081ffced3f6893cd808e3e261:TropicalPenguinsGlobalGameJam/Assets/Art/Modeling/Greg/Textures.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

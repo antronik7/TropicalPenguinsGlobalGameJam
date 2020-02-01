@@ -8,6 +8,7 @@
 						<Property Name="InitialValue" Type="Real64" Value="0"/>
 					</PropertyList>
 				</GameParameter>
+				<GameParameter Name="Percent_Volume" ID="{3D68E38E-F4D7-4E0C-9992-D58C56D6FA1E}"/>
 			</ChildrenList>
 		</WorkUnit>
 	</GameParameters>

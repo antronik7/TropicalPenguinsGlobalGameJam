@@ -3,7 +3,7 @@
 	<UserProjectSettingsInfo>
 		<UserProjectSettings Name="" ID="{327A6544-87C8-456F-BC55-E41F2DDCCF7A}">
 			<PropertyList>
-				<Property Name="AudioFilesImporter\Path" Type="string" Value="D:\Utilisateurs\Emile\Desktop\soundsGameJam\Wrong_block_placement"/>
+				<Property Name="AudioFilesImporter\Path" Type="string" Value="D:\Utilisateurs\Emile\Desktop\soundsGameJam"/>
 				<Property Name="Event Action List\{0A1D6DA1-4E82-4789-9BCB-3F5160F60E2C}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{14789D92-4C3F-4F2A-8C50-47150830FF48}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{1AAB39B9-7E37-4BBB-9F66-F4DEBA2C8B67}\x64_Expand States" Type="string" Value=""/>
@@ -13,6 +13,7 @@
 				<Property Name="Event Action List\{5A973697-9482-46FF-AF5F-7E74F95D96E1}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{6D711839-B35B-42D8-B78B-E04429AFB38A}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{6DED4465-5BAA-4C65-9255-3052FC2260A2}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{8000E825-E101-4301-B401-6DF66CC5D496}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{94164BA4-73A3-4582-A479-00DAE8584393}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{F03E930B-73E9-441B-9BE5-B1C71081280A}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{F7C8C814-1489-4C10-8DA7-C71774E8C608}\x64_Expand States" Type="string" Value=""/>

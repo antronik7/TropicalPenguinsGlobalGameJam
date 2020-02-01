@@ -13,12 +13,13 @@ namespace AK
 {
     namespace EVENTS
     {
-        static const AkUniqueID GOOD_BLOCK_PLACEMENT = 2306086836U;
+        static const AkUniqueID BLOCK_ROTATION = 3321968461U;
+        static const AkUniqueID BLOCKPLACEMENT_GOOD = 2168726175U;
+        static const AkUniqueID BLOCKPLACEMENT_WRONG = 1970298975U;
         static const AkUniqueID HOUSE_COMPLETE = 3181923571U;
-        static const AkUniqueID ROTATE_BLOCK = 264482442U;
+        static const AkUniqueID PLAY_BACKGROUND_MUSIC = 65769146U;
         static const AkUniqueID TRACTOR_ENGINE = 1009548007U;
         static const AkUniqueID TRACTOR_IMPACT = 2651855531U;
-        static const AkUniqueID WRONG_BLOCK_PLACEMENT = 1518935898U;
     } // namespace EVENTS
 
     namespace SWITCHES
@@ -39,6 +40,7 @@ namespace AK
 
     namespace GAME_PARAMETERS
     {
+        static const AkUniqueID PERCENT_VOLUME = 3163037145U;
         static const AkUniqueID PLAYBACK_RATE = 1524500807U;
         static const AkUniqueID RPM = 796049864U;
         static const AkUniqueID SS_AIR_FEAR = 1351367891U;

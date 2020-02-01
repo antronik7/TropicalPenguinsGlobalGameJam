@@ -1,11 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
-public class BlockSpawner : MonoBehaviour
+public class BlockSpawner : Singleton<BlockSpawner>
 {
-	public GameObject BlockPrefab;
+	[SerializeField]
+	[FormerlySerializedAs("m_ShapesPrefab")]
+	private List<Shape> m_ShapePrefabs;
+
 	public Transform PlayZone;
 	public List<Transform> ForbidenZones;
 	public float SpawnHeight;
@@ -14,12 +20,17 @@ public class BlockSpawner : MonoBehaviour
 	public IEnumerator<Vector3> NextBlockPositionEnumerator;
 	public IEnumerable<Bounds> ForbidenBounds;
 
+	public Dictionary<ShapeType, Shape> ShapePrefabs;
+	public List<WeakReference<Shape>> BlockInstances { get; } = new List<WeakReference<Shape>>();
+
 	private Bounds PlayZoneBounds;
 	private Bounds ObjectBounds;
 
+	public GameObject BlocksContainer { get; private set; }
+
 	private void Start()
 	{
-		StartCoroutine("SpawnBlockCoroutine");
+		NextBlockPositionEnumerator = BuildNextBlockEnumerator();
 
 		Vector3 v = PlayZone.localScale;
 		v.y = 3 * SpawnHeight;
@@ -28,8 +39,6 @@ public class BlockSpawner : MonoBehaviour
 		v = PlayZone.position;
 		v.y = 0;
 		PlayZoneBounds.center = v;
-
-		NextBlockPositionEnumerator = BuildNextBlockEnumerator();
 
 		ForbidenBounds = ForbidenZones.Select(t =>
 		{
@@ -45,6 +54,15 @@ public class BlockSpawner : MonoBehaviour
 
 			return b;
 		});
+
+		BlocksContainer = new GameObject("BlocksContainer");
+		BlocksContainer.transform.parent = transform;
+
+		// Have a Dictionnary instead for constant time get
+		ShapePrefabs = m_ShapePrefabs.ToDictionary(s => s.Type);
+
+		// Start Spawn Coroutine
+		StartCoroutine("SpawnBlockCoroutine");
 	}
 
 	public IEnumerator<Vector3> BuildNextBlockEnumerator()
@@ -84,23 +102,26 @@ public class BlockSpawner : MonoBehaviour
 
 	public void SpawnBlock()
 	{
-		GameObject newInstance = Instantiate(BlockPrefab, Vector3.zero, Quaternion.identity);
+		ShapeType randomType = (ShapeType)(int)Random.Range(0, (int)ShapeType.Count - Mathf.Epsilon);
+		Shape newShape = Instantiate(ShapePrefabs[randomType], Vector3.zero, Quaternion.identity, BlocksContainer.transform);
 
 		List<MeshRenderer> renderers = new List<MeshRenderer>();
-		newInstance.GetComponentsInChildren(renderers);
+		newShape.GetComponentsInChildren(renderers);
 		MeshRenderer rendererComponent = GetComponent<MeshRenderer>();
 		if (rendererComponent != null)
 			renderers.Add(rendererComponent);
 
 		ObjectBounds = renderers.Aggregate(
-			new Bounds(newInstance.transform.position, Vector3.zero),
+			new Bounds(newShape.transform.position, Vector3.zero),
 			(b, r) => { b.Encapsulate(r.bounds); return b; }
 		);
 
 		NextBlockPositionEnumerator.MoveNext();
 		Vector3 newPosition = NextBlockPositionEnumerator.Current;
 
-		newInstance.transform.position = newPosition;
+		newShape.transform.position = newPosition;
+
+		BlockInstances.Add(new WeakReference<Shape>(newShape));
 	}
 
 	private void OnDrawGizmos()

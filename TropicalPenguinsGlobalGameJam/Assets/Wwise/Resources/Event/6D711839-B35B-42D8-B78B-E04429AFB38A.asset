@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a052f156b972cc47a95abab42f4b21b, type: 3}
   m_Name: 6D711839-B35B-42D8-B78B-E04429AFB38A
   m_EditorClassIdentifier: 
-  objectName: Good_block_placement
-  id: 2306086836
+  objectName: BlockPlacement_good
+  id: 2168726175
   guid: 6D711839-B35B-42D8-B78B-E04429AFB38A

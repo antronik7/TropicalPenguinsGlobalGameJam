@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a052f156b972cc47a95abab42f4b21b, type: 3}
   m_Name: 94164BA4-73A3-4582-A479-00DAE8584393
   m_EditorClassIdentifier: 
-  objectName: Rotate_block
-  id: 264482442
+  objectName: Block_rotation
+  id: 3321968461
   guid: 94164BA4-73A3-4582-A479-00DAE8584393

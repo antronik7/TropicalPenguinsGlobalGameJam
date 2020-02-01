@@ -7,10 +7,13 @@ public class PostWiseEvent : MonoBehaviour
 
     public AK.Wwise.Event TractorEngine;
     public AK.Wwise.Event BlockRotation;
-    public AK.Wwise.Event BlockPlacement;
-    public AK.Wwise.Event WrongPlacement;
-    public AK.Wwise.Event Reward;
+    public AK.Wwise.Event BlockPlacementGood;
+    public AK.Wwise.Event BlockPlacementWrong;
+    public AK.Wwise.Event HouseComplete;
+    public AK.Wwise.RTPC TractorPercentSpeed;
+    public AK.Wwise.RTPC Rotation_Volume;
 
+    public float rotationVolume;
     public float speed = 0;
     // Start is called before the first frame update
     void Start()
@@ -25,15 +28,19 @@ public class PostWiseEvent : MonoBehaviour
             BlockRotation.Post(gameObject);
         } else if (Input.GetKeyDown(KeyCode.Space))
         {
-            BlockPlacement.Post(gameObject);
+            BlockPlacementGood.Post(gameObject);
         }
         else if (Input.GetKeyDown(KeyCode.E))
         {
-            WrongPlacement.Post(gameObject);
+            BlockPlacementWrong.Post(gameObject);
         }
         else if (Input.GetKeyDown(KeyCode.Return))
         {
-            Reward.Post(gameObject);
+            HouseComplete.Post(gameObject);
         }
+
+        TractorPercentSpeed.SetValue(gameObject, speed);
+
+        Rotation_Volume.SetValue(gameObject, rotationVolume);
     }
 }

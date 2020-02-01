@@ -3,7 +3,7 @@
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{6B199D65-53A6-49AF-8DFF-DB836CD06945}" PersistMode="Standalone">
 			<ChildrenList>
-				<Event Name="Rotate_block" ID="{94164BA4-73A3-4582-A479-00DAE8584393}">
+				<Event Name="Block_rotation" ID="{94164BA4-73A3-4582-A479-00DAE8584393}">
 					<ChildrenList>
 						<Action Name="" ID="{5A5B89D7-2C6F-4A8C-B06A-7392C40841D1}" ShortID="1042847371">
 							<ReferenceList>
@@ -36,7 +36,7 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Good_block_placement" ID="{6D711839-B35B-42D8-B78B-E04429AFB38A}">
+				<Event Name="BlockPlacement_good" ID="{6D711839-B35B-42D8-B78B-E04429AFB38A}">
 					<ChildrenList>
 						<Action Name="" ID="{10CE13DF-188E-43CD-8A38-0FB464D06294}" ShortID="1066758793">
 							<ReferenceList>
@@ -47,7 +47,7 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Wrong_block_placement" ID="{14789D92-4C3F-4F2A-8C50-47150830FF48}">
+				<Event Name="BlockPlacement_wrong" ID="{14789D92-4C3F-4F2A-8C50-47150830FF48}">
 					<ChildrenList>
 						<Action Name="" ID="{325D10F2-338B-4B79-8F6E-CA2CDCE74757}" ShortID="58119509">
 							<ReferenceList>
@@ -58,12 +58,23 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Tractor_engine" ID="{F03E930B-73E9-441B-9BE5-B1C71081280A}">
+				<Event Name="Tractor_Engine" ID="{F03E930B-73E9-441B-9BE5-B1C71081280A}">
 					<ChildrenList>
 						<Action Name="" ID="{FB90BA52-2BE4-4565-B3F0-F8204C6044F5}" ShortID="851358422">
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Tractor_engine" ID="{58923EB1-BDBC-4C2F-9F13-B3F4DF57A17B}" WorkUnitID="{4C6EFE75-9599-4E74-992B-81F3EC47697D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Background_music" ID="{8000E825-E101-4301-B401-6DF66CC5D496}">
+					<ChildrenList>
+						<Action Name="" ID="{80DF2A8E-106D-4C0A-8DBF-1E94C2113071}" ShortID="843391618">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Background_music" ID="{D5990FDA-5BFA-471B-ACA6-69F55E1DA01F}" WorkUnitID="{4C6EFE75-9599-4E74-992B-81F3EC47697D}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

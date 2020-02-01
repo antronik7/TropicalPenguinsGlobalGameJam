@@ -173,6 +173,7 @@ MonoBehaviour:
   - {fileID: 1741089340}
   SpawnHeight: 6
   SpawningRateInSeconds: 3
+  MaxNumberOfBlocks: 10
 --- !u!4 &135088294
 Transform:
   m_ObjectHideFlags: 0
@@ -681,6 +682,11 @@ PrefabInstance:
         type: 3}
       propertyPath: speedPlayer
       value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4187060022934643739, guid: 11a241447e974eb4da4578aa9ed4893b,
+        type: 3}
+      propertyPath: dashDelay
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4187060022934643741, guid: 11a241447e974eb4da4578aa9ed4893b,
         type: 3}

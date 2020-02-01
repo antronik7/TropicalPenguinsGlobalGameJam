@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
 	float forceDash;
 	[SerializeField]
 	float dashLenghtInMS;
+	[SerializeField]
+	float dashDelay = 3f;
 
 	[SerializeField]
 	private AK.Wwise.RTPC RPM;
@@ -42,6 +44,7 @@ public class PlayerController : MonoBehaviour
 	private float currentVelocity = 0f;
 	private Vector3 velocityBeforeDash;
 	Vector3 lastPosition = Vector3.zero;
+	float dashTimeStamp = 0f;
 
 	void Awake()
 	{
@@ -168,6 +171,10 @@ public class PlayerController : MonoBehaviour
 
 	public void Dash()
 	{
+		if (Time.timeSinceLevelLoad < dashTimeStamp)
+			return;
+
+		dashTimeStamp = Time.timeSinceLevelLoad + dashDelay;
 		isDashing = true;
 		EnableControls(false);
 		velocityBeforeDash = myRigidbody.velocity;

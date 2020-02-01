@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc9458c1f9d5e5a47adadb485e1bfba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nbrPressToPickUp: 5
+  nbrPressToPickUp: 1
   isHoldingShape: 0
 --- !u!1 &4187060022570898091
 GameObject:
@@ -249,8 +249,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
+  m_Constraints: 116
+  m_CollisionDetection: 2
 --- !u!114 &4187060022934643739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,7 +265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedPlayer: 5
   turnSpeedPlayer: 200
-  maxSpeedPlayer: 10
+  maxSpeedPlayer: 7.5
   speedDecreasePlayer: 0.2
   forceDash: 25
   dashLenghtInMS: 0.15

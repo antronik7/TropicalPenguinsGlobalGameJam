@@ -3,12 +3,78 @@
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{6B199D65-53A6-49AF-8DFF-DB836CD06945}" PersistMode="Standalone">
 			<ChildrenList>
-				<Event Name="Shotgun_Blast_Player" ID="{5A973697-9482-46FF-AF5F-7E74F95D96E1}">
+				<Event Name="Block_rotation" ID="{94164BA4-73A3-4582-A479-00DAE8584393}">
 					<ChildrenList>
-						<Action Name="" ID="{C190003B-5B2B-428E-AC85-ACAD85BC5191}" ShortID="986850491">
+						<Action Name="" ID="{5A5B89D7-2C6F-4A8C-B06A-7392C40841D1}" ShortID="1042847371">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Shotgun_Blast" ID="{D41FFEE5-CDD1-49AC-8C49-92D1191BD50D}" WorkUnitID="{4C6EFE75-9599-4E74-992B-81F3EC47697D}"/>
+									<ObjectRef Name="Rotation_block" ID="{AC2773B3-36F2-4EF8-A701-42E0335F89FC}" WorkUnitID="{4C6EFE75-9599-4E74-992B-81F3EC47697D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="House_complete" ID="{1AAB39B9-7E37-4BBB-9F66-F4DEBA2C8B67}">
+					<ChildrenList>
+						<Action Name="" ID="{DFEB0A56-C27E-46C5-AB74-8ADFA715BE29}" ShortID="620501099">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Reward" ID="{013C80F0-7A32-4466-BED0-EF4040442F2E}" WorkUnitID="{4C6EFE75-9599-4E74-992B-81F3EC47697D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Tractor_Impact" ID="{5316E9AD-97FB-4C70-831A-A73FEF58A29A}">
+					<ChildrenList>
+						<Action Name="" ID="{3184A377-F7C7-4587-9CC7-DC4F25FD7FD9}" ShortID="801916161">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Impact_3" ID="{1BCD3DA2-E028-41BC-BBCC-F09DB74923D6}" WorkUnitID="{4C6EFE75-9599-4E74-992B-81F3EC47697D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="BlockPlacement_good" ID="{6D711839-B35B-42D8-B78B-E04429AFB38A}">
+					<ChildrenList>
+						<Action Name="" ID="{10CE13DF-188E-43CD-8A38-0FB464D06294}" ShortID="1066758793">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Good_block_placement" ID="{75E0068E-6886-4416-8E4C-2EDA677A7EB5}" WorkUnitID="{4C6EFE75-9599-4E74-992B-81F3EC47697D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="BlockPlacement_wrong" ID="{14789D92-4C3F-4F2A-8C50-47150830FF48}">
+					<ChildrenList>
+						<Action Name="" ID="{325D10F2-338B-4B79-8F6E-CA2CDCE74757}" ShortID="58119509">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Wrong_placement_8" ID="{C55A0BD3-7C19-4C40-BCAA-1A35852A8BCD}" WorkUnitID="{4C6EFE75-9599-4E74-992B-81F3EC47697D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Tractor_Engine" ID="{F03E930B-73E9-441B-9BE5-B1C71081280A}">
+					<ChildrenList>
+						<Action Name="" ID="{FB90BA52-2BE4-4565-B3F0-F8204C6044F5}" ShortID="851358422">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Tractor_engine" ID="{58923EB1-BDBC-4C2F-9F13-B3F4DF57A17B}" WorkUnitID="{4C6EFE75-9599-4E74-992B-81F3EC47697D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Background_music" ID="{8000E825-E101-4301-B401-6DF66CC5D496}">
+					<ChildrenList>
+						<Action Name="" ID="{80DF2A8E-106D-4C0A-8DBF-1E94C2113071}" ShortID="843391618">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Background_music" ID="{D5990FDA-5BFA-471B-ACA6-69F55E1DA01F}" WorkUnitID="{4C6EFE75-9599-4E74-992B-81F3EC47697D}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{61DEBE5C-C4B5-4023-981A-39B6A68B977A}" SchemaVersion="94">
 	<Switches>
-		<WorkUnit Name="Default Work Unit" ID="{61DEBE5C-C4B5-4023-981A-39B6A68B977A}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{61DEBE5C-C4B5-4023-981A-39B6A68B977A}" PersistMode="Standalone">
+			<ChildrenList>
+				<SwitchGroup Name="HouseStage" ID="{2F31BC75-E7D1-46BB-B288-639ACD01803A}">
+					<ChildrenList>
+						<Switch Name="Stage1" ID="{91B1F8A9-5D58-45B2-BED6-7841CA03B441}"/>
+						<Switch Name="Stage2" ID="{DD6F2043-FF4A-4BAA-8951-1F4F064A0A27}"/>
+						<Switch Name="Stage3" ID="{9FB81C45-4AAD-4FC3-A94B-2402C056E340}"/>
+					</ChildrenList>
+				</SwitchGroup>
+			</ChildrenList>
+		</WorkUnit>
 	</Switches>
 </WwiseDocument>

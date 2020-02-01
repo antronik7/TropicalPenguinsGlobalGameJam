@@ -1,6 +1,32 @@
 Event	ID	Name			Wwise Object Path	Notes
-	2908458614	Shotgun_Blast_Player			\Default Work Unit\Shotgun_Blast_Player	
+	65769146	Play_Background_music			\Default Work Unit\Play_Background_music	
+	1009548007	Tractor_Engine			\Default Work Unit\Tractor_Engine	
+	1970298975	BlockPlacement_wrong			\Default Work Unit\BlockPlacement_wrong	
+	2168726175	BlockPlacement_good			\Default Work Unit\BlockPlacement_good	
+	2651855531	Tractor_Impact			\Default Work Unit\Tractor_Impact	
+	3181923571	House_complete			\Default Work Unit\House_complete	
+	3321968461	Block_rotation			\Default Work Unit\Block_rotation	
+
+Switch Group	ID	Name			Wwise Object Path	Notes
+	3563163787	HouseStage			\Default Work Unit\HouseStage	
+
+Switch	ID	Name	Switch Group			Notes
+	936729720	Stage3	HouseStage			
+	936729721	Stage2	HouseStage			
+	936729722	Stage1	HouseStage			
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	1628677964	Tractor_RPM			\Default Work Unit\Tractor_RPM	
+	3163037145	Percent_Volume			\Default Work Unit\Percent_Volume	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	924354743	Shotgun_Blast	C:\Users\emile\Unity Projects\TropicalPenguinsGlobalGameJam\Wwise-TropicalPengouin\.cache\Windows\SFX\Shotgun_Blast_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Shotgun_Blast		179026
+	328291234	Block_placement_9	C:\Users\emile\Unity Projects\TropicalPenguinsGlobalGameJam\Wwise-TropicalPengouin\.cache\Windows\SFX\Block_placement_9_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Good_block_placement\Block_placement_9		40528
+	348403944	Background_music	C:\Users\emile\Unity Projects\TropicalPenguinsGlobalGameJam\Wwise-TropicalPengouin\.cache\Windows\SFX\Background_music_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Background_music		27021376
+	371128280	Rotation_block	C:\Users\emile\Unity Projects\TropicalPenguinsGlobalGameJam\Wwise-TropicalPengouin\.cache\Windows\SFX\Rotation_block_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Rotation_block		61096
+	381341711	Wrong_placement_8	C:\Users\emile\Unity Projects\TropicalPenguinsGlobalGameJam\Wwise-TropicalPengouin\.cache\Windows\SFX\Wrong_placement_8_70E971B9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Wrong_placement_8		98160
+	419324749	RewardSound_1	C:\Users\emile\Unity Projects\TropicalPenguinsGlobalGameJam\Wwise-TropicalPengouin\.cache\Windows\SFX\RewardSound_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Reward\RewardSound_1		420300
+	476616975	RewardSound_2	C:\Users\emile\Unity Projects\TropicalPenguinsGlobalGameJam\Wwise-TropicalPengouin\.cache\Windows\SFX\RewardSound_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Reward\RewardSound_2		414604
+	663341410	Tractor_engine	C:\Users\emile\Unity Projects\TropicalPenguinsGlobalGameJam\Wwise-TropicalPengouin\.cache\Windows\SFX\Tractor_1_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tractor_engine		4520488
+	699804848	RewardSound_3	C:\Users\emile\Unity Projects\TropicalPenguinsGlobalGameJam\Wwise-TropicalPengouin\.cache\Windows\SFX\RewardSound_3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Reward\RewardSound_3		424572
+	876659920	Impact_3	C:\Users\emile\Unity Projects\TropicalPenguinsGlobalGameJam\Wwise-TropicalPengouin\.cache\Windows\SFX\Impact_3_25AC6A15.wem		\Actor-Mixer Hierarchy\Default Work Unit\Impacts\Impact_3		112708
 

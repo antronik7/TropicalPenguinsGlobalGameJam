@@ -12,5 +12,5 @@ public class EventManager : Singleton<EventManager>
 
 	// EXAMPLE EVENTS
 
-
+	public static GameEvent<int> PlayerSpawn = new GameEvent<int>();
 }

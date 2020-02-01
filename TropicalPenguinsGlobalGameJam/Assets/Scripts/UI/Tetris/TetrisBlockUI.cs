@@ -14,6 +14,12 @@ public class TetrisBlockUI : MonoBehaviour
 
     public Canvas BlockCanvas;
 
+    private void Start()
+    {
+        validColor = new Color(0, 1, 0, 1);
+        invalidColor = new Color(1, 0, 0, 1);
+    }
+
     void InstantiateBlockImgs(int nBlocks)
     {
         blocks = new Image[nBlocks];

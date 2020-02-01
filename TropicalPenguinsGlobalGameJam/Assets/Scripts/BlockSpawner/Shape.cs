@@ -20,6 +20,7 @@ public enum ShapeType
 public class Shape : MonoBehaviour
 {
 	public ShapeType Type;
+	public int Index;
 
 	private PlayerController m_Owner;
 	public PlayerController Owner
@@ -89,7 +90,7 @@ public class Shape : MonoBehaviour
 		}
 
 		if (newType != ShapeType.Count)
-			BlockSpawner.Instance.SpawnBlock(newType, transform);
+			BlockSpawner.Instance.SpawnBlock(newType, this);
 
 		Destroy(gameObject);
 	}

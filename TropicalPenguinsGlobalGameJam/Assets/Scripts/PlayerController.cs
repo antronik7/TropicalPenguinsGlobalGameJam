@@ -35,7 +35,10 @@ public class PlayerController : MonoBehaviour
 	private bool isDashing = false;
     private bool canDestroyBlock = true;
     private bool areControlsEnable = true;
-    [SerializeField]
+	private float axisLeftTrigger;
+	private float axisRightTrigger;
+	private float axisHorizontal;
+	[SerializeField]
     private float currentVelocity = 0f;
     private Vector3 velocityBeforeDash;
 
@@ -58,12 +61,12 @@ public class PlayerController : MonoBehaviour
             if (Input.GetButtonDown("ButtonB"))
                 Dash();
 
-            //axisLeftTrigger = Input.GetAxis("LeftTrigger");
-            //axisRightTrigger = Input.GetAxis("RightTrigger");
-            //axisHorizontal = Input.GetAxis("Horizontal");
-        }
+			axisLeftTrigger = Input.GetAxis("LeftTrigger");
+			axisRightTrigger = Input.GetAxis("RightTrigger");
+			axisHorizontal = Input.GetAxis("Horizontal");
+		}
 
-        UpdatePlayerRPM();
+		UpdatePlayerRPM();
     }
 
     private void FixedUpdate()
@@ -108,9 +111,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void Move(float input)
+    public void Move()
     {
-        float movementVelocity = input * speedPlayer * Time.deltaTime;
+        float movementVelocity = (axisLeftTrigger * speedPlayer * Time.deltaTime) + (axisRightTrigger * speedPlayer * Time.deltaTime * -1);
         currentVelocity += movementVelocity;
 
         if (Mathf.Abs(movementVelocity) == 0f || Mathf.Sign(currentVelocity) != Mathf.Sign(movementVelocity))
@@ -136,7 +139,7 @@ public class PlayerController : MonoBehaviour
 
     public void Rotate(float input)
     {
-        float turn = input * turnSpeedPlayer * Time.deltaTime;
+        float turn = axisHorizontal * turnSpeedPlayer * Time.deltaTime;
         Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
         myRigidbody.MoveRotation(myRigidbody.rotation * turnRotation);
     }

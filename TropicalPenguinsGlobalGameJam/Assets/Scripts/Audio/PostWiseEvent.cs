@@ -13,8 +13,9 @@ public class PostWiseEvent : MonoBehaviour
     public AK.Wwise.RTPC TractorPercentSpeed;
     public AK.Wwise.RTPC Rotation_Volume;
 
-    public float rotationVolume;
-    public float speed = 0;
+    public float rotationVolume = 50.0f;
+    public float speed = 0.0f;
+
     // Start is called before the first frame update
     void Start()
     {

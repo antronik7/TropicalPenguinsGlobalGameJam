@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class BlockSpawner : MonoBehaviour
@@ -11,60 +12,63 @@ public class BlockSpawner : MonoBehaviour
 	public float SpawningRateInSeconds;
 
 	public IEnumerator<Vector3> NextBlockPositionEnumerator;
+	public IEnumerable<Bounds> ForbidenBounds;
 
-
-	private Rect PlayZoneRect;
+	private Bounds PlayZoneBounds;
 
 	private void Start()
 	{
 		StartCoroutine("SpawnBlockCoroutine");
 
 		Vector3 v = PlayZone.localScale;
-		PlayZoneRect.size = new Vector2(v.x, v.z);
+		v.y = 3 * SpawnHeight;
+		PlayZoneBounds.size = v;
 
 		v = PlayZone.position;
-		PlayZoneRect.center = new Vector2(v.x, v.z);
-
-		Debug.Log($"PlayZoneRect: {PlayZoneRect}");
+		v.y = 0;
+		PlayZoneBounds.center = v;
 
 		NextBlockPositionEnumerator = BuildNextBlockEnumerator();
+
+		ForbidenBounds = ForbidenZones.Select(t =>
+		{
+			Bounds b = new Bounds();
+
+			Vector3 v2 = t.localScale;
+			v2.y = 3 * SpawnHeight;
+			b.size = v2;
+
+			v2 = t.position;
+			v2.y = 0;
+			b.center = v2;
+
+			return b;
+		});
 	}
 
 	public IEnumerator<Vector3> BuildNextBlockEnumerator()
 	{
 		while (true)
 		{
-			Vector3 newPosition = new Vector3(PlayZoneRect.xMin + Random.value * PlayZoneRect.width, SpawnHeight, PlayZoneRect.yMin + Random.value * PlayZoneRect.height);
+			Vector3 newPosition = new Vector3(
+				PlayZoneBounds.min.x + Random.value * PlayZoneBounds.size.x,
+				SpawnHeight,
+				PlayZoneBounds.min.z + Random.value * PlayZoneBounds.size.z
+			);
 			bool bInForbidenZone = false;
 
-			Debug.Log($"newPosition: {newPosition}");
-
-			foreach (Transform t in ForbidenZones)
+			foreach (Bounds b in ForbidenBounds)
 			{
-				if (IsVectorInZone(newPosition, t))
+				if (b.Contains(newPosition))
 				{
 					bInForbidenZone = true;
 					break;
-				};
+				}
 			}
 
 			if (!bInForbidenZone)
 				yield return newPosition;
 		}
-	}
-
-	public bool IsVectorInZone(Vector3 v, Transform zone)
-	{
-		Rect zoneRect = Rect.zero;
-		Vector3 vZone = zone.localScale;
-		vZone.y = vZone.z;
-		zoneRect.size = vZone;
-
-		vZone = zone.position;
-		vZone.y = vZone.z;
-		zoneRect.center = vZone;
-
-		return v.x > zoneRect.xMin && v.x < zoneRect.xMax && v.z > zoneRect.yMin && v.z < zoneRect.yMax;
 	}
 
 	public IEnumerator SpawnBlockCoroutine()

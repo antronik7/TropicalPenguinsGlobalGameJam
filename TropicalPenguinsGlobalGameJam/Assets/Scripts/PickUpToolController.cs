@@ -44,19 +44,19 @@ public class PickUpToolController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (isTryingToPickUp)
+        if (isTryingToPickUp || isHoldingShape)
             return;
 
-        if (other.tag == "Shape")
+        if (other.transform.parent.GetComponent<Shape>() != null)
         {
             isTryingToPickUp = true;
-            shapeToPickUp = other.gameObject;
+            shapeToPickUp = other.transform.parent.gameObject;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == shapeToPickUp)
+        if (other.transform.parent.gameObject == shapeToPickUp)
             ResetPickUp();
     }
 
@@ -65,6 +65,7 @@ public class PickUpToolController : MonoBehaviour
         isHoldingShape = true;
         shapeToPickUp.transform.position = shapeToPickUp.transform.position + (Vector3.up / 2f);
         shapeToPickUp.transform.parent = transform;
+        Destroy(shapeToPickUp.GetComponent<Rigidbody>());
 
         ResetPickUp();
     }

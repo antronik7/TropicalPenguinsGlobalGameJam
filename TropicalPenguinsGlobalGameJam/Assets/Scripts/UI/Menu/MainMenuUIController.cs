@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class MainMenuController : MonoBehaviour
+public class MainMenuUIController : MonoBehaviour
 {
     public void OnPressPlay()
     {
         Debug.Log("play");
+        MenuSpawnerManager menuSpawnerManager = MenuSpawnerManager.Instance;
+        menuSpawnerManager.SwitchUI(menuSpawnerManager.GameUI);
     }
 
     public void OnPressQuit()

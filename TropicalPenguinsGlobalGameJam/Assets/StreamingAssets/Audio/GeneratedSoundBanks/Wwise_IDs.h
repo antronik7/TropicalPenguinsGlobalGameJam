@@ -13,8 +13,29 @@ namespace AK
 {
     namespace EVENTS
     {
-        static const AkUniqueID SHOTGUN_BLAST_PLAYER = 2908458614U;
+        static const AkUniqueID GOOD_BLOCK_PLACEMENT = 2306086836U;
+        static const AkUniqueID HOUSE_COMPLETE = 3181923571U;
+        static const AkUniqueID ROTATE_BLOCK = 264482442U;
+        static const AkUniqueID TRACTOR_ENGINE = 1009548007U;
+        static const AkUniqueID TRACTOR_IMPACT = 2651855531U;
+        static const AkUniqueID WRONG_BLOCK_PLACEMENT = 1518935898U;
     } // namespace EVENTS
+
+    namespace SWITCHES
+    {
+        namespace HOUSESTAGE
+        {
+            static const AkUniqueID GROUP = 3563163787U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID STAGE1 = 936729722U;
+                static const AkUniqueID STAGE2 = 936729721U;
+                static const AkUniqueID STAGE3 = 936729720U;
+            } // namespace SWITCH
+        } // namespace HOUSESTAGE
+
+    } // namespace SWITCHES
 
     namespace GAME_PARAMETERS
     {
@@ -30,6 +51,7 @@ namespace AK
         static const AkUniqueID SS_AIR_STORM = 3715662592U;
         static const AkUniqueID SS_AIR_TIMEOFDAY = 3203397129U;
         static const AkUniqueID SS_AIR_TURBULENCE = 4160247818U;
+        static const AkUniqueID TRACTOR_RPM = 1628677964U;
     } // namespace GAME_PARAMETERS
 
     namespace BANKS

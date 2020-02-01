@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{F7BC4804-2D89-44A9-90DC-A43FF6ADC99C}" SchemaVersion="94">
 	<GameParameters>
-		<WorkUnit Name="Default Work Unit" ID="{F7BC4804-2D89-44A9-90DC-A43FF6ADC99C}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{F7BC4804-2D89-44A9-90DC-A43FF6ADC99C}" PersistMode="Standalone">
+			<ChildrenList>
+				<GameParameter Name="Tractor_RPM" ID="{D4E3EBAF-AB2B-4BB1-A5D7-102F190617D6}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="0"/>
+					</PropertyList>
+				</GameParameter>
+			</ChildrenList>
+		</WorkUnit>
 	</GameParameters>
 </WwiseDocument>

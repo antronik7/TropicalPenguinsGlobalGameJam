@@ -21,12 +21,45 @@
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<IncludedEvents>
-				<Event Id="2908458614" Name="Shotgun_Blast_Player" ObjectPath="\Events\Default Work Unit\Shotgun_Blast_Player" DurationType="OneShot" DurationMin="2.029048" DurationMax="2.029048"/>
+				<Event Id="2306086836" Name="Good_block_placement" ObjectPath="\Events\Default Work Unit\Good_block_placement" DurationType="OneShot" DurationMin="0.187757" DurationMax="0.236559"/>
+				<Event Id="3181923571" Name="House_complete" ObjectPath="\Events\Default Work Unit\House_complete" DurationType="OneShot" DurationMin="2.350000" DurationMax="2.406508"/>
+				<Event Id="264482442" Name="Rotate_block" ObjectPath="\Events\Default Work Unit\Rotate_block" DurationType="OneShot" DurationMin="0.238137" DurationMax="0.424312"/>
+				<Event Id="1009548007" Name="Tractor_engine" ObjectPath="\Events\Default Work Unit\Tractor_engine" DurationType="Infinite"/>
+				<Event Id="2651855531" Name="Tractor_Impact" ObjectPath="\Events\Default Work Unit\Tractor_Impact" DurationType="OneShot" DurationMin="0.696367" DurationMax="0.929539"/>
+				<Event Id="1518935898" Name="Wrong_block_placement" ObjectPath="\Events\Default Work Unit\Wrong_block_placement" DurationType="OneShot" DurationMin="0.510917" DurationMax="0.510917"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
-				<File Id="924354743" Language="SFX">
-					<ShortName>Shotgun_Blast.wav</ShortName>
-					<Path>SFX\Shotgun_Blast_10C4C929.wem</Path>
+				<File Id="328291234" Language="SFX">
+					<ShortName>Block_placement_9.wav</ShortName>
+					<Path>SFX\Block_placement_9_10C4C929.wem</Path>
+				</File>
+				<File Id="371128280" Language="SFX">
+					<ShortName>Rotation_block_2.wav</ShortName>
+					<Path>SFX\Rotation_block_2_10C4C929.wem</Path>
+				</File>
+				<File Id="381341711" Language="SFX">
+					<ShortName>Wrong_placement_8.wav</ShortName>
+					<Path>SFX\Wrong_placement_8_B0D8C243.wem</Path>
+				</File>
+				<File Id="419324749" Language="SFX">
+					<ShortName>RewardSound_1.wav</ShortName>
+					<Path>SFX\RewardSound_1_10C4C929.wem</Path>
+				</File>
+				<File Id="476616975" Language="SFX">
+					<ShortName>RewardSound_2.wav</ShortName>
+					<Path>SFX\RewardSound_2_10C4C929.wem</Path>
+				</File>
+				<File Id="663341410" Language="SFX">
+					<ShortName>Tractor_1.wav</ShortName>
+					<Path>SFX\Tractor_1_D79FB2B7.wem</Path>
+				</File>
+				<File Id="699804848" Language="SFX">
+					<ShortName>RewardSound_3.wav</ShortName>
+					<Path>SFX\RewardSound_3_10C4C929.wem</Path>
+				</File>
+				<File Id="876659920" Language="SFX">
+					<ShortName>Impact_3.wav</ShortName>
+					<Path>SFX\Impact_3_64AAD20B.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>

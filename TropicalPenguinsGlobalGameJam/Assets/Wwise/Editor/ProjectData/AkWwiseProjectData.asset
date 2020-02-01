@@ -191,7 +191,7 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 0ca7d626a178734fa597a590eb23076f
     GuidInternal: 
-    m_lastTime: -8586210828635869311
+    m_lastTime: -8586210308290319041
     List:
     - name: Main
       guid: 70eb0ec03ba64c4e978784dde35a537a
@@ -207,17 +207,77 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 659d196ba653af498dffdb836cd06945
     GuidInternal: 
-    m_lastTime: -8586210828635939242
+    m_lastTime: -8586210317957270856
     List:
-    - name: Shotgun_Blast_Player
-      guid: 9736975a8294ff46af5f7e74f95d96e1
-      id: 2908458614
+    - name: Good_block_placement
+      guid: 3918716d5bb3d842b78be04429afb38a
+      id: 2306086836
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
-      - ElementName: Shotgun_Blast_Player
+      - ElementName: Good_block_placement
         ObjectType: 3
-      Path: Default Work Unit\Shotgun_Blast_Player
+      Path: Default Work Unit\Good_block_placement
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: House_complete
+      guid: b939ab1a377ebb4b9f66f4deba2c8b67
+      id: 3181923571
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: House_complete
+        ObjectType: 3
+      Path: Default Work Unit\House_complete
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Rotate_block
+      guid: a44b1694a3738245a47900dae8584393
+      id: 264482442
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Rotate_block
+        ObjectType: 3
+      Path: Default Work Unit\Rotate_block
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Tractor_engine
+      guid: 0b933ef0e9731b449be5b1c71081280a
+      id: 1009548007
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Tractor_engine
+        ObjectType: 3
+      Path: Default Work Unit\Tractor_engine
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Tractor_Impact
+      guid: ade91653fb97704c831aa73fef58a29a
+      id: 2651855531
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Tractor_Impact
+        ObjectType: 3
+      Path: Default Work Unit\Tractor_Impact
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Wrong_block_placement
+      guid: 929d78143f4c2a4f8c5047150830ff48
+      id: 1518935898
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Wrong_block_placement
+        ObjectType: 3
+      Path: Default Work Unit\Wrong_block_placement
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -226,8 +286,17 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 0448bcf7892da94490dca43ff6adc99c
     GuidInternal: 
-    m_lastTime: -8586210961338958064
-    List: []
+    m_lastTime: -8586210322265731168
+    List:
+    - name: Tractor_RPM
+      guid: afebe3d42babb14ba5d7102f190617d6
+      id: 1628677964
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Tractor_RPM
+        ObjectType: 13
+      Path: Default Work Unit\Tractor_RPM
   - PhysicalPath: Game Parameters\Factory Motion.wwu
     ParentPhysicalPath: 
     guid: 225213d7dbd1d042adc0930743567776
@@ -360,8 +429,39 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 5cbede61b5c42340981a39b6a68b977a
     GuidInternal: 
-    m_lastTime: -8586210961336480598
-    List: []
+    m_lastTime: -8586210322265431479
+    List:
+    - name: HouseStage
+      guid: 75bc312fd1e7bb46b288639acd01803a
+      id: 3563163787
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: HouseStage
+        ObjectType: 11
+      Path: Default Work Unit\HouseStage
+      values:
+      - name: Stage1
+        guid: a9f8b191585db245bed67841ca03b441
+        id: 936729722
+        PathAndIcons:
+        - ElementName: Stage1
+          ObjectType: 10
+      - name: Stage2
+        guid: 43206fdd4affaa4b89511f4f064a0a27
+        id: 936729721
+        PathAndIcons:
+        - ElementName: Stage2
+          ObjectType: 10
+      - name: Stage3
+        guid: 451cb89fad4ac34fa94b2402c056e340
+        id: 936729720
+        PathAndIcons:
+        - ElementName: Stage3
+          ObjectType: 10
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
     ParentPhysicalPath: 

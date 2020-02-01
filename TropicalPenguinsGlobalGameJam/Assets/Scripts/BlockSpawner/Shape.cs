@@ -56,7 +56,7 @@ public class Shape : MonoBehaviour
 		transform.hasChanged = false;
 	}
 
-	public void Crumble()
+	public void Crumble(PlayerController controller = null)
 	{
 		double rand = Random.value;
 		ShapeType newType = ShapeType.Count;
@@ -90,7 +90,14 @@ public class Shape : MonoBehaviour
 		}
 
 		if (newType != ShapeType.Count)
-			BlockSpawner.Instance.SpawnBlock(newType, this);
+		{
+			Shape newShape = BlockSpawner.Instance.SpawnBlock(newType, this);
+			if (controller != null)
+			{
+				newShape.Owner = controller;
+				controller.pickUpController.PickUpShape(newShape);
+			}
+		}
 
 		Destroy(gameObject);
 	}

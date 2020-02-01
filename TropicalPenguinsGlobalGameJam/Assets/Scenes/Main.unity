@@ -1409,6 +1409,16 @@ PrefabInstance:
       propertyPath: m_Targets.Array.data[1]
       value: 
       objectReference: {fileID: 2057054593}
+    - target: {fileID: 6737176460853215888, guid: b835d4f79c19e364e9641e62f832f8c5,
+        type: 3}
+      propertyPath: magnitudeShake
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6737176460853215888, guid: b835d4f79c19e364e9641e62f832f8c5,
+        type: 3}
+      propertyPath: durationShake
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 6737176460853215889, guid: b835d4f79c19e364e9641e62f832f8c5,
         type: 3}
       propertyPath: m_Name

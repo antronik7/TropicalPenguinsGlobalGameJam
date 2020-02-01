@@ -30,13 +30,11 @@ public class PlayerController : MonoBehaviour
     //Components
     private Rigidbody myRigidbody;
 
-    //Variables
-    private bool isDashing = false;
+	//Variables
+	public int playerId { get; private set; }
+	private bool isDashing = false;
     private bool canDestroyBlock = true;
     private bool areControlsEnable = true;
-    private float axisLeftTrigger;
-    private float axisRightTrigger;
-    private float axisHorizontal;
     [SerializeField]
     private float currentVelocity = 0f;
     private Vector3 velocityBeforeDash;
@@ -60,9 +58,9 @@ public class PlayerController : MonoBehaviour
             if (Input.GetButtonDown("ButtonB"))
                 Dash();
 
-            axisLeftTrigger = Input.GetAxis("LeftTrigger");
-            axisRightTrigger = Input.GetAxis("RightTrigger");
-            axisHorizontal = Input.GetAxis("Horizontal");
+            //axisLeftTrigger = Input.GetAxis("LeftTrigger");
+            //axisRightTrigger = Input.GetAxis("RightTrigger");
+            //axisHorizontal = Input.GetAxis("Horizontal");
         }
 
         UpdatePlayerRPM();
@@ -110,9 +108,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Move()
+    public void Move(float input)
     {
-        float movementVelocity = (axisRightTrigger * speedPlayer * Time.deltaTime) + (axisLeftTrigger * speedPlayer * Time.deltaTime * -1f);
+        float movementVelocity = input * speedPlayer * Time.deltaTime;
         currentVelocity += movementVelocity;
 
         if (Mathf.Abs(movementVelocity) == 0f || Mathf.Sign(currentVelocity) != Mathf.Sign(movementVelocity))
@@ -136,14 +134,14 @@ public class PlayerController : MonoBehaviour
         myRigidbody.velocity = new Vector3 (velocityPlayer.x, myRigidbody.velocity.y, velocityPlayer.z);
     }
 
-    private void Rotate()
+    public void Rotate(float input)
     {
-        float turn = axisHorizontal * turnSpeedPlayer * Time.deltaTime;
+        float turn = input * turnSpeedPlayer * Time.deltaTime;
         Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
         myRigidbody.MoveRotation(myRigidbody.rotation * turnRotation);
     }
 
-    private void Dash()
+    public void Dash()
     {
         isDashing = true;
         EnableControls(false);
@@ -171,4 +169,8 @@ public class PlayerController : MonoBehaviour
         RPM.SetValue(gameObject, currentVelocity*100 / maxSpeedPlayer);
     }
 
+	public void SetId(int id)
+	{
+		playerId = id;
+	}
 }

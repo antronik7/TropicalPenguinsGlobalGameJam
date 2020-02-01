@@ -3,10 +3,20 @@
 	<UserProjectSettingsInfo>
 		<UserProjectSettings Name="" ID="{327A6544-87C8-456F-BC55-E41F2DDCCF7A}">
 			<PropertyList>
-				<Property Name="AudioFilesImporter\Path" Type="string" Value="C:\Program Files (x86)\Audiokinetic\Wwise 2019.1.6.7110\Cube\Wwise-101\Lesson 1\Audio files for Lesson 1"/>
+				<Property Name="AudioFilesImporter\Path" Type="string" Value="D:\Utilisateurs\Emile\Desktop\soundsGameJam"/>
+				<Property Name="Event Action List\{0A1D6DA1-4E82-4789-9BCB-3F5160F60E2C}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{14789D92-4C3F-4F2A-8C50-47150830FF48}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{1AAB39B9-7E37-4BBB-9F66-F4DEBA2C8B67}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{41A36F39-E24B-4540-84E6-1280D0DCF45E}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{5316E9AD-97FB-4C70-831A-A73FEF58A29A}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{591F8540-0074-4E3D-A75F-8BCFE1EF968A}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{5A973697-9482-46FF-AF5F-7E74F95D96E1}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{6D711839-B35B-42D8-B78B-E04429AFB38A}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{6DED4465-5BAA-4C65-9255-3052FC2260A2}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{8000E825-E101-4301-B401-6DF66CC5D496}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{94164BA4-73A3-4582-A479-00DAE8584393}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{F03E930B-73E9-441B-9BE5-B1C71081280A}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{F7C8C814-1489-4C10-8DA7-C71774E8C608}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="EventView\FilterMode1" Type="int32" Value="2"/>
 				<Property Name="ExternalSourcesInputPath" Type="string">
 					<ValueList>
@@ -21,6 +31,7 @@
 				<Property Name="Game Profiler\Voice Monitor\LastBus" Type="string" Value="{00000000-0000-0000-0000-000000000000}"/>
 				<Property Name="General\LatestLanguage" Type="int32" Value="684519430"/>
 				<Property Name="General\LatestPlatform" Type="string" Value="Windows"/>
+				<Property Name="General\SourceControlPluginID" Type="string" Value="{C403A906-0C19-4ED5-808E-748707065301}"/>
 				<Property Name="GenerateSoundBanks\x64_SelectedLanguages" Type="string" Value="BvDMKA=="/>
 				<Property Name="GenerateSoundBanks\x64_SelectedPlatforms" Type="string" Value="ncm/zoZJJ0WRsIWNvlUEKA=="/>
 				<Property Name="GenerateSoundBanks\x64_SelectedSoundBanks" Type="string" Value="cOsOwDumTE6Xh4Td41pTeg=="/>
@@ -35,6 +46,10 @@
 				<Property Name="MonitoringManager\WatchMgr\WatchesVersion" Type="int32" Value="7"/>
 				<Property Name="MonitoringManager\WatchMgr\x64_GameSyncWatches" Type="string" Value=""/>
 				<Property Name="MonitoringManager\WatchMgr\x64_Watches" Type="string" Value=""/>
+				<Property Name="OverrideCacheFolder\Active" Type="bool" Value="False"/>
+				<Property Name="OverrideCacheFolder\Path" Type="string" Value=".cache"/>
+				<Property Name="OverrideOriginalFolder\Active" Type="bool" Value="False"/>
+				<Property Name="OverrideOriginalFolder\Path" Type="string" Value="Originals"/>
 				<Property Name="ProjectExplorer\FirstVisible_10_1" Type="string" Value="{4C96B38B-3DB4-40C7-91C9-665510E38993}"/>
 				<Property Name="ProjectExplorer\FirstVisible_11_1" Type="string" Value="{23EC2DE3-3ED8-4B82-AC99-92E25F2E4C6B}"/>
 				<Property Name="ProjectExplorer\FirstVisible_1_1" Type="string" Value="{2388DAEA-9775-46C6-A2ED-C5222A397756}"/>

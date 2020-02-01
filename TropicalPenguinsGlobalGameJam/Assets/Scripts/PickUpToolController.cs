@@ -26,13 +26,21 @@ public class PickUpToolController : MonoBehaviour
     {
         if (isTryingToPickUp)
         {
-            if (Input.GetButtonDown("ButtonA"))
+            if (shapeToPickUp == null)
             {
-                ++counterBtnPress;
-
-                if (counterBtnPress >= nbrPressToPickUp)
-                    PickUpShape();
+                ResetPickUp();
             }
+            else
+            {
+                if (Input.GetButtonDown("ButtonA"))
+                {
+                    ++counterBtnPress;
+
+                    if (counterBtnPress >= nbrPressToPickUp)
+                        PickUpShape();
+                }
+            }
+
         }
 
         if (isHoldingShape)
@@ -44,19 +52,20 @@ public class PickUpToolController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (isTryingToPickUp)
+        Debug.Log("Enter");
+        if (isTryingToPickUp || isHoldingShape)
             return;
 
-        if (other.tag == "Shape")
+        if (other.transform.parent != null && other.transform.parent.GetComponent<Shape>() != null)
         {
             isTryingToPickUp = true;
-            shapeToPickUp = other.gameObject;
+            shapeToPickUp = other.transform.parent.gameObject;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == shapeToPickUp)
+        if (other.transform.parent != null && other.transform.parent.gameObject == shapeToPickUp)
             ResetPickUp();
     }
 
@@ -65,6 +74,8 @@ public class PickUpToolController : MonoBehaviour
         isHoldingShape = true;
         shapeToPickUp.transform.position = shapeToPickUp.transform.position + (Vector3.up / 2f);
         shapeToPickUp.transform.parent = transform;
+        Destroy(shapeToPickUp.GetComponent<Rigidbody>());
+        shapeToPickUp.GetComponent<Shape>().Owner = GetComponentInParent<PlayerController>();
 
         ResetPickUp();
     }
@@ -73,6 +84,9 @@ public class PickUpToolController : MonoBehaviour
     {
         shapeToPickUp.transform.parent = null;
         shapeToPickUp.transform.position = shapeToPickUp.transform.position - (Vector3.up / 2f);
+        Rigidbody myRigbody = shapeToPickUp.AddComponent<Rigidbody>();
+        myRigbody.isKinematic = true;
+
         shapeToPickUp = null;
         isHoldingShape = false;
     }
@@ -82,5 +96,10 @@ public class PickUpToolController : MonoBehaviour
         counterBtnPress = 0;
         isTryingToPickUp = false;
         counterBtnPress = 0;
+    }
+
+    public Shape GetHoldedShape()
+    {
+        return shapeToPickUp.GetComponent<Shape>();
     }
 }

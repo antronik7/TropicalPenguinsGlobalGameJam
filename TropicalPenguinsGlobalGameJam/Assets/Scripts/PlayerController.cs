@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    //Instances
+    public PickUpToolController pickUpController;
+
     //Values
     [SerializeField]
     float speedPlayer;
@@ -18,14 +21,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     float dashLenghtInMS;
 
+    [SerializeField]
+    private AK.Wwise.RTPC RPM;
+
+    [SerializeField]
+    private AK.Wwise.Event StartEngine;
+
     //Components
     private Rigidbody myRigidbody;
 
-    //Variables
+	//Variables
+	public int playerId { get; private set; }
+	private bool isDashing = false;
+    private bool canDestroyBlock = true;
     private bool areControlsEnable = true;
-    private float axisLeftTrigger;
-    private float axisRightTrigger;
-    private float axisHorizontal;
+    [SerializeField]
     private float currentVelocity = 0f;
     private Vector3 velocityBeforeDash;
 
@@ -37,7 +47,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartEngine.Post(gameObject);
     }
 
     // Update is called once per frame
@@ -45,13 +55,15 @@ public class PlayerController : MonoBehaviour
     {
         if(areControlsEnable)
         {
-            if (Input.GetButtonDown("ButtonX"))
+            if (Input.GetButtonDown("ButtonB"))
                 Dash();
 
-            axisLeftTrigger = Input.GetAxis("LeftTrigger");
-            axisRightTrigger = Input.GetAxis("RightTrigger");
-            axisHorizontal = Input.GetAxis("Horizontal");
+            //axisLeftTrigger = Input.GetAxis("LeftTrigger");
+            //axisRightTrigger = Input.GetAxis("RightTrigger");
+            //axisHorizontal = Input.GetAxis("Horizontal");
         }
+
+        UpdatePlayerRPM();
     }
 
     private void FixedUpdate()
@@ -63,9 +75,42 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Move()
+    void OnCollisionEnter(Collision collision)
     {
-        float movementVelocity = (axisRightTrigger * speedPlayer * Time.deltaTime) + (axisLeftTrigger * speedPlayer * Time.deltaTime * -1f);
+        DestroyBlock(collision);
+    }
+
+    void OnCollisionStay(Collision collision)
+    {
+        DestroyBlock(collision);
+    }
+
+    void DestroyBlock(Collision collision)
+    {
+        if (isDashing)
+        {
+            if (canDestroyBlock)
+            {
+                if (collision.transform.GetComponent<Shape>() != null)
+                {
+                    collision.transform.GetComponent<Shape>().Crumble();
+                }
+                else if (collision.transform.GetComponent<PlayerController>())
+                {
+                    Shape shapeToCrumble = collision.transform.parent.GetComponent<PlayerController>().pickUpController.GetHoldedShape();
+
+                    if (shapeToCrumble != null)
+                        shapeToCrumble.Crumble();
+                }
+
+                canDestroyBlock = false;
+            }
+        }
+    }
+
+    public void Move(float input)
+    {
+        float movementVelocity = input * speedPlayer * Time.deltaTime;
         currentVelocity += movementVelocity;
 
         if (Mathf.Abs(movementVelocity) == 0f || Mathf.Sign(currentVelocity) != Mathf.Sign(movementVelocity))
@@ -89,15 +134,16 @@ public class PlayerController : MonoBehaviour
         myRigidbody.velocity = new Vector3 (velocityPlayer.x, myRigidbody.velocity.y, velocityPlayer.z);
     }
 
-    private void Rotate()
+    public void Rotate(float input)
     {
-        float turn = axisHorizontal * turnSpeedPlayer * Time.deltaTime;
+        float turn = input * turnSpeedPlayer * Time.deltaTime;
         Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
         myRigidbody.MoveRotation(myRigidbody.rotation * turnRotation);
     }
 
-    private void Dash()
+    public void Dash()
     {
+        isDashing = true;
         EnableControls(false);
         velocityBeforeDash = myRigidbody.velocity;
         Vector3 velocityPlayer = transform.forward * forceDash;
@@ -107,7 +153,9 @@ public class PlayerController : MonoBehaviour
 
     private void StopDash()
     {
+        isDashing = false;
         EnableControls(true);
+        canDestroyBlock = true;
         //currentVelocity = myRigidbody.velocity.magnitude;
     }
 
@@ -115,4 +163,14 @@ public class PlayerController : MonoBehaviour
     {
         areControlsEnable = value;
     }
+
+    public void UpdatePlayerRPM()
+    {
+        RPM.SetValue(gameObject, currentVelocity*100 / maxSpeedPlayer);
+    }
+
+	public void SetId(int id)
+	{
+		playerId = id;
+	}
 }

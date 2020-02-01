@@ -17,7 +17,7 @@ public class BlockSpawner : Singleton<BlockSpawner>
 {
 	[SerializeField]
 	[FormerlySerializedAs("m_ShapesPrefab")]
-	private List<ShapedGO> m_ShapePrefabs;
+	private List<Shape> m_ShapePrefabs;
 
 	public Transform PlayZone;
 	public List<Transform> ForbidenZones;
@@ -27,8 +27,8 @@ public class BlockSpawner : Singleton<BlockSpawner>
 	public IEnumerator<Vector3> NextBlockPositionEnumerator;
 	public IEnumerable<Bounds> ForbidenBounds;
 
-	public Dictionary<ShapeType, GameObject> ShapePrefabs;
-	public List<WeakReference<GameObject>> BlockInstances { get; } = new List<WeakReference<GameObject>>();
+	public Dictionary<ShapeType, Shape> ShapePrefabs;
+	public List<WeakReference<Shape>> BlockInstances { get; } = new List<WeakReference<Shape>>();
 
 	private Bounds PlayZoneBounds;
 	private Bounds ObjectBounds;
@@ -66,7 +66,7 @@ public class BlockSpawner : Singleton<BlockSpawner>
 		BlocksContainer.transform.parent = transform;
 
 		// Have a Dictionnary instead for constant time get
-		ShapePrefabs = m_ShapePrefabs.ToDictionary(sgo => sgo.Type, sgo => sgo.GO);
+		ShapePrefabs = m_ShapePrefabs.ToDictionary(s => s.Type);
 
 		// Start Spawn Coroutine
 		StartCoroutine("SpawnBlockCoroutine");
@@ -110,25 +110,25 @@ public class BlockSpawner : Singleton<BlockSpawner>
 	public void SpawnBlock()
 	{
 		ShapeType randomType = (ShapeType)(int)Random.Range(0, (int)ShapeType.Count - Mathf.Epsilon);
-		GameObject newInstance = Instantiate(ShapePrefabs[randomType], Vector3.zero, Quaternion.identity, BlocksContainer.transform);
+		Shape newShape = Instantiate(ShapePrefabs[randomType], Vector3.zero, Quaternion.identity, BlocksContainer.transform);
 
 		List<MeshRenderer> renderers = new List<MeshRenderer>();
-		newInstance.GetComponentsInChildren(renderers);
+		newShape.GetComponentsInChildren(renderers);
 		MeshRenderer rendererComponent = GetComponent<MeshRenderer>();
 		if (rendererComponent != null)
 			renderers.Add(rendererComponent);
 
 		ObjectBounds = renderers.Aggregate(
-			new Bounds(newInstance.transform.position, Vector3.zero),
+			new Bounds(newShape.transform.position, Vector3.zero),
 			(b, r) => { b.Encapsulate(r.bounds); return b; }
 		);
 
 		NextBlockPositionEnumerator.MoveNext();
 		Vector3 newPosition = NextBlockPositionEnumerator.Current;
 
-		newInstance.transform.position = newPosition;
+		newShape.transform.position = newPosition;
 
-		BlockInstances.Add(new WeakReference<GameObject>(newInstance));
+		BlockInstances.Add(new WeakReference<Shape>(newShape));
 	}
 
 	private void OnDrawGizmos()

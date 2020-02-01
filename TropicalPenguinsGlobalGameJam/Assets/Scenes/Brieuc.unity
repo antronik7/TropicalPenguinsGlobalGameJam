@@ -451,25 +451,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c34fd891703b39148ae71e418550a7f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dontDestroyOnLoad: 0
   m_ShapePrefabs:
-  - Type: 0
-    GO: {fileID: 43653101608534818, guid: 05968d5df6d88d14eaa9bc28a713a858, type: 3}
-  - Type: 1
-    GO: {fileID: 2011605035805958742, guid: ea9c3d2c52a1b464d9f92d2248a94573, type: 3}
-  - Type: 2
-    GO: {fileID: 7793215271350623825, guid: 6da42b589000e4943bd12ba663602d00, type: 3}
-  - Type: 3
-    GO: {fileID: 3495414285443323859, guid: e5d338fb8d0213d479fd548bf09c40a4, type: 3}
-  - Type: 4
-    GO: {fileID: 6775111496058058483, guid: f5ba05b46fceb2c4aaf67fcfa112295e, type: 3}
-  - Type: 5
-    GO: {fileID: 4222348375493468033, guid: 00824afb41ea963418ea024424a37bae, type: 3}
-  - Type: 6
-    GO: {fileID: 247166407059754057, guid: cb68fa3aae390244cbfe9c166f011013, type: 3}
-  - Type: 7
-    GO: {fileID: 6708674061363954160, guid: 2aa156da9e98bbb4c8e75b600be9624b, type: 3}
-  - Type: 8
-    GO: {fileID: 1408626518639176263, guid: 65f867f41b41bc4488597b589b2000e1, type: 3}
+  - {fileID: -1412468971789922456, guid: 05968d5df6d88d14eaa9bc28a713a858, type: 3}
+  - {fileID: -5625452399281351746, guid: ea9c3d2c52a1b464d9f92d2248a94573, type: 3}
+  - {fileID: 6748050530178452961, guid: 6da42b589000e4943bd12ba663602d00, type: 3}
+  - {fileID: -8097083698268235883, guid: f5ba05b46fceb2c4aaf67fcfa112295e, type: 3}
+  - {fileID: 291847475341293804, guid: 00824afb41ea963418ea024424a37bae, type: 3}
+  - {fileID: -9014434137492350090, guid: e5d338fb8d0213d479fd548bf09c40a4, type: 3}
+  - {fileID: 3714310637206555329, guid: cb68fa3aae390244cbfe9c166f011013, type: 3}
+  - {fileID: 5544111309749574158, guid: 2aa156da9e98bbb4c8e75b600be9624b, type: 3}
+  - {fileID: 6154297050607659053, guid: 65f867f41b41bc4488597b589b2000e1, type: 3}
   PlayZone: {fileID: 822524736}
   ForbidenZones:
   - {fileID: 1964897863}

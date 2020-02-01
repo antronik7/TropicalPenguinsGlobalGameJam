@@ -14,9 +14,9 @@ public class MenuSpawnerManager : MonoBehaviour
 
     public Object EndUI;
 
-    public Object CurrentUI;
+    private Object CurrentUI;
 
-    private void Awake()
+    private void Start()
     {
         if(_instance != null && _instance != this)
         {
@@ -26,6 +26,7 @@ public class MenuSpawnerManager : MonoBehaviour
         else
         {
             _instance = this;
+            SwitchUI(MainMenuUI);
         }
     }
 

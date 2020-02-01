@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4295701734705793390}
   - component: {fileID: 5748164426920351838}
   m_Layer: 5
-  m_Name: ScoreP1
+  m_Name: ScoreP3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 4351372518830264502}
   - component: {fileID: 8706705352183642762}
   m_Layer: 5
-  m_Name: Button
+  m_Name: TempButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -895,7 +895,7 @@ GameObject:
   - component: {fileID: 2278712007922647892}
   - component: {fileID: 1718974313313314802}
   m_Layer: 5
-  m_Name: TempEventSystem
+  m_Name: UIController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -961,6 +961,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7ee0f57f81faac46a1298d2e68a5c74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScoreP1: {fileID: 7515472995360257162}
+  ScoreP2: {fileID: 4414922627209243537}
+  ScoreP3: {fileID: 5748164426920351838}
+  ScoreP4: {fileID: 8755709886605334987}
 --- !u!1 &4709406247630979566
 GameObject:
   m_ObjectHideFlags: 0
@@ -1459,7 +1463,7 @@ GameObject:
   - component: {fileID: 9054105095938782186}
   - component: {fileID: 8755709886605334987}
   m_Layer: 5
-  m_Name: ScoreP1
+  m_Name: ScoreP4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

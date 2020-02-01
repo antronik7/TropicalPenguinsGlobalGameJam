@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    //Instances
+    public PickUpToolController pickUpController;
+
     //Values
     [SerializeField]
     float speedPlayer;
@@ -28,6 +31,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody myRigidbody;
 
     //Variables
+    private bool isDashing;
     private bool areControlsEnable = true;
     private float axisLeftTrigger;
     private float axisRightTrigger;
@@ -52,7 +56,7 @@ public class PlayerController : MonoBehaviour
     {
         if(areControlsEnable)
         {
-            if (Input.GetButtonDown("ButtonX"))
+            if (Input.GetButtonDown("ButtonB"))
                 Dash();
 
             axisLeftTrigger = Input.GetAxis("LeftTrigger");
@@ -69,6 +73,25 @@ public class PlayerController : MonoBehaviour
         {
             Move();
             Rotate();
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if(isDashing)
+        {
+            if (collision.transform.GetComponent<Shape>() != null)
+            {
+                Debug.Log("test");
+                collision.transform.GetComponent<Shape>().Crumble();
+            }
+            else if (collision.transform.GetComponent<PlayerController>())
+            {
+                Shape shapeToCrumble = collision.transform.parent.GetComponent<PlayerController>().pickUpController.GetHoldedShape();
+
+                if (shapeToCrumble != null)
+                    shapeToCrumble.Crumble();
+            }
         }
     }
 
@@ -107,6 +130,7 @@ public class PlayerController : MonoBehaviour
 
     private void Dash()
     {
+        isDashing = true;
         EnableControls(false);
         velocityBeforeDash = myRigidbody.velocity;
         Vector3 velocityPlayer = transform.forward * forceDash;
@@ -116,6 +140,7 @@ public class PlayerController : MonoBehaviour
 
     private void StopDash()
     {
+        isDashing = false;
         EnableControls(true);
         //currentVelocity = myRigidbody.velocity.magnitude;
     }

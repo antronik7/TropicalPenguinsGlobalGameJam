@@ -84,4 +84,9 @@ public class PickUpToolController : MonoBehaviour
         isTryingToPickUp = false;
         counterBtnPress = 0;
     }
+
+    public Shape GetHoldedShape()
+    {
+        return shapeToPickUp.GetComponent<Shape>();
+    }
 }

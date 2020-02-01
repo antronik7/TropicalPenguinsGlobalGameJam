@@ -263,12 +263,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cadca7431dbb914f9ee7e3b14aee601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickUpController: {fileID: 1708929702}
   speedPlayer: 5
   turnSpeedPlayer: 200
   maxSpeedPlayer: 7.5
   speedDecreasePlayer: 0.2
   forceDash: 25
   dashLenghtInMS: 0.15
+  RPM:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  StartEngine:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  currentVelocity: 0
 --- !u!114 &2221407274840625479
 MonoBehaviour:
   m_ObjectHideFlags: 0

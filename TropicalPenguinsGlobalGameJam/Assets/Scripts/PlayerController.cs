@@ -13,15 +13,21 @@ public class PlayerController : MonoBehaviour
     float maxSpeedPlayer;
     [SerializeField]
     float speedDecreasePlayer;
+    [SerializeField]
+    float forceDash;
+    [SerializeField]
+    float dashLenghtInMS;
 
     //Components
     private Rigidbody myRigidbody;
 
     //Variables
+    private bool areControlsEnable = true;
     private float axisLeftTrigger;
     private float axisRightTrigger;
     private float axisHorizontal;
     private float currentVelocity = 0f;
+    private Vector3 velocityBeforeDash;
 
     void Awake()
     {
@@ -37,15 +43,24 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        axisLeftTrigger = Input.GetAxis("LeftTrigger");
-        axisRightTrigger = Input.GetAxis("RightTrigger");
-        axisHorizontal = Input.GetAxis("Horizontal");
+        if(areControlsEnable)
+        {
+            if (Input.GetButtonDown("ButtonX"))
+                Dash();
+
+            axisLeftTrigger = Input.GetAxis("LeftTrigger");
+            axisRightTrigger = Input.GetAxis("RightTrigger");
+            axisHorizontal = Input.GetAxis("Horizontal");
+        }
     }
 
     private void FixedUpdate()
     {
-        Move();
-        Rotate();
+        if (areControlsEnable)
+        {
+            Move();
+            Rotate();
+        }
     }
 
     private void Move()
@@ -81,4 +96,23 @@ public class PlayerController : MonoBehaviour
         myRigidbody.MoveRotation(myRigidbody.rotation * turnRotation);
     }
 
+    private void Dash()
+    {
+        EnableControls(false);
+        velocityBeforeDash = myRigidbody.velocity;
+        Vector3 velocityPlayer = transform.forward * forceDash;
+        myRigidbody.velocity = new Vector3(velocityPlayer.x, myRigidbody.velocity.y, velocityPlayer.z);
+        Invoke("StopDash", dashLenghtInMS);
+    }
+
+    private void StopDash()
+    {
+        EnableControls(true);
+        //currentVelocity = myRigidbody.velocity.magnitude;
+    }
+
+    public void EnableControls(bool value)
+    {
+        areControlsEnable = value;
+    }
 }

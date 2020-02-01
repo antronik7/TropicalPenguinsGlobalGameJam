@@ -18,6 +18,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     float dashLenghtInMS;
 
+    [SerializeField]
+    private AK.Wwise.RTPC RPM;
+
+    [SerializeField]
+    private AK.Wwise.Event StartEngine;
+
     //Components
     private Rigidbody myRigidbody;
 
@@ -26,6 +32,7 @@ public class PlayerController : MonoBehaviour
     private float axisLeftTrigger;
     private float axisRightTrigger;
     private float axisHorizontal;
+    [SerializeField]
     private float currentVelocity = 0f;
     private Vector3 velocityBeforeDash;
 
@@ -37,7 +44,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartEngine.Post(gameObject);
     }
 
     // Update is called once per frame
@@ -52,6 +59,8 @@ public class PlayerController : MonoBehaviour
             axisRightTrigger = Input.GetAxis("RightTrigger");
             axisHorizontal = Input.GetAxis("Horizontal");
         }
+
+        UpdatePlayerRPM();
     }
 
     private void FixedUpdate()
@@ -115,4 +124,10 @@ public class PlayerController : MonoBehaviour
     {
         areControlsEnable = value;
     }
+
+    public void UpdatePlayerRPM()
+    {
+        RPM.SetValue(gameObject, currentVelocity*100 / maxSpeedPlayer);
+    }
+
 }

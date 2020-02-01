@@ -20,15 +20,6 @@
 			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
-			<IncludedEvents>
-				<Event Id="2908458614" Name="Shotgun_Blast_Player" ObjectPath="\Events\Default Work Unit\Shotgun_Blast_Player" DurationType="OneShot" DurationMin="2.029048" DurationMax="2.029048"/>
-			</IncludedEvents>
-			<IncludedMemoryFiles>
-				<File Id="924354743" Language="SFX">
-					<ShortName>Shotgun_Blast.wav</ShortName>
-					<Path>SFX\Shotgun_Blast_10C4C929.wem</Path>
-				</File>
-			</IncludedMemoryFiles>
 		</SoundBank>
 	</SoundBanks>
 </SoundBanksInfo>

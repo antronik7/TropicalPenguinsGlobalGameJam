@@ -16,12 +16,13 @@ public class BlockSpawner : Singleton<BlockSpawner>
 	public List<Transform> ForbidenZones;
 	public float SpawnHeight;
 	public float SpawningRateInSeconds;
+	public int MaxNumberOfBlocks = 10;
 
 	public IEnumerator<Vector3> NextBlockPositionEnumerator;
 	public IEnumerable<Bounds> ForbidenBounds;
 
 	public Dictionary<ShapeType, Shape> ShapePrefabs;
-	public List<WeakReference<Shape>> BlockInstances { get; } = new List<WeakReference<Shape>>();
+	public Shape[] BlockInstances { get; private set; }
 
 	private Bounds PlayZoneBounds;
 	private Bounds ObjectBounds;
@@ -30,6 +31,8 @@ public class BlockSpawner : Singleton<BlockSpawner>
 
 	private void Start()
 	{
+		BlockInstances = new Shape[MaxNumberOfBlocks];
+
 		NextBlockPositionEnumerator = BuildNextBlockEnumerator();
 
 		Vector3 v = PlayZone.localScale;
@@ -96,39 +99,53 @@ public class BlockSpawner : Singleton<BlockSpawner>
 		while (true)
 		{
 			yield return new WaitForSecondsRealtime(SpawningRateInSeconds);
-			SpawnBlock();
+
+			int nextPositionAvailable = Array.FindIndex(BlockInstances, b => b == null);
+			if (nextPositionAvailable < 0)
+				continue;
+
+			ShapeType randomType = (ShapeType)(int)Random.Range(0, (int)ShapeType.Count - Mathf.Epsilon);
+			Shape newShape = Instantiate(ShapePrefabs[randomType], Vector3.zero, Quaternion.identity, BlocksContainer.transform);
+
+			List<MeshRenderer> renderers = new List<MeshRenderer>();
+			newShape.GetComponentsInChildren(renderers);
+			MeshRenderer rendererComponent = GetComponent<MeshRenderer>();
+			if (rendererComponent != null)
+				renderers.Add(rendererComponent);
+
+			ObjectBounds = renderers.Aggregate(
+				new Bounds(newShape.transform.position, Vector3.zero),
+				(b, r) => { b.Encapsulate(r.bounds); return b; }
+			);
+
+			NextBlockPositionEnumerator.MoveNext();
+			Vector3 newPosition = NextBlockPositionEnumerator.Current;
+
+			newShape.transform.position = newPosition;
+
+			newShape.Index = nextPositionAvailable;
+			BlockInstances[nextPositionAvailable] = newShape;
 		}
 	}
 
-	public Shape SpawnBlock(ShapeType type, Transform inheritedTransform)
+	public Shape SpawnBlock(ShapeType type, Shape from)
 	{
-		Shape newShape = Instantiate(ShapePrefabs[type], inheritedTransform, BlocksContainer.transform);
-		BlockInstances.Add(new WeakReference<Shape>(newShape));
+		Shape newShape = null;
+		newShape = Instantiate(ShapePrefabs[type], from.transform.position, from.transform.rotation, BlocksContainer.transform);
+		newShape.Index = from.Index;
+		BlockInstances[newShape.Index] = newShape;
+
+		var fromRigid = from.GetComponent<Rigidbody>();
+		var shapeRigid = newShape.GetComponent<Rigidbody>();
+		if (fromRigid == null)
+		{
+			Destroy(shapeRigid);
+		}
+		else
+		{
+			shapeRigid.isKinematic = fromRigid.isKinematic;
+		}
 		return newShape;
-	}
-
-	public void SpawnBlock()
-	{
-		ShapeType randomType = (ShapeType)(int)Random.Range(0, (int)ShapeType.Count - Mathf.Epsilon);
-		Shape newShape = Instantiate(ShapePrefabs[randomType], Vector3.zero, Quaternion.identity, BlocksContainer.transform);
-
-		List<MeshRenderer> renderers = new List<MeshRenderer>();
-		newShape.GetComponentsInChildren(renderers);
-		MeshRenderer rendererComponent = GetComponent<MeshRenderer>();
-		if (rendererComponent != null)
-			renderers.Add(rendererComponent);
-
-		ObjectBounds = renderers.Aggregate(
-			new Bounds(newShape.transform.position, Vector3.zero),
-			(b, r) => { b.Encapsulate(r.bounds); return b; }
-		);
-
-		NextBlockPositionEnumerator.MoveNext();
-		Vector3 newPosition = NextBlockPositionEnumerator.Current;
-
-		newShape.transform.position = newPosition;
-
-		BlockInstances.Add(new WeakReference<Shape>(newShape));
 	}
 
 	private void OnDrawGizmos()
@@ -154,5 +171,9 @@ public class BlockSpawner : Singleton<BlockSpawner>
 			Gizmos.DrawCube(PlayZone.position, PlayZone.localScale);
 
 		Gizmos.color = prevColor;
+	}
+
+	public void GetPositions(Vector2Int pivot)
+	{
 	}
 }

@@ -24,6 +24,18 @@ Material:
         m_Texture: {fileID: 2800000, guid: d59266320e8487f4d82351e57e5b6ff0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _BumpMapDetail:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Detail:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -36,6 +48,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _DetailTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -45,34 +61,64 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: 8b4a8a58998c7454e92b2b40a74db6cd, type: 3}
+        m_Texture: {fileID: 2800000, guid: f4b2f3d85c1433542b63eb3f0e407f66, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 8b5b190a10ba8cf4591af0676897faf6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _AO: 1.99
+    - _BaseLight: 0.43
     - _BumpScale: 1
-    - _Cutoff: 0.5
+    - _ContrastMt: 1
+    - _Cull: 2
+    - _Cutoff: 0.521
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _IntensityMicrowave: 0.5
+    - _IntensityMt: 1
+    - _IntensityNm: 1
+    - _IntensityNmDetail: 1
+    - _IntensityRef: 0.15
+    - _MainDetailFlow: 1
+    - _MainDetailScale: 1
     - _Metallic: 0
+    - _MicrowaveScale: 1
     - _Mode: 1
+    - _NormalmapDetailScale: 0.5
+    - _NormalmapDetailSpeed: 0.5
+    - _Occlusion: 4.73
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _ParallaxScale: 1
+    - _ReverseFlow: 1
+    - _Shininess: 0.15
     - _SmoothnessTextureChannel: 0
+    - _SoftFactor: 0.5
     - _SpecularHighlights: 1
+    - _SquashAmount: 1
     - _SrcBlend: 1
     - _UVSec: 0
+    - _WindQuality: 0
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _HueVariation: {r: 1, g: 0.5, b: 0, a: 0.1}
+    - _ReflectColor: {r: 0.27999997, g: 0.28999996, b: 0.24999997, a: 0.5}
+    - _SpecColor: {r: 0.08599999, g: 0.08599999, b: 0.08599999, a: 1}
+    - _TreeInstanceColor: {r: 1, g: 1, b: 1, a: 1}
+    - _TreeInstanceScale: {r: 1, g: 1, b: 1, a: 1}

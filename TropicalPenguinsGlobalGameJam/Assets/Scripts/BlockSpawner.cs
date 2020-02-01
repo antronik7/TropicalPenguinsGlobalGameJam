@@ -15,6 +15,7 @@ public class BlockSpawner : MonoBehaviour
 	public IEnumerable<Bounds> ForbidenBounds;
 
 	private Bounds PlayZoneBounds;
+	private Bounds ObjectBounds;
 
 	private void Start()
 	{
@@ -56,10 +57,11 @@ public class BlockSpawner : MonoBehaviour
 				PlayZoneBounds.min.z + Random.value * PlayZoneBounds.size.z
 			);
 			bool bInForbidenZone = false;
+			ObjectBounds.center = newPosition;
 
 			foreach (Bounds b in ForbidenBounds)
 			{
-				if (b.Contains(newPosition))
+				if (b.Intersects(ObjectBounds))
 				{
 					bInForbidenZone = true;
 					break;
@@ -82,12 +84,23 @@ public class BlockSpawner : MonoBehaviour
 
 	public void SpawnBlock()
 	{
+		GameObject newInstance = Instantiate(BlockPrefab, Vector3.zero, Quaternion.identity);
+
+		List<MeshRenderer> renderers = new List<MeshRenderer>();
+		newInstance.GetComponentsInChildren(renderers);
+		MeshRenderer rendererComponent = GetComponent<MeshRenderer>();
+		if (rendererComponent != null)
+			renderers.Add(rendererComponent);
+
+		ObjectBounds = renderers.Aggregate(
+			new Bounds(newInstance.transform.position, Vector3.zero),
+			(b, r) => { b.Encapsulate(r.bounds); return b; }
+		);
+
 		NextBlockPositionEnumerator.MoveNext();
 		Vector3 newPosition = NextBlockPositionEnumerator.Current;
 
-		Debug.Log(newPosition);
-
-		GameObject newInstance = Instantiate(BlockPrefab, newPosition, Quaternion.identity);
+		newInstance.transform.position = newPosition;
 	}
 
 	private void OnDrawGizmos()

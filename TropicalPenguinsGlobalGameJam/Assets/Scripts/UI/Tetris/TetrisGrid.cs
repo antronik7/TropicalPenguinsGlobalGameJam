@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TetrisGrid : MonoBehaviour
 {
@@ -9,10 +10,20 @@ public class TetrisGrid : MonoBehaviour
 
     [SerializeField]
     private Canvas canvas;
-    private GridLayout gridUI;
 
     [SerializeField]
-    private GameObject gridCell;
+    private GameObject gridCellTemplate;
+
+    [SerializeField]
+    private Sprite EmptySprite;
+
+    [SerializeField]
+    private Sprite BlockSprite;
+
+
+    private GridLayout gridLayout;
+    private Image[,] gridCells;
+    public bool[,] gridIsEmpty;
 
     // Start is called before the first frame update
     void Start()
@@ -21,12 +32,29 @@ public class TetrisGrid : MonoBehaviour
         float h = canvasTransform.rect.height;
         float w = canvasTransform.rect.width;
 
-        gridUI = canvas.GetComponent<GridLayout>();
-        for (int i = 0; i < GridSize * GridSize; ++i)
-        {
-            GameObject newGridCell = Instantiate(gridCell);
-            newGridCell.transform.SetParent(canvas.transform, false);
+        gridLayout = canvas.GetComponent<GridLayout>();
 
+        gridCells = new Image[GridSize, GridSize];
+        gridIsEmpty = new bool[GridSize, GridSize];
+        for (int i = 0; i < GridSize; ++i)
+        {
+            for(int j = GridSize - 1; j >= 0; --j)
+            {
+                gridIsEmpty[i, j] = true;
+                GameObject newGridCell = Instantiate(gridCellTemplate);
+                newGridCell.transform.SetParent(canvas.transform, false);
+                gridCells[i, j] = newGridCell.GetComponent<Image>();
+            }
+        }
+    }
+
+    public void SetGridBlocks(int[,] builtPos)
+    {
+        for (int i = 0; i < builtPos.GetLength(0); ++i)
+        {
+            gridIsEmpty[builtPos[i, 0], builtPos[i, 1]] = false;
+            Image currentImg = gridCells[builtPos[i, 0], builtPos[i, 1]];
+            currentImg.sprite = BlockSprite;
         }
     }
 

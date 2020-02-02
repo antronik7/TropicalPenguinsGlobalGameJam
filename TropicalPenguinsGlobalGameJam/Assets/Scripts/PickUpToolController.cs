@@ -106,7 +106,7 @@ public class PickUpToolController : MonoBehaviour
 		Rigidbody myRigbody = holdedShape.AddComponent<Rigidbody>();
 		blockDropEvent.Post(gameObject);
 		myRigbody.isKinematic = true;
-
+		
 		holdedShape = null;
 		isHoldingShape = false;
 	}

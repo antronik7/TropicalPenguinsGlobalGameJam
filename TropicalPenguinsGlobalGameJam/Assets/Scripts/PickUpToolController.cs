@@ -10,7 +10,9 @@ public class PickUpToolController : MonoBehaviour
 
 	[SerializeField]
 	AK.Wwise.Event blockPickupEvent;
-	
+	[SerializeField]
+	AK.Wwise.Event blockDropEvent;
+
 	public PlayerController playerController;
 
 	//Variables
@@ -85,7 +87,7 @@ public class PickUpToolController : MonoBehaviour
 		ResetPickUp();
 
 		blockPickupEvent.Post(gameObject);
-		//EventManager.BlockPickupSound.Invoke();
+		
 	}
 
 	private void PlaceShape()
@@ -93,6 +95,7 @@ public class PickUpToolController : MonoBehaviour
 		shapeToPickUp.transform.parent = null;
 		shapeToPickUp.transform.position = shapeToPickUp.transform.position - (Vector3.up / 2f);
 		Rigidbody myRigbody = shapeToPickUp.AddComponent<Rigidbody>();
+		blockDropEvent.Post(gameObject);
 		myRigbody.isKinematic = true;
 
 		shapeToPickUp = null;

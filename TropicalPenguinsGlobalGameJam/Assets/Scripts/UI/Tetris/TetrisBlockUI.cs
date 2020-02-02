@@ -50,11 +50,14 @@ public class TetrisBlockUI : MonoBehaviour
 
     public void Close()
     {
-        foreach(Image im in blocksArray)
+        if (blocksArray != null)
         {
-            Destroy(im);
+            foreach (Image im in blocksArray)
+            {
+                Destroy(im);
+            }
+            blocksArray = null;
         }
-        blocksArray = null;
     }
 
     public void ChangeValidity(bool isValid)

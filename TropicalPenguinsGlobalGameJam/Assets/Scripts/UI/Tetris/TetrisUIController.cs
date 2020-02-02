@@ -124,13 +124,13 @@ public class TetrisUIController : MonoBehaviour
         return isBlockPosValid;
     }
 
-    public void Place(int PlayerId)
+    public void Place(int playerId)
     {
         if (isBlockPosValid)
         {
-            GridUI.AddGridBlocks(CursorPos, ShapePosArray);
 
-            transform.parent.GetComponent<HouseManager>().PlaceBlock(PlayerId, CursorPos, ShapePosArray);
+            transform.parent.GetComponent<HouseManager>().PlaceBlock(playerId, CursorPos, ShapePosArray);
+            GridUI.AddGridBlocks(CursorPos, ShapePosArray);
             Close();
         }
         else

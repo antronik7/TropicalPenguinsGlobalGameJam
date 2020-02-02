@@ -21,7 +21,7 @@ public class HouseAnimationScript : MonoBehaviour
 
     private float deltaY { get { return standardY - downY; } }
 
-    private float tickDeltaY{get{ return deltaY / (RespawnAnimTime / 2); } }
+    private float tickDeltaY{get{ return deltaY * Time.deltaTime / (RespawnAnimTime / 2); } }
 
     private float standardY;
 
@@ -97,8 +97,8 @@ public class HouseAnimationScript : MonoBehaviour
 
     void RepairTransition()
     {
-        DestroyedHouse.gameObject.SetActive(false);
-        RepairedHouse.gameObject.SetActive(true);
+        DestroyedHouse.gameObject.SetActive(true);
+        RepairedHouse.gameObject.SetActive(false);
         curState = HouseAnimState.Repair;
     }
 
@@ -110,8 +110,8 @@ public class HouseAnimationScript : MonoBehaviour
 
     void GoUpTransition()
     {
-        RepairedHouse.gameObject.SetActive(false);
-        DestroyedHouse.gameObject.SetActive(true);
+        RepairedHouse.gameObject.SetActive(true);
+        DestroyedHouse.gameObject.SetActive(false);
         curState = HouseAnimState.GoUp;
     }
 

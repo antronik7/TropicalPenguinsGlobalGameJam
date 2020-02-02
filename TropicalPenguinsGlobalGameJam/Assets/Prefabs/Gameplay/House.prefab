@@ -65,8 +65,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6785201fdc37807468f12c6815ecfd1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myUITetris: {fileID: 8474734452657975861}
-  seed: 0
 --- !u!65 &2826421166358781619
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -105,10 +103,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a4e9d21b5cf6274daa95c449e89352e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HouseTransform: {fileID: 0}
   downY: 0
-  RespawnAnimTime: 5
-  TimeUntilRespawn: 2
+  RespawnAnimTime: 1
+  TimeUntilRespawn: 1
   RepairedHouse: {fileID: 4926439845207555003}
   DestroyedHouse: {fileID: 8290003138095394263}
 --- !u!1001 &55069216803155108
@@ -440,12 +437,6 @@ PrefabInstance:
 --- !u!224 &8474734452657975862 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8338176442923253014, guid: dbbc9397b8bffaa4791a0652c6ca00b1,
-    type: 3}
-  m_PrefabInstance: {fileID: 444564821120716576}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8474734452657975861 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8338176442923253013, guid: dbbc9397b8bffaa4791a0652c6ca00b1,
     type: 3}
   m_PrefabInstance: {fileID: 444564821120716576}
   m_PrefabAsset: {fileID: 0}

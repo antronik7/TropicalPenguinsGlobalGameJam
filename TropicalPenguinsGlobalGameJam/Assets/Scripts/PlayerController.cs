@@ -219,6 +219,7 @@ public class PlayerController : MonoBehaviour
 
 	public void PlaceBlock()
 	{
+		Debug.Log("placeblock");
 		localUIController.Place(playerId);
 	}
 

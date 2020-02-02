@@ -1,55 +1,45 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
-    public int scoreToWin = 50;
-    public static GameManager instance = null;                //Static instance of GameManager which allows it to be accessed by any other script.
-    private int[] playerScores = new int[4];
+	public int scoreToWin = 50;
+	[NonSerialized] public readonly int[] playerScores = new int[4];
 
-    //Awake is always called before any Start functions
-    void Awake()
-    {
-        //Check if instance already exists
-        if (instance == null)
+	//Awake is always called before any Start functions
+	protected override void Awake()
+	{
+		base.Awake();
 
-            //if not, set instance to this
-            instance = this;
+		EventManager.PlayerScored.AddListener((player, _, scoreIncrement) => addToPlayerScore(player.playerId, scoreIncrement));
+	}
 
-        //If instance already exists and it's not this:
-        else if (instance != this)
+	// Start is called before the first frame update
+	void Start()
+	{
 
-            //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
-            Destroy(gameObject);
-    }
+	}
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	// Update is called once per frame
+	void Update()
+	{
 
-    // Update is called once per frame
-    void Update()
-    {
+	}
 
-    }
+	public void addToPlayerScore(int playerID, int score)
+	{
+		playerScores[playerID] += score;
+		CheckIfWinner();
+	}
 
-    public void addToPlayerScore(int playerID, int score)
-    {
-        playerScores[playerID] += score;
-        CheckIfWinner();
-    }
+	private int CheckIfWinner()
+	{
+		for (int i = 0; i < playerScores.Length; ++i)
+		{
+			if (playerScores[i] >= scoreToWin)
+				return i;
+		}
 
-    private int CheckIfWinner()
-    {
-        for (int i = 0; i < playerScores.Length; ++i)
-        {
-            if (playerScores[i] >= scoreToWin)
-                return i;
-        }
-
-        return -1;
-    }
+		return -1;
+	}
 }

@@ -291,7 +291,6 @@ GameObject:
   - component: {fileID: 3495414285443323858}
   - component: {fileID: 3495414285443323861}
   - component: {fileID: -9014434137492350090}
-  - component: {fileID: -5785162564680180531}
   m_Layer: 0
   m_Name: ShortL
   m_TagString: Shape
@@ -346,24 +345,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 3
   Index: 0
---- !u!114 &-5785162564680180531
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3495414285443323859}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 2
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 4
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1001 &682576298450525081
 PrefabInstance:
   m_ObjectHideFlags: 0

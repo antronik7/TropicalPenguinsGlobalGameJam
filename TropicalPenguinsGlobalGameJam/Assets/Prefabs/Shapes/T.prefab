@@ -290,7 +290,6 @@ GameObject:
   - component: {fileID: 6708674061363954161}
   - component: {fileID: 6708674061363954166}
   - component: {fileID: 5544111309749574158}
-  - component: {fileID: -2561573052363152102}
   m_Layer: 0
   m_Name: T
   m_TagString: Shape
@@ -346,24 +345,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 7
   Index: 0
---- !u!114 &-2561573052363152102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6708674061363954160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 2
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 4
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &6708674061835919857
 GameObject:
   m_ObjectHideFlags: 0

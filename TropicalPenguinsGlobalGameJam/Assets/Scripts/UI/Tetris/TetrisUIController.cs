@@ -126,6 +126,7 @@ public class TetrisUIController : Singleton<TetrisUIController>
         {
             GridUI.AddGridBlocks(CursorPos, ShapePosArray);
             //UpdateHouse(CursorPos, ShapePosArray, PlayerId)
+            transform.root.GetComponent<HouseManager>().PlaceBlock(PlayerId, CursorPos, ShapePosArray);
             Close();
         }
         else

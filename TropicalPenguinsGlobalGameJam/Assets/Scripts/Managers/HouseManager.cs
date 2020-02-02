@@ -159,7 +159,7 @@ public class HouseManager : MonoBehaviour
 
 	public void OpenUI(int player, int[] cursor, Shape shape)
 	{
-		int[,] shapeCoord = Shape.whatever();
+		//int[,] shapeCoord = Shape.whatever();
 		myUITetris.GetComponent<TetrisUIController>().OpenUI(player, shapeCoord, houseGridBool);
 	}
 

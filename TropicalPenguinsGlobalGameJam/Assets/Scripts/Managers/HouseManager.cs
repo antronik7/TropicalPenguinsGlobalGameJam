@@ -13,12 +13,15 @@ public class HouseManager : MonoBehaviour
 	private int _nbCubes = 0;
 	protected TextMeshProUGUI houseScore;
 
-	protected int nbCubes { get { return _nbCubes; } 
-		set 
+	protected int nbCubes
+	{
+		get { return _nbCubes; }
+		set
 		{
 			_nbCubes = value;
 			houseScore.SetText(_nbCubes.ToString() + "/" + maxCubes.ToString());
-		} }
+		}
+	}
 
 
 	// Start is called before the first frame update
@@ -40,7 +43,7 @@ public class HouseManager : MonoBehaviour
 
 	private bool CanPlaceBlock(int size)
 	{
-		if ( (nbCubes + size) > maxCubes)
+		if ((nbCubes + size) > maxCubes)
 		{
 			return false;
 		}
@@ -73,7 +76,7 @@ public class HouseManager : MonoBehaviour
 	private void HouseComplete(PlayerController player)
 	{
 		// double the points for who finished it
-		EventManager.PlayerScored.Invoke(player, playersBlocksPlaced[player.playerId]);
+		EventManager.PlayerScored.Invoke(player, GameManager.Instance.playerScores[player.playerId], playersBlocksPlaced[player.playerId]);
 
 		// animation for when house is complete
 		gameObject.GetComponent<HouseAnimationScript>().Play();
@@ -104,7 +107,7 @@ public class HouseManager : MonoBehaviour
 
 	private void PlayerScore(int points, PlayerController player)
 	{
-		EventManager.PlayerScored.Invoke(player, points);
+		EventManager.PlayerScored.Invoke(player, GameManager.Instance.playerScores[player.playerId], points);
 		GivePlayerPoints(player.playerId, points);
 	}
 }

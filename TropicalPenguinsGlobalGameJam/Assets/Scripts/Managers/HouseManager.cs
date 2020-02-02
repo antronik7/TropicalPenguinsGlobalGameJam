@@ -45,7 +45,8 @@ public class HouseManager : MonoBehaviour
 
 	private bool CanPlaceBlock(int size)
 	{
-		return nbCubes + size <= maxCubes;
+		//return nbCubes + size <= maxCubes;
+		return true;
 	}
 
 	public bool IsHouseComplete()

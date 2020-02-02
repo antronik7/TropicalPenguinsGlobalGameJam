@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TetrisUIController : MonoBehaviour
+public class TetrisUIController : Singleton<TetrisUIController>
 {
     public int[,] ShapePosArray;
     private int[] CursorPos;
@@ -56,10 +56,10 @@ public class TetrisUIController : MonoBehaviour
         UpdateBlockPosValidity();
     }
 
-    public void MoveBlock(int[] direction, int PlayerId)
+    public void MoveBlock(Vector2 direction, int PlayerId)
     {
-        CursorPos[0] = Mathf.Clamp(CursorPos[0] + direction[0], 0, GridUI.GridSize);
-        CursorPos[1] = Mathf.Clamp(CursorPos[1] + direction[1], 0, GridUI.GridSize);
+        CursorPos[0] = Mathf.Clamp(CursorPos[0] + (int)direction.x, 0, GridUI.GridSize);
+        CursorPos[1] = Mathf.Clamp(CursorPos[1] + (int)direction.y, 0, GridUI.GridSize);
         BlockView.DrawBlock(CursorPos, ShapePosArray);
         UpdateBlockPosValidity();
     }

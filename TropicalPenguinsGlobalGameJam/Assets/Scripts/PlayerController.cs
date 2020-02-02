@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
 {
 	//Instances
 	public PickUpToolController pickUpController;
+	public Renderer bobCatBody;
+	public Material[] materialColorPlayer;
 
 	//Values
 	[SerializeField]
@@ -47,6 +49,7 @@ public class PlayerController : MonoBehaviour
 
 	//Components
 	private Rigidbody myRigidbody;
+	private Animation animation;
 
 	//Variables
 	public int playerId { get; private set; }
@@ -63,12 +66,18 @@ public class PlayerController : MonoBehaviour
 	void Awake()
 	{
 		myRigidbody = GetComponent<Rigidbody>();
-	} 
+		animation = GetComponent<Animation>();
+	}
 
 	// Start is called before the first frame update
 	void Start()
 	{
 		StartEngine.Post(gameObject);
+
+		if(bobCatBody != null && materialColorPlayer.Length > 0)
+		{
+			bobCatBody.material = materialColorPlayer[playerId];
+		}
 	}
 
 	// Update is called once per frame

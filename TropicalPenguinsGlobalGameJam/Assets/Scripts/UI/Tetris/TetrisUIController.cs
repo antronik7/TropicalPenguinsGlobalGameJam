@@ -16,6 +16,11 @@ public class TetrisUIController : MonoBehaviour
 
 	private PlayerController currentPlayer;
 
+    //Sound
+    public AK.Wwise.Event blockRotation;
+    public AK.Wwise.Event wrongBlockPlacement;
+    public AK.Wwise.Event goodBlockPlacement;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -86,6 +91,7 @@ public class TetrisUIController : MonoBehaviour
         {
             int[] vec = new int[] { ShapePosArray[i, 0], ShapePosArray[i, 1] };
             vec = RotateIntVector(vec, rotMat);
+            blockRotation.Post(gameObject);
             ShapePosArray[i, 0] = vec[0];
             ShapePosArray[i, 1] = vec[1];
         }
@@ -131,12 +137,13 @@ public class TetrisUIController : MonoBehaviour
 
             //transform.parent.GetComponent<HouseManager>().PlaceBlock(playerId, CursorPos, ShapePosArray);
             GridUI.AddGridBlocks(CursorPos, ShapePosArray);
-
+            goodBlockPlacement.Post(gameObject);
             Close();
         }
         else
         {
             //Play invalid placement sound
+            wrongBlockPlacement.Post(gameObject);
         }
     }
 

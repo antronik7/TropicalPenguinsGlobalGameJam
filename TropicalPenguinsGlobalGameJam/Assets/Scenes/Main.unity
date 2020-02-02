@@ -354,7 +354,7 @@ GameObject:
   - component: {fileID: 347956196}
   m_Layer: 0
   m_Name: Obstacle3
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -444,6 +444,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: House (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4972883248581274664, guid: 03b0e416077cb6841a856ec95ebd69bc,
+        type: 3}
+      propertyPath: seed
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7177651361495127346, guid: 03b0e416077cb6841a856ec95ebd69bc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -518,6 +523,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: House (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972883248581274664, guid: 03b0e416077cb6841a856ec95ebd69bc,
+        type: 3}
+      propertyPath: seed
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7177651361495127346, guid: 03b0e416077cb6841a856ec95ebd69bc,
         type: 3}
@@ -652,7 +662,7 @@ GameObject:
   - component: {fileID: 511890602}
   m_Layer: 0
   m_Name: WallUp
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -953,7 +963,7 @@ GameObject:
   - component: {fileID: 747460529}
   m_Layer: 0
   m_Name: WallRight
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1119,7 +1129,7 @@ GameObject:
   - component: {fileID: 916397597}
   m_Layer: 0
   m_Name: Obstacle2
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1211,7 +1221,7 @@ GameObject:
   - component: {fileID: 1038587501}
   m_Layer: 0
   m_Name: Obstacle
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1303,7 +1313,7 @@ GameObject:
   - component: {fileID: 1302716711}
   m_Layer: 0
   m_Name: WallLeft
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1392,6 +1402,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: House
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972883248581274664, guid: 03b0e416077cb6841a856ec95ebd69bc,
+        type: 3}
+      propertyPath: seed
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7177651361495127346, guid: 03b0e416077cb6841a856ec95ebd69bc,
         type: 3}
@@ -1589,7 +1604,7 @@ GameObject:
   - component: {fileID: 1741089341}
   m_Layer: 0
   m_Name: Obstacle4
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1763,6 +1778,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: House (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4972883248581274664, guid: 03b0e416077cb6841a856ec95ebd69bc,
+        type: 3}
+      propertyPath: seed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7177651361495127346, guid: 03b0e416077cb6841a856ec95ebd69bc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1840,7 +1860,7 @@ GameObject:
   - component: {fileID: 1979575138}
   m_Layer: 0
   m_Name: WallDown
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

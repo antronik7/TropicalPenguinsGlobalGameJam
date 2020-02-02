@@ -18,7 +18,7 @@ public class InputHandler : Singleton<InputHandler>
 		if (player != null)
 		{
 			var gameplayRuleSet = ReInput.mapping.GetControllerMapEnablerRuleSetInstance(RewiredConsts.MapEnablerRuleSet.Gameplay);
-			ChangeControlScheme(player, gameplayRuleSet);
+			ChangeControlScheme(player, ControlScheme.MainGameplay);
 
 			player.AddInputEventDelegate((ctx) => pc.Move(ctx.GetAxis()), UpdateLoopType.FixedUpdate, RewiredConsts.Action.Move);
 			player.AddInputEventDelegate((ctx) => pc.Rotate(ctx.GetAxis()), UpdateLoopType.FixedUpdate, RewiredConsts.Action.Rotate);
@@ -35,21 +35,53 @@ public class InputHandler : Singleton<InputHandler>
 	}
 
 	// To find the usable maps, refer to the RewiredConsts.MapEnablerRuleSet syntax
-	public void ChangeControlScheme(PlayerController pc, ControllerMapEnabler.RuleSet desiredMap)
+	public void ChangeControlScheme(PlayerController pc, ControlScheme scheme)
 	{
 		Player player = ReInput.players.GetPlayer(pc.playerId);
 		if (player != null)
 		{
 			player.controllers.maps.mapEnabler.ruleSets.Clear();
-			player.controllers.maps.mapEnabler.ruleSets.Add(desiredMap);
+			player.controllers.maps.mapEnabler.ruleSets.Add(GetRuleSetFromScheme(scheme));
 			player.controllers.maps.mapEnabler.Apply();
 		}
 	}
 
-	public void ChangeControlScheme(Player player, ControllerMapEnabler.RuleSet desiredMap)
+	public void ChangeControlScheme(int playerId, ControlScheme scheme)
+	{
+		Player player = ReInput.players.GetPlayer(playerId);
+		if (player != null)
+		{
+			player.controllers.maps.mapEnabler.ruleSets.Clear();
+			player.controllers.maps.mapEnabler.ruleSets.Add(GetRuleSetFromScheme(scheme));
+			player.controllers.maps.mapEnabler.Apply();
+		}
+	}
+
+	public void ChangeControlScheme(Player player, ControlScheme scheme)
 	{
 		player.controllers.maps.mapEnabler.ruleSets.Clear();
-		player.controllers.maps.mapEnabler.ruleSets.Add(desiredMap);
+		player.controllers.maps.mapEnabler.ruleSets.Add(GetRuleSetFromScheme(scheme));
 		player.controllers.maps.mapEnabler.Apply();
 	}
+
+	private ControllerMapEnabler.RuleSet GetRuleSetFromScheme(ControlScheme scheme)
+	{
+		ControllerMapEnabler.RuleSet ruleset;
+		switch (scheme)
+		{
+			case ControlScheme.MainGameplay:
+				ruleset = ReInput.mapping.GetControllerMapEnablerRuleSetInstance(RewiredConsts.MapEnablerRuleSet.Gameplay);
+				break;
+			case ControlScheme.TetrisGameplay:
+				ruleset = ReInput.mapping.GetControllerMapEnablerRuleSetInstance(RewiredConsts.MapEnablerRuleSet.TetrisGameplay);
+				break;
+			default:
+				ruleset = ReInput.mapping.GetControllerMapEnablerRuleSetInstance(RewiredConsts.MapEnablerRuleSet.Gameplay);
+				break;
+		}
+
+		return ruleset;
+	}
 }
+
+public enum ControlScheme { MainGameplay, TetrisGameplay }

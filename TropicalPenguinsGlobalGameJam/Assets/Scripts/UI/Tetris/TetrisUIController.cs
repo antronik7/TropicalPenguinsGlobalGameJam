@@ -14,6 +14,8 @@ public class TetrisUIController : Singleton<TetrisUIController>
     bool isBlockPosValid;
     bool isSetup;
 
+	private int currentUserPlayerId = -1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,7 +44,10 @@ public class TetrisUIController : Singleton<TetrisUIController>
         SetGridUI(houseBlockGrid);
         SetShape(shapePosArray, 0);
         isSetup = true;
-    }
+
+		InputHandler.Instance.ChangeControlScheme(playerId, ControlScheme.TetrisGameplay);
+		currentUserPlayerId = playerId;
+	}
 
     void SetGridUI(bool[,] houseBlockGrid)
     {
@@ -126,6 +131,7 @@ public class TetrisUIController : Singleton<TetrisUIController>
         {
             GridUI.AddGridBlocks(CursorPos, ShapePosArray);
             //UpdateHouse(CursorPos, ShapePosArray, PlayerId)
+            transform.root.GetComponent<HouseManager>().PlaceBlock(PlayerId, CursorPos, ShapePosArray);
             Close();
         }
         else
@@ -141,10 +147,16 @@ public class TetrisUIController : Singleton<TetrisUIController>
     {
         BlockView.Close();
         gameObject.SetActive(false);
-    }
 
-    // Update is called once per frame
-    void Update()
+		if (currentUserPlayerId < 0)
+			return;
+
+		InputHandler.Instance.ChangeControlScheme(currentUserPlayerId, ControlScheme.TetrisGameplay);
+		currentUserPlayerId = -1;
+	}
+
+	// Update is called once per frame
+	void Update()
     {
         
     }

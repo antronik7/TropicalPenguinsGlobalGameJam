@@ -18,6 +18,7 @@ public class HouseManager : MonoBehaviour
 	private int maxNbBlocksInit = 7;
 	private Vector3 housePosition;
 	private Shape[] childCubes;
+	public int seed;
 
 	// Start is called before the first frame update
 	void Start()
@@ -43,7 +44,8 @@ public class HouseManager : MonoBehaviour
 		HideHouseGrid();
 		houseGridBool = new bool[houseDimensions, houseDimensions];
 		playersBlocksPlaced = new int[nbPlayers];
-		System.Random random = new System.Random((int)(housePosition.x * housePosition.z));
+		System.Random random = new System.Random(seed + (int)Time.time);
+
 		int blocksToInit = random.Next(minNbBlocksInit, maxNbBlocksInit + 1);
 		int nbBlocksPlaced = 0;
 		int row = 0;
@@ -52,13 +54,14 @@ public class HouseManager : MonoBehaviour
 		while (nbBlocksPlaced < blocksToInit)
 		{
 			row = random.Next(0, houseDimensions);
+			Debug.Log(row);
 			col = random.Next(0, houseDimensions);
 			if (houseGridBool[row, col] != true)
 			{
 				houseGridBool[row, col] = true;
 				nbBlocksPlaced++;
 				//magie
-				childCubes[(houseDimensions*row)+col].transform.gameObject.SetActive(true);
+				childCubes[ ( houseDimensions * row ) + col].transform.gameObject.SetActive(true);
 			}
 		}
 	}
@@ -127,7 +130,6 @@ public class HouseManager : MonoBehaviour
 
 			// invert the grid values because of line storage
 			houseGridBool[cursor[0] + grid[i, 1], cursor[1] + grid[i, 0]] = true;
-			 
 		}
 	}
 
@@ -195,4 +197,12 @@ public class HouseManager : MonoBehaviour
 			}
 		}
 	}
+
+	//IEnumerator InitializeAllRandoms()
+	//{
+	//	// suspend execution for 5 seconds
+	//	//yield return new WaitForSeconds();
+
+	//}
+
 }

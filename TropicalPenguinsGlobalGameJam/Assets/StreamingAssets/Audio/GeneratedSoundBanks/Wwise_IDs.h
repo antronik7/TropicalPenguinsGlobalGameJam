@@ -27,7 +27,7 @@ namespace AK
         static const AkUniqueID TRACTOR_IMPACT = 2651855531U;
         static const AkUniqueID UI_CONFIRMATION = 2858266821U;
         static const AkUniqueID UI_MOVE = 2644790697U;
-        static const AkUniqueID WOODCRASH = 1299882867U;
+        static const AkUniqueID WALLHIT = 3961855540U;
     } // namespace EVENTS
 
     namespace SWITCHES

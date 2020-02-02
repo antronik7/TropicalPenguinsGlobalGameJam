@@ -23,9 +23,9 @@ public class PlayerController : MonoBehaviour
 	[SerializeField]
 	float dashDelay = 3f;
 
+	//Sounds
 	[SerializeField]
 	private AK.Wwise.RTPC RPM;
-
 	[SerializeField]
 	private AK.Wwise.Event StartEngine;
 	[SerializeField]
@@ -36,7 +36,12 @@ public class PlayerController : MonoBehaviour
 	private AK.Wwise.Event BlockBreak;
 	[SerializeField]
 	private AK.Wwise.Event Boost;
+	[SerializeField]
+	private AK.Wwise.Event WallHit;
 
+	//FX
+	[SerializeField]
+	private ParticleSystem ImpactParticles;
 
 	//Components
 	private Rigidbody myRigidbody;
@@ -72,6 +77,11 @@ public class PlayerController : MonoBehaviour
 	void OnCollisionEnter(Collision collision)
 	{
 		DestroyBlock(collision);
+
+		if (collision.gameObject.CompareTag("Wall"))
+		{
+			WallHit.Post(gameObject);
+		}
 	}
 
 	void OnCollisionStay(Collision collision)
@@ -95,6 +105,8 @@ public class PlayerController : MonoBehaviour
 				{
 					PlayerImpact.Post(gameObject);
 					Debug.Log("Collision");
+					ImpactParticles.Play();
+					collision.gameObject.GetComponent<PlayerController>().ImpactParticles.Play();
 					Shape shapeToCrumble = controller.pickUpController.GetHoldedShape();
 
 					if (shapeToCrumble != null) {

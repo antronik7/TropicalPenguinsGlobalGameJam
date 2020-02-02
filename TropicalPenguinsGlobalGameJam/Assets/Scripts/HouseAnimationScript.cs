@@ -22,6 +22,9 @@ public class HouseAnimationScript : MonoBehaviour
     [SerializeField]
     private ParticleSystem Pouf;
 
+    [SerializeField]
+    AK.Wwise.Event houseComplete;
+
     private float deltaY { get { return standardY - downY; } }
 
     private float tickDeltaY{get{ return deltaY * Time.deltaTime / (RespawnAnimTime / 2); } }
@@ -100,6 +103,7 @@ public class HouseAnimationScript : MonoBehaviour
     {
         Pouf.gameObject.SetActive(true);
         Pouf.Play();
+        houseComplete.Post(gameObject);
         RepairedHouse.gameObject.SetActive(true);
         DestroyedHouse.gameObject.SetActive(false);
         curState = HouseAnimState.Repair;

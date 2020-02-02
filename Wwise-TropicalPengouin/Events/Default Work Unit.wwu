@@ -16,10 +16,10 @@
 				</Event>
 				<Event Name="House_complete" ID="{1AAB39B9-7E37-4BBB-9F66-F4DEBA2C8B67}">
 					<ChildrenList>
-						<Action Name="" ID="{DFEB0A56-C27E-46C5-AB74-8ADFA715BE29}" ShortID="620501099">
+						<Action Name="" ID="{92CC34D6-88EF-4542-B8AF-985F34D0B0F9}" ShortID="627252873">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Reward" ID="{013C80F0-7A32-4466-BED0-EF4040442F2E}" WorkUnitID="{4C6EFE75-9599-4E74-992B-81F3EC47697D}"/>
+									<ObjectRef Name="Rewards" ID="{F189F5C9-11BF-4F57-AF0B-E936D6418834}" WorkUnitID="{4C6EFE75-9599-4E74-992B-81F3EC47697D}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

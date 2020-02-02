@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="134">
 	<RootPaths>
-		<ProjectRoot>C:\Users\emile\Unity Projects\TropicalPenguinsGlobalGameJam\Wwise-TropicalPengouin\</ProjectRoot>
-		<SourceFilesRoot>C:\Users\emile\Unity Projects\TropicalPenguinsGlobalGameJam\Wwise-TropicalPengouin\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>C:\Users\emile\Unity Projects\TropicalPenguinsGlobalGameJam\TropicalPenguinsGlobalGameJam\Assets\StreamingAssets\Audio\GeneratedSoundBanks\</SoundBanksRoot>
+		<ProjectRoot>D:\Utilisateurs\Emile\Desktop\TropicalPenguinsGlobalGameJam\Wwise-TropicalPengouin\</ProjectRoot>
+		<SourceFilesRoot>D:\Utilisateurs\Emile\Desktop\TropicalPenguinsGlobalGameJam\Wwise-TropicalPengouin\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>D:\Utilisateurs\Emile\Desktop\TropicalPenguinsGlobalGameJam\TropicalPenguinsGlobalGameJam\Assets\StreamingAssets\Audio\GeneratedSoundBanks\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>C:\Users\emile\Unity Projects\TropicalPenguinsGlobalGameJam\Wwise-TropicalPengouin\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\Utilisateurs\Emile\Desktop\TropicalPenguinsGlobalGameJam\Wwise-TropicalPengouin\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>

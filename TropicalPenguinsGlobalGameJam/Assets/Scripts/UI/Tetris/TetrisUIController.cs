@@ -12,6 +12,7 @@ public class TetrisUIController : MonoBehaviour
     public TetrisBlockUI BlockView;
 
     bool isBlockPosValid;
+    bool isSetup;
 
     // Start is called before the first frame update
     void Start()
@@ -19,12 +20,13 @@ public class TetrisUIController : MonoBehaviour
         CursorPos = new int[] { 0, 0 };
 
         //Tests
-        SetGridUI(new bool[,] { { true, false, false, true } ,
+        /*SetGridUI(new bool[,] { { true, false, false, true } ,
                                 { false, false, false, false } ,
-                                { false, false, false, false } ,
+                                { true, false, false, false } ,
                                 { true, false, false, true } });
         SetShape(new int[,] { {0,0}, {0,1}, {1,1} }, 0);
-        MoveBlock(new int[] { 0, 1 },0);
+        MoveBlock(new int[] { 1, 0 },0);
+        Place(0);*/
         //RotateBlock(true,0);
     }
 
@@ -32,6 +34,7 @@ public class TetrisUIController : MonoBehaviour
     {
         SetGridUI(houseBlockGrid);
         SetShape(shapePosArray, 0);
+        isSetup = true;
     }
 
     void SetGridUI(bool[,] houseBlockGrid)
@@ -49,7 +52,7 @@ public class TetrisUIController : MonoBehaviour
     public void MoveBlock(int[] direction, int PlayerId)
     {
         CursorPos[0] = Mathf.Clamp(CursorPos[0] + direction[0], 0, GridUI.GridSize);
-        CursorPos[1] += direction[1];
+        CursorPos[1] = Mathf.Clamp(CursorPos[1] + direction[1], 0, GridUI.GridSize);
         BlockView.DrawBlock(CursorPos, ShapePosArray);
         UpdateBlockPosValidity();
     }
@@ -94,26 +97,27 @@ public class TetrisUIController : MonoBehaviour
         isBlockPosValid = true;
         for (int i = 0; i < ShapePosArray.GetLength(0) && isBlockPosValid; ++i)
         {
-            int posX = CursorPos[0] + ShapePosArray[i, 0];
-            int posY = CursorPos[1] + ShapePosArray[i, 1];
+            int posX = CursorPos[1] + ShapePosArray[i, 1];
+            int posY = CursorPos[0] + ShapePosArray[i, 0];
             if (posX < 0 || posY < 0 || posX > GridUI.GridSize || posY > GridUI.GridSize)
             {
                 isBlockPosValid = false;
-            }else if(gridHasBlock[posX, posY])
+            }
+            else if(gridHasBlock[posY, posX])
             {
                 isBlockPosValid = false;
             }
         }
-        if (oldValidity != isBlockPosValid)
+        if (!isSetup || oldValidity != isBlockPosValid)
             BlockView.ChangeValidity(isBlockPosValid);
-        return true;
+        return isBlockPosValid;
     }
 
     public void Place(int PlayerId)
     {
         if (isBlockPosValid)
         {
-            GridUI.AddGridBlocks(ShapePosArray);
+            GridUI.AddGridBlocks(CursorPos, ShapePosArray);
             //UpdateHouse(CursorPos, ShapePosArray, PlayerId)
             Close();
         }
@@ -125,6 +129,7 @@ public class TetrisUIController : MonoBehaviour
 
     public void Close()
     {
+        BlockView.Close();
         gameObject.SetActive(false);
     }
 

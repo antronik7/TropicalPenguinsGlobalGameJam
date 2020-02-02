@@ -174,7 +174,8 @@ public class HouseManager : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		PlayerController player = other.GetComponent<PlayerController>();
+		//PlayerController player = other.GetComponent<PlayerController>();
+		PlayerController player = other.transform.root.GetComponent<PlayerController>();
 		if (player != null)
 		{
 			Shape playerShape = player.pickUpController.GetHoldedShape();

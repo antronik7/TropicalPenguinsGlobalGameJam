@@ -175,7 +175,7 @@ public class Shape : MonoBehaviour
 		}
 		else
 		{
-			m_Owner.pickUpController.DropShape();
+			m_Owner?.pickUpController.DropShape();
 		}
 
 		Destroy(gameObject);

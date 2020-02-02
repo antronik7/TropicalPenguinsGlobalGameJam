@@ -110,6 +110,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 648865377922874313, guid: 931795e8d6a729449bd5059ee90e96bb,
+        type: 3}
+      propertyPath: Pouf
+      value: 
+      objectReference: {fileID: 5841086746160943629}
     - target: {fileID: 3891410407108548491, guid: 931795e8d6a729449bd5059ee90e96bb,
         type: 3}
       propertyPath: m_Name
@@ -200,6 +205,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 648865377922874313, guid: ad499406318f2e14d8eda107759025e1,
+        type: 3}
+      propertyPath: Pouf
+      value: 
+      objectReference: {fileID: 6629342811129998502}
     - target: {fileID: 3891410407108548491, guid: ad499406318f2e14d8eda107759025e1,
         type: 3}
       propertyPath: m_Name
@@ -303,6 +313,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3815667877446929962}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &5841086746160943629 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7348833102551948327, guid: f960fdd94eaaaea4bbb75a03a4a1414f,
+    type: 3}
+  m_PrefabInstance: {fileID: 3815667877446929962}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4178325522969587841
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -385,6 +401,12 @@ PrefabInstance:
 --- !u!4 &6629342811129998521 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7348833102551948344, guid: f960fdd94eaaaea4bbb75a03a4a1414f,
+    type: 3}
+  m_PrefabInstance: {fileID: 4178325522969587841}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6629342811129998502 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7348833102551948327, guid: f960fdd94eaaaea4bbb75a03a4a1414f,
     type: 3}
   m_PrefabInstance: {fileID: 4178325522969587841}
   m_PrefabAsset: {fileID: 0}
@@ -473,6 +495,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6916015487816433206}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &4181262077653443089 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7348833102551948327, guid: f960fdd94eaaaea4bbb75a03a4a1414f,
+    type: 3}
+  m_PrefabInstance: {fileID: 6916015487816433206}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6948610408573439195
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -558,6 +586,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6948610408573439195}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &401419174173708540 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7348833102551948327, guid: f960fdd94eaaaea4bbb75a03a4a1414f,
+    type: 3}
+  m_PrefabInstance: {fileID: 6948610408573439195}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7451284793197648868
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -620,6 +654,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180.00002
       objectReference: {fileID: 0}
+    - target: {fileID: 648865377922874313, guid: f2b84f0a32143f348b0cc4e8445ef8a8,
+        type: 3}
+      propertyPath: Pouf
+      value: 
+      objectReference: {fileID: 401419174173708540}
     - target: {fileID: 1023014566779277317, guid: f2b84f0a32143f348b0cc4e8445ef8a8,
         type: 3}
       propertyPath: m_IsActive
@@ -700,6 +739,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 648865377922874313, guid: d2b2af3617fa60c41a9fdcc76ec0f5c7,
+        type: 3}
+      propertyPath: Pouf
+      value: 
+      objectReference: {fileID: 4181262077653443089}
     - target: {fileID: 3891410407108548491, guid: d2b2af3617fa60c41a9fdcc76ec0f5c7,
         type: 3}
       propertyPath: m_Name

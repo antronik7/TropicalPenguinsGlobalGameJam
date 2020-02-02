@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EventManager : Singleton<EventManager>
 {
-	// EXEMPLE EVENTS
+	// EXAMPLE EVENTS
 
 	public static GameEvent _ExampleEvent = new GameEvent();
 	public static GameEvent<int> _ExampleIntEvent = new GameEvent<int>();
@@ -14,6 +14,7 @@ public class EventManager : Singleton<EventManager>
 
 	public static GameEvent GameplayStart = new GameEvent();
 	public static GameEvent<PlayerController> PlayerSpawn = new GameEvent<PlayerController>();
+	public static GameEvent<PlayerController> PlayerDespawn = new GameEvent<PlayerController>();
 
 	// SOUND
 

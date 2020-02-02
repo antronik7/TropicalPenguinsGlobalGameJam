@@ -270,7 +270,7 @@ MonoBehaviour:
   maxSpeedPlayer: 7.5
   speedDecreasePlayer: 0.2
   forceDash: 25
-  dashLenghtInMS: 0.15
+  dashLenghtInMS: 0.25
   dashDelay: 3
   RPM:
     idInternal: 0

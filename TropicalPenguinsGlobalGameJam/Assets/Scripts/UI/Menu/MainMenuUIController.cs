@@ -10,9 +10,9 @@ public class MainMenuUIController : MonoBehaviour
 
     public void OnPressPlay()
     {
-        Debug.Log("play");
+        //Debug.Log("play");
         MenuSpawnerManager menuSpawnerManager = MenuSpawnerManager.Instance;
-        menuSpawnerManager.SwitchUI(menuSpawnerManager.GameUI);
+        menuSpawnerManager.SwitchUI(1);
         UIConfirmation.Post(gameObject);
         Debug.Log("Post UIConfirmation");
     }

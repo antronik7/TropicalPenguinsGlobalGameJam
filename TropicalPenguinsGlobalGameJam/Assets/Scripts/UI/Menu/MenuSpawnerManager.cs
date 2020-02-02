@@ -8,14 +8,19 @@ public class MenuSpawnerManager : MonoBehaviour
 
     public static MenuSpawnerManager Instance { get { return _instance; } }
 
-    public Object MainMenuUI;
+    public MainMenuUIController MainMenuUI;
 
-    public Object GameUI;
+    public GameplayUIController GameUI;
 
-    public Object EndUI;
+    public EndGameUIController EndUI;
 
-    private Object CurrentUI;
-
+    private void Awake()
+    {
+        EventManager.GameplayEnd.AddListener(() =>
+        {
+            SwitchUI(2);
+        });
+    }
     private void Start()
     {
         if(_instance != null && _instance != this)
@@ -26,17 +31,27 @@ public class MenuSpawnerManager : MonoBehaviour
         else
         {
             _instance = this;
-            SwitchUI(MainMenuUI);
+            //SwitchUI(MainMenuUI);
         }
     }
 
-    public void SwitchUI(Object ui)
+    public void SwitchUI(int ui)
     {
-        if(CurrentUI != null)
+        switch (ui)
         {
-            Destroy(CurrentUI);
+            case 0:
+                MainMenuUI.gameObject.SetActive(true);
+                EndUI.gameObject.SetActive(false);
+                break;
+            case 1:
+                Debug.Log(MainMenuUI);
+                MainMenuUI.gameObject.SetActive(false);
+                EndUI.gameObject.SetActive(false);
+                break;
+            case 2:
+                MainMenuUI.gameObject.SetActive(false);
+                EndUI.gameObject.SetActive(true);
+                break;
         }
-
-        CurrentUI = Instantiate(ui);
     }
 }

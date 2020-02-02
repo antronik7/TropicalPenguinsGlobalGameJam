@@ -43,6 +43,6 @@ public class EndGameUIController : MonoBehaviour
     public void ToMainMenu()
     {
         MenuSpawnerManager menuSpawnerManager = MenuSpawnerManager.Instance;
-        menuSpawnerManager.SwitchUI(menuSpawnerManager.MainMenuUI);
+        menuSpawnerManager.SwitchUI(0);
     }
 }

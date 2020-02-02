@@ -60,6 +60,7 @@ public class PlayerManager : Singleton<PlayerManager>
 	{
 		EventManager.GameplayReady.RemoveListener(OnGamePlayReady);
 		EventManager.GameplayStart.AddListener(() => OnGamePlayStart(playerCount));
+		EventManager.GameplayStart.Invoke();
 	}
 
 	private PlayerController SpawnPlayer(PlayerController playerPrefab, Transform spawnPoint)
@@ -75,13 +76,5 @@ public class PlayerManager : Singleton<PlayerManager>
 		idHelper.ReleaseId(pc.playerId);
 		players.Remove(pc);
 		Destroy(pc.gameObject);
-	}
-
-	void Update()
-	{
-		if (ReInput.players.GetSystemPlayer().GetButtonDown(RewiredConsts.Action.GameplayStart))
-		{
-			EventManager.GameplayStart.Invoke();
-		}
 	}
 }

@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1856215949849064888, guid: 54b34b720b682194fb4874c4dde9e7d7,
+        type: 3}
+      propertyPath: variant
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5734995870291278798, guid: 54b34b720b682194fb4874c4dde9e7d7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -65,7 +70,7 @@ PrefabInstance:
     - target: {fileID: 8776835639671638493, guid: 54b34b720b682194fb4874c4dde9e7d7,
         type: 3}
       propertyPath: m_Name
-      value: SM_BarrierB_Long_V1_02
+      value: SM_BarrierB_Long_V1_02 Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54b34b720b682194fb4874c4dde9e7d7, type: 3}

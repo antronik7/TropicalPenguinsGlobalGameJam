@@ -47,7 +47,7 @@ MonoBehaviour:
   dontDestroyOnLoad: 0
   playerPrefab: {fileID: 4187060022934643739, guid: 11a241447e974eb4da4578aa9ed4893b,
     type: 3}
-  playerCount: 2
+  playerCount: 4
   spawnPoints:
   - {fileID: 5494638353839639791}
   - {fileID: 8251158540465464283}
@@ -176,6 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 1
   scoreToWin: 50
+  state: 0
 --- !u!1 &7074728271819571653
 GameObject:
   m_ObjectHideFlags: 0

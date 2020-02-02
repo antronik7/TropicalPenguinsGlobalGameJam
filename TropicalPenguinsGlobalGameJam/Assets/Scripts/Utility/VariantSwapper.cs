@@ -27,15 +27,7 @@ public class VariantSwapper : MonoBehaviour
 	// This cancer is really hack-ish :) x    D
 	private void SwitchToVariant()
 	{
-		variant.SetActive(true);
+		variantInstance.SetActive(true);
 		original.SetActive(false);
-	}
-
-	void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.Space))
-		{
-			SwitchToVariant();
-		}
 	}
 }

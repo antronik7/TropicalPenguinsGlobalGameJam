@@ -18,6 +18,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_BarrierB_Long_V2_02 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6245352511597804051, guid: 6f4f18a8e8f524c46b09bbdc02e87729,
+        type: 3}
+      propertyPath: variant
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7137868853547815475, guid: 6f4f18a8e8f524c46b09bbdc02e87729,
         type: 3}
       propertyPath: m_LocalPosition.x

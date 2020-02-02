@@ -19,6 +19,7 @@ public class EventManager : Singleton<EventManager>
 	public static GameEvent<PlayerController> PlayerDespawn = new GameEvent<PlayerController>();
 
 	public static GameEvent<PlayerController, int, int> PlayerScored = new GameEvent<PlayerController, int, int>();
+	public static GameEvent GameEnd = new GameEvent();
 
 	// SOUND
 

@@ -157,11 +157,6 @@ public class HouseManager : MonoBehaviour
 		InitializeHouseGrid();
 	}
 
-	public void OpenUI(int player, int[] cursor, Shape shape)
-	{
-		//int[,] shapeCoord = Shape.whatever();
-		//myUITetris.GetComponent<TetrisUIController>().OpenUI(player, shapeCoord, houseGridBool);
-	}
 
 	private void HideHouseGrid()
 	{
@@ -177,8 +172,26 @@ public class HouseManager : MonoBehaviour
 		housePosition = gameObject.transform.position;
 	}
 
-	//private int[,] GetBlocks()
-	//{
-	//	//List<>
-	//}
+	private void OnTriggerEnter(Collider other)
+	{
+		PlayerController player = other.GetComponent<PlayerController>();
+		if (player != null)
+		{
+			Shape playerShape = player.pickUpController.GetHoldedShape();
+			if (playerShape != null)
+			{
+				player.EnableControls(false);
+				//int[,] shapeCoord = Shape.whatever();
+				//myUITetris.GetComponent<TetrisUIController>().OpenUI(player.playerId, shapeCoord, houseGridBool);
+			}
+
+		}
+	}
+
+	public void OpenUI(int player, int[] cursor, Shape shape)
+	{
+		//int[,] shapeCoord = Shape.whatever();
+		//myUITetris.GetComponent<TetrisUIController>().OpenUI(player, shapeCoord, houseGridBool);
+	}
+
 }

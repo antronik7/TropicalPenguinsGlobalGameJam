@@ -19,6 +19,9 @@ public class HouseAnimationScript : MonoBehaviour
     [SerializeField]
     private MeshRenderer DestroyedHouse;
 
+    [SerializeField]
+    private ParticleSystem Pouf;
+
     private float deltaY { get { return standardY - downY; } }
 
     private float tickDeltaY{get{ return deltaY * Time.deltaTime / (RespawnAnimTime / 2); } }
@@ -28,6 +31,9 @@ public class HouseAnimationScript : MonoBehaviour
     private float respawnDelayCounter = 0;
 
     private bool playAnim;
+
+    private float tempCounter = 0;
+    private bool played = false;
 
     HouseAnimState curState = HouseAnimState.None;
 
@@ -42,11 +48,9 @@ public class HouseAnimationScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        RepairedHouse.gameObject.SetActive(false);
         standardY = transform.localPosition.y;
-
         //Test
-        Play();
+        //Play();
     }
 
     public void Play()
@@ -57,6 +61,17 @@ public class HouseAnimationScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(tempCounter < 5)
+        {
+            tempCounter += Time.deltaTime;
+        }
+        else if(!played)
+        {
+            Play();
+            played = true;
+        }
+
         if (playAnim)
         {
             switch (curState)
@@ -65,7 +80,6 @@ public class HouseAnimationScript : MonoBehaviour
                     RepairTransition();
                     break;
                 case HouseAnimState.Repair:
-                    //Play FX
                     respawnDelayCounter += Time.deltaTime;
                     if (respawnDelayCounter >= TimeUntilRespawn)
                     {
@@ -97,8 +111,10 @@ public class HouseAnimationScript : MonoBehaviour
 
     void RepairTransition()
     {
-        DestroyedHouse.gameObject.SetActive(true);
-        RepairedHouse.gameObject.SetActive(false);
+        Pouf.gameObject.SetActive(true);
+        Pouf.Play();
+        RepairedHouse.gameObject.SetActive(true);
+        DestroyedHouse.gameObject.SetActive(false);
         curState = HouseAnimState.Repair;
     }
 
@@ -110,8 +126,8 @@ public class HouseAnimationScript : MonoBehaviour
 
     void GoUpTransition()
     {
-        RepairedHouse.gameObject.SetActive(true);
-        DestroyedHouse.gameObject.SetActive(false);
+        DestroyedHouse.gameObject.SetActive(true);
+        RepairedHouse.gameObject.SetActive(false);
         curState = HouseAnimState.GoUp;
     }
 

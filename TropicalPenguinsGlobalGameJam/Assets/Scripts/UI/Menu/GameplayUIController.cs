@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using TMPro;
+using System.Collections.Generic;
 
 public class GameplayUIController : MonoBehaviour
 {
@@ -10,7 +11,11 @@ public class GameplayUIController : MonoBehaviour
 	public PlayerUIOverlayElement Player4;
 	public TextMeshProUGUI Timer;
 
-	private TimeSpan timerSpan = new TimeSpan();
+	public List<Color> colors = new List<Color>(4);
+
+	public int maxTimerSeconds = 90;
+
+	private TimeSpan timerSpan;
 
 	private PlayerUIOverlayElement[] PlayerUIArray;
 
@@ -29,11 +34,13 @@ public class GameplayUIController : MonoBehaviour
 			int playerCount = PlayerManager.Instance.PlayerCount;
 			for (int i = 0; i < playerCount; ++i)
 			{
-				PlayerUIArray[i].gameObject.SetActive(true);
+				PlayerUIOverlayElement ui = PlayerUIArray[i];
+				ui.gameObject.SetActive(true);
+				ui.icon.color = colors[i];
 			}
 
 			Timer.gameObject.SetActive(true);
-			timerSpan = new TimeSpan(0, 0, 90);
+			timerSpan = new TimeSpan(0, 0, maxTimerSeconds);
 			Timer.SetText($"{timerSpan.Minutes}:{timerSpan.Seconds}");
 		});
 

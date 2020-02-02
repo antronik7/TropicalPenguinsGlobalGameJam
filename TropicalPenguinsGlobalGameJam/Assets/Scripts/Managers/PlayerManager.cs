@@ -50,6 +50,7 @@ public class PlayerManager : Singleton<PlayerManager>
 	private PlayerController SpawnPlayer(PlayerController playerPrefab, Transform spawnPoint)
 	{
 		PlayerController player = Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
+		player.SetCameraController(Camera.main.transform.parent.GetComponent<CameraController>());
 		player.SetId(idHelper.GetFreeId());
 		return player;
 	}

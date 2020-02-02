@@ -62,10 +62,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7773893418549500546, guid: 547ccd745d06f264da5be9d05ace7b06,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1f7842cc3a9090e45b5b144486479598, type: 2}
     - target: {fileID: 8349318484814065246, guid: 547ccd745d06f264da5be9d05ace7b06,
         type: 3}
       propertyPath: m_Name
-      value: SM_ModuleMountain_V4
+      value: SM_ModuleMountain_V4 Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 547ccd745d06f264da5be9d05ace7b06, type: 3}

@@ -10,8 +10,13 @@ PrefabInstance:
     - target: {fileID: 344149063128873749, guid: e81274044b4e5fd4cb7803903968c4c5,
         type: 3}
       propertyPath: m_Name
-      value: ground_01
+      value: ground_01 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2088121785425219529, guid: e81274044b4e5fd4cb7803903968c4c5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4bb0afda7647d47429778653adc2fcc0, type: 2}
     - target: {fileID: 3647335598647314694, guid: e81274044b4e5fd4cb7803903968c4c5,
         type: 3}
       propertyPath: m_LocalPosition.x

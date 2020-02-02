@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_ModuleSol (2)_SM_ModuleLake1_V1
+  m_Name: M_ModuleSol (2)_SM_ModuleMountain_V5
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _METALLICGLOSSMAP _NORMALMAP
   m_LightmapFlags: 4
@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 77b8564ed89ed6941b4d57a534a55fd4, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5ce1aa0874344964da5d27e2d178144b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -40,15 +40,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: c154556ea40c89844bbcc07ca1f349e9, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6a4566d32bc576a4ca0136f839f0b5d2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: bf2ad9c783a21584f9fbf9493e7f65a7, type: 3}
+        m_Texture: {fileID: 2800000, guid: 62a893312bc78dc4d882f2110d7f85f8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: 2800000, guid: 5e7f5509739d2944cbc95bf90cf871bf, type: 3}
+        m_Texture: {fileID: 2800000, guid: ef77dda4df83dea44bd894f53e48c9c2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:

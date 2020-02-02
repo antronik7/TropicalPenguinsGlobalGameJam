@@ -62,10 +62,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7548086811506075465, guid: 92b27d25be4bdb94092388a31066d28e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 28aa3e41b1a9e344dbb2537b1f475700, type: 2}
     - target: {fileID: 8141636188201243541, guid: 92b27d25be4bdb94092388a31066d28e,
         type: 3}
       propertyPath: m_Name
-      value: SM_ModuleLake_V2
+      value: SM_ModuleLake_V2 Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92b27d25be4bdb94092388a31066d28e, type: 3}

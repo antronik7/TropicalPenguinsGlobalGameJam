@@ -65,7 +65,12 @@ PrefabInstance:
     - target: {fileID: 8019467854874521676, guid: 0cb822fc3dca0324d8779fa98b8eb0a2,
         type: 3}
       propertyPath: m_Name
-      value: SM_ModuleMountain_V1
+      value: SM_ModuleMountain_V1 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8608078229781578896, guid: 0cb822fc3dca0324d8779fa98b8eb0a2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 85233560f05be724490ce73b869be582, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cb822fc3dca0324d8779fa98b8eb0a2, type: 3}

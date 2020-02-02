@@ -7,10 +7,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4710978102964327250, guid: f0d0db46d03cacf44b22a2479b529c90,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 08ebbfb8e77a98f45af6d207d988ad4d, type: 2}
     - target: {fileID: 6439047488539666318, guid: f0d0db46d03cacf44b22a2479b529c90,
         type: 3}
       propertyPath: m_Name
-      value: SM_ModuleMountain_V3
+      value: SM_ModuleMountain_V3 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8000449349925590429, guid: f0d0db46d03cacf44b22a2479b529c90,
         type: 3}

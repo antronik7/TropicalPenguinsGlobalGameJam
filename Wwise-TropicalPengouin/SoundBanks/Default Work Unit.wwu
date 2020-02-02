@@ -5,7 +5,9 @@
 			<ChildrenList>
 				<SoundBank Name="Main" ID="{C00EEB70-A63B-4E4C-9787-84DDE35A537A}">
 					<ObjectInclusionList>
+						<ObjectRef Name="Block_drop" ID="{E0B031D0-1065-4036-A6C0-B0439EDE0822}" WorkUnitID="{6B199D65-53A6-49AF-8DFF-DB836CD06945}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="BlockPickup" ID="{4B41B169-9F60-40C2-810A-A4E2A48177C7}" WorkUnitID="{6B199D65-53A6-49AF-8DFF-DB836CD06945}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Block_break" ID="{8AF4AE17-1E14-41C3-A3A7-D247B9F90A66}" WorkUnitID="{6B199D65-53A6-49AF-8DFF-DB836CD06945}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="BlockPlacement_good" ID="{6D711839-B35B-42D8-B78B-E04429AFB38A}" WorkUnitID="{6B199D65-53A6-49AF-8DFF-DB836CD06945}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Play_Background_music" ID="{8000E825-E101-4301-B401-6DF66CC5D496}" WorkUnitID="{6B199D65-53A6-49AF-8DFF-DB836CD06945}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="StartEngine" ID="{F03E930B-73E9-441B-9BE5-B1C71081280A}" WorkUnitID="{6B199D65-53A6-49AF-8DFF-DB836CD06945}" Filter="7" Origin="Manual"/>
@@ -16,6 +18,7 @@
 						<ObjectRef Name="UI_Move" ID="{01DE94BE-606A-4908-98A5-7FE21BF2BA18}" WorkUnitID="{6B199D65-53A6-49AF-8DFF-DB836CD06945}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="House_complete" ID="{1AAB39B9-7E37-4BBB-9F66-F4DEBA2C8B67}" WorkUnitID="{6B199D65-53A6-49AF-8DFF-DB836CD06945}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Tractor_Impact" ID="{5316E9AD-97FB-4C70-831A-A73FEF58A29A}" WorkUnitID="{6B199D65-53A6-49AF-8DFF-DB836CD06945}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="WoodCrash" ID="{8C752D60-13F2-4DB7-90AD-3DA687D3473D}" WorkUnitID="{6B199D65-53A6-49AF-8DFF-DB836CD06945}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="BlockPlacement_wrong" ID="{14789D92-4C3F-4F2A-8C50-47150830FF48}" WorkUnitID="{6B199D65-53A6-49AF-8DFF-DB836CD06945}" Filter="7" Origin="Manual"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>

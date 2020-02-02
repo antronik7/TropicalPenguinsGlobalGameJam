@@ -131,6 +131,7 @@ public class TetrisUIController : MonoBehaviour
 
             transform.parent.GetComponent<HouseManager>().PlaceBlock(playerId, CursorPos, ShapePosArray);
             GridUI.AddGridBlocks(CursorPos, ShapePosArray);
+
             Close();
         }
         else

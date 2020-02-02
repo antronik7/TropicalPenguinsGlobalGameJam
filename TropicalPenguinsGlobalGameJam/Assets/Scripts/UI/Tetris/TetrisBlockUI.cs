@@ -42,10 +42,19 @@ public class TetrisBlockUI : MonoBehaviour
 
         for(int i = 0; i < blocksPos.GetLength(0); ++i)
         {
-            blocksArray[i].rectTransform.anchoredPosition = new Vector3(cursorPos[0] + blocksPos[i,0], 
-                                                                    cursorPos[1] + blocksPos[i,1], 
+            blocksArray[i].rectTransform.anchoredPosition = new Vector3(cursorPos[0] + blocksPos[i,1], 
+                                                                    -(cursorPos[1] + blocksPos[i,0]), 
                                                                     blocksArray[i].rectTransform.localPosition.z);
         }
+    }
+
+    public void Close()
+    {
+        foreach(Image im in blocksArray)
+        {
+            Destroy(im);
+        }
+        blocksArray = null;
     }
 
     public void ChangeValidity(bool isValid)

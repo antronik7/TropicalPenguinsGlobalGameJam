@@ -38,7 +38,7 @@ public class TetrisGrid : MonoBehaviour
         gridHasBlock = new bool[GridSize, GridSize];
         for (int i = 0; i < GridSize; ++i)
         {
-            for(int j = GridSize - 1; j >= 0; --j)
+            for(int j = 0; j < GridSize; ++j)
             {
                 gridHasBlock[i, j] = false;
                 GameObject newGridCell = Instantiate(gridCellTemplate);
@@ -53,7 +53,7 @@ public class TetrisGrid : MonoBehaviour
         gridHasBlock = house;
         for (int i = 0; i < house.GetLength(0); ++i)
         {
-            for (int j = 0; j < house.GetLength(1); ++j)
+            for (int j = house.GetLength(1) - 1; j >= 0; --j)
             {
                 Image currentImg = gridCells[i,j];
                 if(gridHasBlock[i,j] && currentImg.sprite == EmptySprite)
@@ -64,12 +64,12 @@ public class TetrisGrid : MonoBehaviour
         }
     }
 
-    public void AddGridBlocks(int[,] housePosArray)
+    public void AddGridBlocks(int[] cursorPos, int[,] ShapePosArray)
     {
-        for (int i = 0; i < housePosArray.GetLength(0); ++i)
+        for (int i = 0; i < ShapePosArray.GetLength(0); ++i)
         {
-            gridHasBlock[housePosArray[i, 0], housePosArray[i, 1]] = true;
-            Image currentImg = gridCells[housePosArray[i, 0], housePosArray[i, 1]];
+            gridHasBlock[cursorPos[1] + ShapePosArray[i, 0], cursorPos[0] + ShapePosArray[i, 1]] = true;
+            Image currentImg = gridCells[cursorPos[1] + ShapePosArray[i, 0], cursorPos[0] + ShapePosArray[i, 1]];
             currentImg.sprite = BlockSprite;
         }
     }

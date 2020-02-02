@@ -13,7 +13,7 @@ public class HouseManager : MonoBehaviour
 	private int _nbCubes = 0;
 	[SerializeField]
 	protected TextMeshProUGUI houseScore;
-	 
+
 	protected int nbCubes
 	{
 		get { return _nbCubes; }
@@ -105,6 +105,8 @@ public class HouseManager : MonoBehaviour
 				}
 			}
 		}
+		other.gameObject.GetComponentInChildren<Animator>().SetBool("HasBlock", false);
+
 	}
 
 	private void PlayerScore(int points, PlayerController player)

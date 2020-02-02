@@ -16,6 +16,7 @@ public class GameplayUIController : MonoBehaviour
 	public int maxTimerSeconds = 90;
 
 	private TimeSpan timerSpan;
+	private bool isSet = false;
 
 	private PlayerUIOverlayElement[] PlayerUIArray;
 
@@ -42,6 +43,7 @@ public class GameplayUIController : MonoBehaviour
 			Timer.gameObject.SetActive(true);
 			timerSpan = new TimeSpan(0, 0, maxTimerSeconds);
 			Timer.SetText($"{timerSpan.Minutes}:{timerSpan.Seconds}");
+			isSet = true;
 		});
 
 		EventManager.GameplayEnd.AddListener(() =>
@@ -51,6 +53,7 @@ public class GameplayUIController : MonoBehaviour
 				playerUI.gameObject.SetActive(false);
 			}
 			Timer.gameObject.SetActive(false);
+			isSet = false;
 		});
 
 		EventManager.PlayerScored.AddListener((player, previousScore, scoreIncrement) =>
@@ -79,7 +82,7 @@ public class GameplayUIController : MonoBehaviour
 
 	public void UpdateTimer(int deltaInMilli)
 	{
-		if (timerSpan == null)
+		if (!isSet)
 			return;
 
 		timerSpan = timerSpan.Subtract(new TimeSpan(0, 0, 0, 0, deltaInMilli));

@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
 	void Awake()
 	{
 		myRigidbody = GetComponent<Rigidbody>();
-	}
+	} 
 
 	// Start is called before the first frame update
 	void Start()

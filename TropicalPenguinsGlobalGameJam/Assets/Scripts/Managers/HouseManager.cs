@@ -25,7 +25,7 @@ public class HouseManager : MonoBehaviour
 	{
 		InitializeConstants();
 		InitializeHouseGrid();
-		AddBlockToHouse(new int[] { 0, 0 }, new int[,] { { 0, 0 } });
+		//AddBlockToHouse(new int[] { 0, 0 }, new int[,] { { 0, 0 } });
 	}
 
 	private void InitializeHouseGrid()
@@ -78,9 +78,8 @@ public class HouseManager : MonoBehaviour
 	{
 		for (int i = 0; i < grid.GetLength(0); i++)
 		{
-			//if collision
 			// invert the grid values because of line storage
-			if (houseGridBool[cursor[1] + grid[i, 1], cursor[0] + grid[i, 0]] == true)
+			if (houseGridBool[cursor[1] + grid[i, 0], cursor[0] + grid[i, 1]] == true)
 			{
 				return false;
 			}

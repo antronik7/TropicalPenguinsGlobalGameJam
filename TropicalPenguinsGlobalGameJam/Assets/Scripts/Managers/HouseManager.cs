@@ -11,6 +11,7 @@ public class HouseManager : MonoBehaviour
 	private int[] playersBlocksPlaced;
 	public const int maxCubes = 16;
 	private int _nbCubes = 0;
+	[SerializeField]
 	protected TextMeshProUGUI houseScore;
 
 	protected int nbCubes
@@ -100,6 +101,7 @@ public class HouseManager : MonoBehaviour
 				if (CanPlaceBlock(score))
 				{
 					PlaceBlock(score, player);
+					player.pickUpController.DropShape(true);
 				}
 			}
 		}

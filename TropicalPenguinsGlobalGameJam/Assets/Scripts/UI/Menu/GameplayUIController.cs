@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 using TMPro;
 
@@ -11,12 +10,21 @@ public class GameplayUIController : MonoBehaviour
 	public PlayerUIOverlayElement Player4;
 	public TextMeshProUGUI Timer;
 
+	private TimeSpan timerSpan = new TimeSpan();
+
 	private PlayerUIOverlayElement[] PlayerUIArray;
 
 	private void Awake()
 	{
 		PlayerUIArray = new PlayerUIOverlayElement[] { Player1, Player2, Player3, Player4 };
+		Timer.enabled = false;
 
+		EventManager.GameplayStart.AddListener(() =>
+		{
+			Timer.enabled = true;
+			timerSpan = new TimeSpan(0, 0, 90);
+			Timer.SetText($"{timerSpan.Minutes}:{timerSpan.Seconds}");
+		});
 		EventManager.PlayerScored.AddListener((player, previousScore, scoreIncrement) =>
 		{
 			PlayerUIArray[player.playerId].UpdateScore(previousScore + scoreIncrement);
@@ -28,9 +36,12 @@ public class GameplayUIController : MonoBehaviour
 		//UpdateScore(2, 4);
 		//UpdateScore(3, 9);
 		//UpdateScore(4, 16);
-		UpdateTimer(90);
 	}
 
+	private void FixedUpdate()
+	{
+		UpdateTimer((int)(Time.fixedDeltaTime * 1000));
+	}
 	public void OnEndGame()
 	{
 		MenuSpawnerManager menuSpawnerManager = MenuSpawnerManager.Instance;
@@ -38,12 +49,15 @@ public class GameplayUIController : MonoBehaviour
 	}
 
 
-	public void UpdateTimer(int seconds)
+	public void UpdateTimer(int deltaInMilli)
 	{
-		int min = seconds / 60;
-		int sec = seconds % 60;
+		if (timerSpan == null)
+			return;
 
-		string timerTxt = $"{min}:{sec}";
-		Timer.SetText(timerTxt);
+		timerSpan = timerSpan.Subtract(new TimeSpan(0, 0, 0, 0, deltaInMilli));
+		if (timerSpan.Minutes > 0)
+			Timer.SetText($"{timerSpan.Minutes}:{timerSpan.Seconds}");
+		else
+			Timer.SetText($"{timerSpan.Seconds}");
 	}
 }

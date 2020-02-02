@@ -108,9 +108,9 @@ public class TetrisUIController : MonoBehaviour
         isBlockPosValid = true;
         for (int i = 0; i < ShapePosArray.GetLength(0) && isBlockPosValid; ++i)
         {
-            int posX = CursorPos[1] + ShapePosArray[i, 1];
-            int posY = CursorPos[0] + ShapePosArray[i, 0];
-            if (posX < 0 || posY < 0 || posX > GridUI.GridSize || posY > GridUI.GridSize)
+            int posX = CursorPos[0] + ShapePosArray[i, 1];
+            int posY = CursorPos[1] + ShapePosArray[i, 0];
+            if (posX < 0 || posY < 0 || posX >= GridUI.GridSize || posY >= GridUI.GridSize)
             {
                 isBlockPosValid = false;
             }
@@ -129,8 +129,8 @@ public class TetrisUIController : MonoBehaviour
         if (isBlockPosValid)
         {
             GridUI.AddGridBlocks(CursorPos, ShapePosArray);
-            //UpdateHouse(CursorPos, ShapePosArray, PlayerId)
-            transform.root.GetComponent<HouseManager>().PlaceBlock(PlayerId, CursorPos, ShapePosArray);
+
+            transform.parent.GetComponent<HouseManager>().PlaceBlock(PlayerId, CursorPos, ShapePosArray);
             Close();
         }
         else
@@ -146,8 +146,9 @@ public class TetrisUIController : MonoBehaviour
     {
         BlockView.Close();
         gameObject.SetActive(false);
+        CursorPos = new int[] { 0, 0 };
 
-		if (currentPlayer == null || playerForceClose)
+        if (currentPlayer == null || playerForceClose)
 			return;
 
 		currentPlayer.CloseTetrisUI();

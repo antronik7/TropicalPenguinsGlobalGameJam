@@ -154,5 +154,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: tree_03
       objectReference: {fileID: 0}
+    - target: {fileID: 2312118329068655826, guid: 682d5b5ac5da4c94abbd03316d71e439,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8033602527612868951, guid: 682d5b5ac5da4c94abbd03316d71e439,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 8033602527612868951, guid: 682d5b5ac5da4c94abbd03316d71e439,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 8033602527612868951, guid: 682d5b5ac5da4c94abbd03316d71e439,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.55
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 682d5b5ac5da4c94abbd03316d71e439, type: 3}

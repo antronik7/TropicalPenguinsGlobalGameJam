@@ -77,6 +77,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: tree_05
       objectReference: {fileID: 0}
+    - target: {fileID: 2312118329068655826, guid: 5a0fa0ac7d193ed4d97b464fb034641f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8033602527612868951, guid: 5a0fa0ac7d193ed4d97b464fb034641f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8033602527612868951, guid: 5a0fa0ac7d193ed4d97b464fb034641f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8033602527612868951, guid: 5a0fa0ac7d193ed4d97b464fb034641f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8033602527612868951, guid: 5a0fa0ac7d193ed4d97b464fb034641f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8033602527612868951, guid: 5a0fa0ac7d193ed4d97b464fb034641f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a0fa0ac7d193ed4d97b464fb034641f, type: 3}
 --- !u!1001 &4896598037693638790

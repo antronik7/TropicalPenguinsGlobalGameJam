@@ -18,11 +18,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_MaisonB_01 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5402337369996174011, guid: c650ec2525c00a74fa5afb83cbb0ded0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5963930545588180583, guid: c650ec2525c00a74fa5afb83cbb0ded0,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b84357a66caec754896be4551c5ef9f0, type: 2}
+    - target: {fileID: 8500790094681231097, guid: c650ec2525c00a74fa5afb83cbb0ded0,
+        type: 3}
+      propertyPath: RepairedHouse
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8981212228579905704, guid: c650ec2525c00a74fa5afb83cbb0ded0,
         type: 3}
       propertyPath: m_LocalPosition.x

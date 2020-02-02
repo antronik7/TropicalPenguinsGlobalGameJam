@@ -45,8 +45,8 @@ public class HouseAnimationScript : MonoBehaviour
         RepairedHouse.gameObject.SetActive(false);
         standardY = transform.localPosition.y;
 
-        //Test
-        Play();
+        ////Test
+        //Play();
     }
 
     public void Play()

@@ -137,7 +137,7 @@
 				</Event>
 				<Event Name="BlockPickup" ID="{4B41B169-9F60-40C2-810A-A4E2A48177C7}">
 					<ChildrenList>
-						<Action Name="" ID="{5D73BD41-26BB-475E-AB55-F4A93479E73C}" ShortID="919759461">
+						<Action Name="" ID="{4A1D7D05-DE80-4073-B15A-3E17B5BCE2E1}" ShortID="39553458">
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="mechanical_shovel_4" ID="{2FB3891C-53FA-4329-998A-28D5B0B88371}" WorkUnitID="{4C6EFE75-9599-4E74-992B-81F3EC47697D}"/>

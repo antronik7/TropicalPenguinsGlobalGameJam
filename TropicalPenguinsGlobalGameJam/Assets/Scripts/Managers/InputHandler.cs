@@ -25,13 +25,6 @@ public class InputHandler : MonoBehaviour
 			player.AddInputEventDelegate((ctx) => pc.Dash(ctx.GetButtonDown()), UpdateLoopType.FixedUpdate, RewiredConsts.Action.Dash);
 			player.AddInputEventDelegate((ctx) => pickUpTool.RequestShapePickUp(), UpdateLoopType.FixedUpdate, InputActionEventType.ButtonJustPressed, RewiredConsts.Action.PickUpBlock);
 			player.AddInputEventDelegate((ctx) => pickUpTool.RequestShapePlacement(), UpdateLoopType.FixedUpdate, InputActionEventType.ButtonJustPressed, RewiredConsts.Action.DumpBlock);
-
-			player.AddInputEventDelegate((ctx) => pc.PlaceBlock(), UpdateLoopType.FixedUpdate, InputActionEventType.ButtonJustPressed, RewiredConsts.Action.PlaceBlock);
-			player.AddInputEventDelegate((ctx) => pc.CloseTetrisUI(), UpdateLoopType.FixedUpdate, InputActionEventType.ButtonJustPressed, RewiredConsts.Action.CancelPlaceBlock);
-			player.AddInputEventDelegate((ctx) => pc.RotateBlock(true), UpdateLoopType.FixedUpdate, InputActionEventType.ButtonJustPressed, "DoMeARotate");
-			player.AddInputEventDelegate((ctx) => pc.RotateBlock(false), UpdateLoopType.FixedUpdate, InputActionEventType.ButtonJustPressed, RewiredConsts.Action.DoMeACounterRotate);
-			player.AddInputEventDelegate((ctx) => pc.MoveBlock(ctx.GetAxis() > 0 ? new Vector2(1, 0) : new Vector2(-1, 0)), UpdateLoopType.FixedUpdate, InputActionEventType.ButtonJustPressed, RewiredConsts.Action.MoveBlockX);
-			player.AddInputEventDelegate((ctx) => pc.MoveBlock(ctx.GetAxis() > 0 ? new Vector2(0, 1) : new Vector2(0, -1)), UpdateLoopType.FixedUpdate, InputActionEventType.ButtonJustPressed, RewiredConsts.Action.MoveBlockY);
 		}
 	}
 

@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour
 
 	//Components
 	private Rigidbody myRigidbody;
+	private Animation animation;
 
 	//Variables
 	public int playerId { get; private set; }
@@ -65,7 +66,8 @@ public class PlayerController : MonoBehaviour
 	void Awake()
 	{
 		myRigidbody = GetComponent<Rigidbody>();
-	} 
+		animation = GetComponent<Animation>();
+	}
 
 	// Start is called before the first frame update
 	void Start()

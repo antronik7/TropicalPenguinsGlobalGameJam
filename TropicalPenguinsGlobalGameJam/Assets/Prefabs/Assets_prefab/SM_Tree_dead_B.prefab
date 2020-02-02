@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4443952945181516037}
   - component: {fileID: 4681229130553318195}
   - component: {fileID: 1426401368592918474}
+  - component: {fileID: 33282217788420260}
   m_Layer: 0
   m_Name: SM_Tree_dead_B
   m_TagString: Untagged
@@ -78,3 +79,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &33282217788420260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 862244098613875478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6561c50eabec314183d4e4fe1e78c80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  original: {fileID: 0}
+  variant: {fileID: 1138909438425005693, guid: 26c1ee795d2ae294ca4a8ea431e991c4, type: 3}

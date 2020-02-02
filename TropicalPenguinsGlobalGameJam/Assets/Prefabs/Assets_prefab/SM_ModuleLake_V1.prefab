@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6085024569023198467}
   - component: {fileID: 2966006438241619765}
   - component: {fileID: 8797173083340420044}
+  - component: {fileID: 1620237305611025072}
   m_Layer: 0
   m_Name: SM_ModuleLake_V1
   m_TagString: Untagged
@@ -78,3 +79,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1620237305611025072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7073184981311293200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6561c50eabec314183d4e4fe1e78c80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  original: {fileID: 0}
+  variant: {fileID: 6461490241890340155, guid: 2a8ded9330425eb43bf0e1bcd51d80ca, type: 3}

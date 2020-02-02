@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9083352804052503270}
   - component: {fileID: 240251541063610576}
   - component: {fileID: 5794165607102270505}
+  - component: {fileID: -557557511096242405}
   m_Layer: 0
   m_Name: SM_BarrierB_Coin_V1_01
   m_TagString: Untagged
@@ -78,3 +79,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &-557557511096242405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5212306232497404149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6561c50eabec314183d4e4fe1e78c80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  original: {fileID: 0}
+  variant: {fileID: 5131970330713631812, guid: 89297a74fe7699742aae7503cde32c2e, type: 3}

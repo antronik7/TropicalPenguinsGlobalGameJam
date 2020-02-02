@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7299352884013532583}
   - component: {fileID: 1736001837323435921}
   - component: {fileID: 5416437349546279784}
+  - component: {fileID: 3639401943575133476}
   m_Layer: 0
   m_Name: SM_BarrierB_PorteL_V2_01
   m_TagString: Untagged
@@ -78,3 +79,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &3639401943575133476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5987495155036288948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6561c50eabec314183d4e4fe1e78c80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  original: {fileID: 0}
+  variant: {fileID: 5826716626350480600, guid: 175e8c8f2daa6d944896ede5bc27f710, type: 3}

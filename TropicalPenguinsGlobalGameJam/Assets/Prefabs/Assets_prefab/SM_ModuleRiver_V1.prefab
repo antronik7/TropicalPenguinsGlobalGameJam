@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3309248618336296495}
   - component: {fileID: 5816353472755016729}
   - component: {fileID: 255403088748730592}
+  - component: {fileID: 8806009314815967960}
   m_Layer: 0
   m_Name: SM_ModuleRiver_V1
   m_TagString: Untagged
@@ -78,3 +79,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &8806009314815967960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997216474379709500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6561c50eabec314183d4e4fe1e78c80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  original: {fileID: 0}
+  variant: {fileID: 1509753397835196284, guid: 7030790617662ff40ae375cdb1553f68, type: 3}

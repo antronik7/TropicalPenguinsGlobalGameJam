@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2359716703894644668}
   - component: {fileID: 6765641838897208714}
   - component: {fileID: 1069862211586285939}
+  - component: {fileID: -3424931699252110180}
   m_Layer: 0
   m_Name: SM_ModuleMountain_V5
   m_TagString: Untagged
@@ -78,3 +79,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &-3424931699252110180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649509402633622959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6561c50eabec314183d4e4fe1e78c80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  original: {fileID: 0}
+  variant: {fileID: 173622468626026246, guid: f9bce95876a1b0842b464fd5d03b690e, type: 3}

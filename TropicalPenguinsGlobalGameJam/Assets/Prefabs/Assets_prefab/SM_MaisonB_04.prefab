@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6446510972606405381}
   - component: {fileID: 2606912571689918771}
   - component: {fileID: 8579661061514862026}
+  - component: {fileID: 5340834681249049461}
   m_Layer: 0
   m_Name: SM_MaisonB_04
   m_TagString: Untagged
@@ -78,3 +79,15 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &5340834681249049461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8011272943789811990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6561c50eabec314183d4e4fe1e78c80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

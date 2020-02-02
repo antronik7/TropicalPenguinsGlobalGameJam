@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 969330517118318024}
   - component: {fileID: 8081927540098682878}
   - component: {fileID: 2527732343084200711}
+  - component: {fileID: 9165324945492479546}
   m_Layer: 0
   m_Name: SM_BarrierB_Long_V3_01
   m_TagString: Untagged
@@ -78,3 +79,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &9165324945492479546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4262825413671028699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6561c50eabec314183d4e4fe1e78c80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  original: {fileID: 0}
+  variant: {fileID: 7359238494072316418, guid: 820a0501b2f73d14aa924690bf7d72d0, type: 3}

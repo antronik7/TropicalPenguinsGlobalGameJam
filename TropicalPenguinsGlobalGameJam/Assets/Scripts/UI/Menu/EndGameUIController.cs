@@ -40,4 +40,9 @@ public class EndGameUIController : MonoBehaviour
         ScoreP3.SetText(scoreP3.ToString());
         ScoreP4.SetText(scoreP4.ToString());
     }
+    public void ToMainMenu()
+    {
+        MenuSpawnerManager menuSpawnerManager = MenuSpawnerManager.Instance;
+        menuSpawnerManager.SwitchUI(menuSpawnerManager.MainMenuUI);
+    }
 }

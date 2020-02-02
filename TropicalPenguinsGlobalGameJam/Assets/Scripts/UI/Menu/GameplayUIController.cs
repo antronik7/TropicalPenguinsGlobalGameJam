@@ -62,6 +62,8 @@ public class GameplayUIController : MonoBehaviour
 	private void FixedUpdate()
 	{
 		UpdateTimer((int)(Time.fixedDeltaTime * 1000));
+		if (timerSpan.Ticks <= 0)
+			EventManager.GameplayEnd.Invoke();
 	}
 	//public void OnEndGame()
 	//{

@@ -414,8 +414,8 @@ MonoBehaviour:
   - {fileID: 1641343691}
   - {fileID: 258270706}
   SpawnHeight: 6
-  SpawningRateInSeconds: 3
-  MaxNumberOfBlocks: 10
+  SpawningRateInSeconds: 1
+  MaxNumberOfBlocks: 500
 --- !u!4 &135088294
 Transform:
   m_ObjectHideFlags: 0
@@ -1264,6 +1264,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718974313313314802, guid: 3363b47343abd084e8ed123470ec0850,
+        type: 3}
+      propertyPath: maxTimerSeconds
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 2877117951305413352, guid: 3363b47343abd084e8ed123470ec0850,
         type: 3}

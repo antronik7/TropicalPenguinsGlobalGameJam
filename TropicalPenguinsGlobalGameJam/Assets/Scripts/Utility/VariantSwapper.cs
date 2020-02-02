@@ -18,15 +18,19 @@ public class VariantSwapper : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+		if (variant == null)
+			return;
 		variantInstance = Instantiate(variant, transform.position, transform.rotation);
 		variantInstance.SetActive(false);
 
-		EventManager.GameEnd.AddListener(() => SwitchToVariant());
+		EventManager.GameplayEnd.AddListener(() => SwitchToVariant());
 	}
 
 	// This cancer is really hack-ish :) x    D
 	private void SwitchToVariant()
 	{
+		if (variant == null)
+			return;
 		variantInstance.SetActive(true);
 		original.SetActive(false);
 	}

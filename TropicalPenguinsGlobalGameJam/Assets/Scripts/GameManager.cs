@@ -31,17 +31,20 @@ public class GameManager : Singleton<GameManager>
 	private void addToPlayerScore(int playerID, int score)
 	{
 		playerScores[playerID] += score;
-		CheckIfWinner();
+		if (CheckIfWinner())
+		{
+			EventManager.GameplayEnd.Invoke();
+		}
 	}
 
-	private int CheckIfWinner()
+	private bool CheckIfWinner()
 	{
 		for (int i = 0; i < playerScores.Length; ++i)
 		{
 			if (playerScores[i] >= scoreToWin)
-				return i;
+				return true;
 		}
 
-		return -1;
+		return false;
 	}
 }

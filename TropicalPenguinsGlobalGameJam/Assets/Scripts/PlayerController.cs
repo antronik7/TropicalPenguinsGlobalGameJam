@@ -4,173 +4,201 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    //Instances
-    public PickUpToolController pickUpController;
+	//Instances
+	public PickUpToolController pickUpController;
 
-    //Values
-    [SerializeField]
-    float speedPlayer;
-    [SerializeField]
-    float turnSpeedPlayer;
-    [SerializeField]
-    float maxSpeedPlayer;
-    [SerializeField]
-    float speedDecreasePlayer;
-    [SerializeField]
-    float forceDash;
-    [SerializeField]
-    float dashLenghtInMS;
+	//Values
+	[SerializeField]
+	float speedPlayer;
+	[SerializeField]
+	float turnSpeedPlayer;
+	[SerializeField]
+	float maxSpeedPlayer;
+	[SerializeField]
+	float speedDecreasePlayer;
+	[SerializeField]
+	float forceDash;
+	[SerializeField]
+	float dashLenghtInMS;
+	[SerializeField]
+	float dashDelay = 3f;
 
-    [SerializeField]
-    private AK.Wwise.RTPC RPM;
+	[SerializeField]
+	private AK.Wwise.RTPC RPM;
 
-    [SerializeField]
-    private AK.Wwise.Event StartEngine;
+	[SerializeField]
+	private AK.Wwise.Event StartEngine;
+	[SerializeField]
+	private AK.Wwise.Event PlayerImpact;
+	[SerializeField]
+	private AK.Wwise.Event BeaverShout;
+	[SerializeField]
+	private AK.Wwise.Event BlockBreak;
+	[SerializeField]
+	private AK.Wwise.Event Boost;
 
-    //Components
-    private Rigidbody myRigidbody;
+
+	//Components
+	private Rigidbody myRigidbody;
 
 	//Variables
 	public int playerId { get; private set; }
 	private bool isDashing = false;
-    private bool canDestroyBlock = true;
-    private bool areControlsEnable = true;
-	private float axisLeftTrigger;
-	private float axisRightTrigger;
-	private float axisHorizontal;
+	private bool canDestroyBlock = true;
+	private bool areControlsEnable = true;
 	[SerializeField]
-    private float currentVelocity = 0f;
-    private Vector3 velocityBeforeDash;
+	private float currentVelocity = 0f;
+	private Vector3 velocityBeforeDash;
+	Vector3 lastPosition = Vector3.zero;
+	float dashTimeStamp = 0f;
 
-    void Awake()
-    {
-        myRigidbody = GetComponent<Rigidbody>();
-    }
+	void Awake()
+	{
+		myRigidbody = GetComponent<Rigidbody>();
+	}
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        StartEngine.Post(gameObject);
-    }
+	// Start is called before the first frame update
+	void Start()
+	{
+		StartEngine.Post(gameObject);
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(areControlsEnable)
-        {
-            if (Input.GetButtonDown("ButtonB"))
-                Dash();
+	// Update is called once per frame
+	void Update()
+	{
+		UpdatePlayerRPM();
+	}
 
-			axisLeftTrigger = Input.GetAxis("LeftTrigger");
-			axisRightTrigger = Input.GetAxis("RightTrigger");
-			axisHorizontal = Input.GetAxis("Horizontal");
+	void OnCollisionEnter(Collision collision)
+	{
+		DestroyBlock(collision);
+	}
+
+	void OnCollisionStay(Collision collision)
+	{
+		DestroyBlock(collision);
+	}
+
+	void DestroyBlock(Collision collision)
+	{
+		if (isDashing)
+		{
+			if (canDestroyBlock)
+			{
+				PlayerController controller;
+				if (collision.transform.GetComponent<Shape>() != null)
+				{
+					collision.transform.GetComponent<Shape>().Crumble();
+					BlockBreak.Post(gameObject);
+				}
+				else if (controller = collision.transform.GetComponent<PlayerController>())
+				{
+					PlayerImpact.Post(gameObject);
+					Debug.Log("Collision");
+					Shape shapeToCrumble = controller.pickUpController.GetHoldedShape();
+
+					if (shapeToCrumble != null) {
+						shapeToCrumble.Crumble(controller);
+						BeaverShout.Post(gameObject);
+					}
+				}
+
+				canDestroyBlock = false;
+			}
+		}
+	}
+
+	public void Move(float input)
+	{
+		//float signVelocity = Mathf.Sign(Vector3.Dot(myRigidbody.velocity.normalized, transform.forward));
+		//myRigidbody.velocity = transform.forward * myRigidbody.velocity.magnitude * signVelocity;
+
+		//myRigidbody.AddForce(transform.forward * axisRightTrigger * 40f);
+		//myRigidbody.AddForce(transform.forward * axisLeftTrigger * 25f * -1f);
+
+		//if (Mathf.Abs(myRigidbody.velocity.magnitude) >= maxSpeedPlayer)
+		//{
+		//    myRigidbody.velocity = maxSpeedPlayer * transform.forward * signVelocity;
+		//}
+
+		//return;
+		if (isDashing || !areControlsEnable)
+			return;
+
+		float speed = (transform.position - lastPosition).magnitude;
+		if (speed <= 0.001f)
+		{
+			currentVelocity = 0f;
 		}
 
-		UpdatePlayerRPM();
-    }
+		lastPosition = transform.position;
 
-    private void FixedUpdate()
-    {
-        if (areControlsEnable)
-        {
-            Move();
-            Rotate();
-        }
-    }
+		float movementVelocity = input * speedPlayer * Time.deltaTime;
+		currentVelocity += movementVelocity;
 
-    void OnCollisionEnter(Collision collision)
-    {
-        DestroyBlock(collision);
-    }
+		if (Mathf.Abs(movementVelocity) == 0f || Mathf.Sign(currentVelocity) != Mathf.Sign(movementVelocity))
+		{
+			float currentVelocityAbsolute = Mathf.Abs(currentVelocity) - speedDecreasePlayer;
 
-    void OnCollisionStay(Collision collision)
-    {
-        DestroyBlock(collision);
-    }
+			if (currentVelocityAbsolute < 0f)
+				currentVelocityAbsolute = 0f;
 
-    void DestroyBlock(Collision collision)
-    {
-        if (isDashing)
-        {
-            if (canDestroyBlock)
-            {
-                if (collision.transform.GetComponent<Shape>() != null)
-                {
-                    collision.transform.GetComponent<Shape>().Crumble();
-                }
-                else if (collision.transform.GetComponent<PlayerController>())
-                {
-                    Shape shapeToCrumble = collision.transform.parent.GetComponent<PlayerController>().pickUpController.GetHoldedShape();
+			currentVelocity = currentVelocityAbsolute * Mathf.Sign(currentVelocity);
+		}
 
-                    if (shapeToCrumble != null)
-                        shapeToCrumble.Crumble();
-                }
+		if (Mathf.Abs(currentVelocity) >= maxSpeedPlayer)
+		{
+			currentVelocity = maxSpeedPlayer * Mathf.Sign(movementVelocity);
+		}
 
-                canDestroyBlock = false;
-            }
-        }
-    }
+		Vector3 velocityPlayer = transform.forward * currentVelocity;
 
-    public void Move()
-    {
-        float movementVelocity = (axisLeftTrigger * speedPlayer * Time.deltaTime) + (axisRightTrigger * speedPlayer * Time.deltaTime * -1);
-        currentVelocity += movementVelocity;
+		myRigidbody.velocity = new Vector3(velocityPlayer.x, myRigidbody.velocity.y, velocityPlayer.z);
+	}
 
-        if (Mathf.Abs(movementVelocity) == 0f || Mathf.Sign(currentVelocity) != Mathf.Sign(movementVelocity))
-        {
-            float currentVelocityAbsolute = Mathf.Abs(currentVelocity) - speedDecreasePlayer;
-            
+	public void Rotate(float input)
+	{
+		if (isDashing || !areControlsEnable)
+			return;
 
-            if (currentVelocityAbsolute < 0f)
-                currentVelocityAbsolute = 0f;
+		float turn = input * turnSpeedPlayer * Time.deltaTime;
+		Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
+		myRigidbody.MoveRotation(myRigidbody.rotation * turnRotation);
+	}
 
-            currentVelocity = currentVelocityAbsolute * Mathf.Sign(currentVelocity);
-        }
+	public void Dash(bool input)
+	{
+		if (Time.timeSinceLevelLoad < dashTimeStamp || input == false)
+			return;
 
-        if (Mathf.Abs(currentVelocity) >= maxSpeedPlayer)
-        {
-            currentVelocity = maxSpeedPlayer * Mathf.Sign(movementVelocity);
-        }
+		dashTimeStamp = Time.timeSinceLevelLoad + dashDelay;
+		isDashing = true;
+		EnableControls(false);
+		velocityBeforeDash = myRigidbody.velocity;
+		Vector3 velocityPlayer = transform.forward * forceDash;
+		myRigidbody.velocity = new Vector3(velocityPlayer.x, myRigidbody.velocity.y, velocityPlayer.z);
+		Boost.Post(gameObject);
+		Invoke("StopDash", dashLenghtInMS);
+	}
 
-        Vector3 velocityPlayer = transform.forward * currentVelocity;
+	private void StopDash()
+	{
+		isDashing = false;
+		EnableControls(true);
+		canDestroyBlock = true;
+		//currentVelocity = myRigidbody.velocity.magnitude;
+	}
 
-        myRigidbody.velocity = new Vector3 (velocityPlayer.x, myRigidbody.velocity.y, velocityPlayer.z);
-    }
+	public void EnableControls(bool value)
+	{
+		areControlsEnable = value;
+		myRigidbody.velocity = Vector3.zero;
+	}
 
-    public void Rotate()
-    {
-        float turn = axisHorizontal * turnSpeedPlayer * Time.deltaTime;
-        Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
-        myRigidbody.MoveRotation(myRigidbody.rotation * turnRotation);
-    }
-
-    public void Dash()
-    {
-        isDashing = true;
-        EnableControls(false);
-        velocityBeforeDash = myRigidbody.velocity;
-        Vector3 velocityPlayer = transform.forward * forceDash;
-        myRigidbody.velocity = new Vector3(velocityPlayer.x, myRigidbody.velocity.y, velocityPlayer.z);
-        Invoke("StopDash", dashLenghtInMS);
-    }
-
-    private void StopDash()
-    {
-        isDashing = false;
-        EnableControls(true);
-        canDestroyBlock = true;
-        //currentVelocity = myRigidbody.velocity.magnitude;
-    }
-
-    public void EnableControls(bool value)
-    {
-        areControlsEnable = value;
-    }
-
-    public void UpdatePlayerRPM()
-    {
-        RPM.SetValue(gameObject, currentVelocity*100 / maxSpeedPlayer);
-    }
+	public void UpdatePlayerRPM()
+	{
+		RPM.SetValue(gameObject, Mathf.Abs(currentVelocity) * 100 / maxSpeedPlayer);
+	}
 
 	public void SetId(int id)
 	{

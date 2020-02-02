@@ -191,7 +191,7 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 0ca7d626a178734fa597a590eb23076f
     GuidInternal: 
-    m_lastTime: -8586210222966127688
+    m_lastTime: -8586210037916868810
     List:
     - name: Main
       guid: 70eb0ec03ba64c4e978784dde35a537a
@@ -207,8 +207,32 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 659d196ba653af498dffdb836cd06945
     GuidInternal: 
-    m_lastTime: -8586210222966277546
+    m_lastTime: -8586210039854225650
     List:
+    - name: Beever_Shout
+      guid: 293d5d4101671246aedb967a4308e72e
+      id: 3880659236
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Beever_Shout
+        ObjectType: 3
+      Path: Default Work Unit\Beever_Shout
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Block_break
+      guid: 17aef48a141ec341a3a7d247b9f90a66
+      id: 2687994736
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Block_break
+        ObjectType: 3
+      Path: Default Work Unit\Block_break
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Block_rotation
       guid: a44b1694a3738245a47900dae8584393
       id: 3321968461
@@ -218,6 +242,18 @@ MonoBehaviour:
       - ElementName: Block_rotation
         ObjectType: 3
       Path: Default Work Unit\Block_rotation
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: BlockPickup
+      guid: 69b1414b609fc240810aa4e2a48177c7
+      id: 1129509700
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: BlockPickup
+        ObjectType: 3
+      Path: Default Work Unit\BlockPickup
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -242,6 +278,18 @@ MonoBehaviour:
       - ElementName: BlockPlacement_wrong
         ObjectType: 3
       Path: Default Work Unit\BlockPlacement_wrong
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Boost
+      guid: e5b4dd632b8b9247bd7a84f43a42fb8f
+      id: 2389703494
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Boost
+        ObjectType: 3
+      Path: Default Work Unit\Boost
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -293,12 +341,36 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: UI_Confirmation
+      guid: edecfea41f9ad14892da26c6eed79362
+      id: 2858266821
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: UI_Confirmation
+        ObjectType: 3
+      Path: Default Work Unit\UI_Confirmation
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: UI_Move
+      guid: be94de016a60084998a57fe21bf2ba18
+      id: 2644790697
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: UI_Move
+        ObjectType: 3
+      Path: Default Work Unit\UI_Move
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: 0448bcf7892da94490dca43ff6adc99c
     GuidInternal: 
-    m_lastTime: -8586210249423549364
+    m_lastTime: -8586210190201343436
     List:
     - name: Percent_Volume
       guid: 8ee3683dd7f40c4e9992d58c56d6fa1e
@@ -492,5 +564,7 @@ MonoBehaviour:
     List: []
   ExpandedItems:
   - /Wwise-TropicalPengouin
+  - /Wwise-TropicalPengouin/Events
+  - /Wwise-TropicalPengouin/Events/Default Work Unit
   autoPopulateEnabled: 1
   CurrentPluginConfig: 

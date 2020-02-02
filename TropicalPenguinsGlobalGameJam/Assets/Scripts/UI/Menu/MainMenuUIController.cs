@@ -5,15 +5,21 @@ using UnityEngine.Events;
 
 public class MainMenuUIController : MonoBehaviour
 {
+
+    public AK.Wwise.Event UIConfirmation;
+
     public void OnPressPlay()
     {
         Debug.Log("play");
         MenuSpawnerManager menuSpawnerManager = MenuSpawnerManager.Instance;
         menuSpawnerManager.SwitchUI(menuSpawnerManager.GameUI);
+        UIConfirmation.Post(gameObject);
+        Debug.Log("Post UIConfirmation");
     }
 
     public void OnPressQuit()
     {
+        UIConfirmation.Post(gameObject);
         Application.Quit();
     }
 }

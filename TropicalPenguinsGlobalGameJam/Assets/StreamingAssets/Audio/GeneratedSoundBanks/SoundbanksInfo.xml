@@ -21,18 +21,82 @@
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<IncludedEvents>
+				<Event Id="3880659236" Name="Beever_Shout" ObjectPath="\Events\Default Work Unit\Beever_Shout" DurationType="OneShot" DurationMin="0.747356" DurationMax="1.640246"/>
+				<Event Id="2687994736" Name="Block_break" ObjectPath="\Events\Default Work Unit\Block_break" DurationType="OneShot" DurationMin="1.541224" DurationMax="1.541224"/>
+				<Event Id="2319829308" Name="Block_drop" ObjectPath="\Events\Default Work Unit\Block_drop" DurationType="OneShot" DurationMin="0.372624" DurationMax="0.588726"/>
 				<Event Id="3321968461" Name="Block_rotation" ObjectPath="\Events\Default Work Unit\Block_rotation" DurationType="OneShot" DurationMin="0.238137" DurationMax="0.424312"/>
-				<Event Id="2168726175" Name="BlockPlacement_good" ObjectPath="\Events\Default Work Unit\BlockPlacement_good" DurationType="OneShot" DurationMin="0.187757" DurationMax="0.236559"/>
+				<Event Id="1129509700" Name="BlockPickup" ObjectPath="\Events\Default Work Unit\BlockPickup" DurationType="OneShot" DurationMin="0.578280" DurationMax="0.633349"/>
+				<Event Id="2168726175" Name="BlockPlacement_good" ObjectPath="\Events\Default Work Unit\BlockPlacement_good" DurationType="OneShot" DurationMin="0.041624" DurationMax="0.076877"/>
 				<Event Id="1970298975" Name="BlockPlacement_wrong" ObjectPath="\Events\Default Work Unit\BlockPlacement_wrong" DurationType="OneShot" DurationMin="0.510917" DurationMax="0.510917"/>
+				<Event Id="2389703494" Name="Boost" ObjectPath="\Events\Default Work Unit\Boost" DurationType="OneShot" DurationMin="0.646848" DurationMax="0.646848"/>
 				<Event Id="3181923571" Name="House_complete" ObjectPath="\Events\Default Work Unit\House_complete" DurationType="OneShot" DurationMin="2.350000" DurationMax="2.406508"/>
 				<Event Id="65769146" Name="Play_Background_music" ObjectPath="\Events\Default Work Unit\Play_Background_music" DurationType="Infinite"/>
 				<Event Id="1087172201" Name="StartEngine" ObjectPath="\Events\Default Work Unit\StartEngine" DurationType="Infinite"/>
 				<Event Id="2651855531" Name="Tractor_Impact" ObjectPath="\Events\Default Work Unit\Tractor_Impact" DurationType="OneShot" DurationMin="0.696367" DurationMax="0.929539"/>
+				<Event Id="2858266821" Name="UI_Confirmation" ObjectPath="\Events\Default Work Unit\UI_Confirmation" DurationType="OneShot" DurationMin="0.068446" DurationMax="0.068446"/>
+				<Event Id="2644790697" Name="UI_Move" ObjectPath="\Events\Default Work Unit\UI_Move" DurationType="OneShot" DurationMin="0.231791" DurationMax="0.231791"/>
+				<Event Id="1299882867" Name="WoodCrash" ObjectPath="\Events\Default Work Unit\WoodCrash" DurationType="OneShot" DurationMin="0.743039" DurationMax="1.573960"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
-				<File Id="328291234" Language="SFX">
-					<ShortName>Block_placement_9.wav</ShortName>
-					<Path>SFX\Block_placement_9_10C4C929.wem</Path>
+				<File Id="3001537" Language="SFX">
+					<ShortName>WoodCrash\Wood_crash_6.wav</ShortName>
+					<Path>SFX\WoodCrash\Wood_crash_6_10C4C929.wem</Path>
+				</File>
+				<File Id="10334656" Language="SFX">
+					<ShortName>UI_move_1.wav</ShortName>
+					<Path>SFX\UI_move_1_10C4C929.wem</Path>
+				</File>
+				<File Id="45075551" Language="SFX">
+					<ShortName>Block_pickup\Block_pickup_7.wav</ShortName>
+					<Path>SFX\Block_pickup\Block_pickup_7_10C4C929.wem</Path>
+				</File>
+				<File Id="60669176" Language="SFX">
+					<ShortName>Block_Drop\Block_drop_2.wav</ShortName>
+					<Path>SFX\Block_Drop\Block_drop_2_10C4C929.wem</Path>
+				</File>
+				<File Id="64093899" Language="SFX">
+					<ShortName>Wood_cracking.wav</ShortName>
+					<Path>SFX\Wood_cracking_10C4C929.wem</Path>
+				</File>
+				<File Id="82698494" Language="SFX">
+					<ShortName>Block_pickup\Block_pickup_8.wav</ShortName>
+					<Path>SFX\Block_pickup\Block_pickup_8_10C4C929.wem</Path>
+				</File>
+				<File Id="85677800" Language="SFX">
+					<ShortName>Block_pickup\Block_pickup_3.wav</ShortName>
+					<Path>SFX\Block_pickup\Block_pickup_3_10C4C929.wem</Path>
+				</File>
+				<File Id="111280429" Language="SFX">
+					<ShortName>Good_block_placement\Block_placement_4.wav</ShortName>
+					<Path>SFX\Good_block_placement\Block_placement_4_10C4C929.wem</Path>
+				</File>
+				<File Id="199149642" Language="SFX">
+					<ShortName>Block_pickup\Block_pickup_4.wav</ShortName>
+					<Path>SFX\Block_pickup\Block_pickup_4_10C4C929.wem</Path>
+				</File>
+				<File Id="226609676" Language="SFX">
+					<ShortName>Good_block_placement\Block_placement_2.wav</ShortName>
+					<Path>SFX\Good_block_placement\Block_placement_2_10C4C929.wem</Path>
+				</File>
+				<File Id="277903402" Language="SFX">
+					<ShortName>Block_Drop\Block_drop_4.wav</ShortName>
+					<Path>SFX\Block_Drop\Block_drop_4_10C4C929.wem</Path>
+				</File>
+				<File Id="315713164" Language="SFX">
+					<ShortName>Beever_1.wav</ShortName>
+					<Path>SFX\Beever_1_10C4C929.wem</Path>
+				</File>
+				<File Id="324538181" Language="SFX">
+					<ShortName>Block_Drop\Block_drop_6.wav</ShortName>
+					<Path>SFX\Block_Drop\Block_drop_6_10C4C929.wem</Path>
+				</File>
+				<File Id="340237515" Language="SFX">
+					<ShortName>mechanical_shovel_4.wav</ShortName>
+					<Path>SFX\mechanical_shovel_4_B65EC232.wem</Path>
+				</File>
+				<File Id="346208397" Language="SFX">
+					<ShortName>Good_block_placement\Block_placement_8.wav</ShortName>
+					<Path>SFX\Good_block_placement\Block_placement_8_10C4C929.wem</Path>
 				</File>
 				<File Id="348403944" Language="SFX">
 					<ShortName>Background_music.wav</ShortName>
@@ -42,17 +106,57 @@
 					<ShortName>Rotation_block_2.wav</ShortName>
 					<Path>SFX\Rotation_block_2_10C4C929.wem</Path>
 				</File>
+				<File Id="376461705" Language="SFX">
+					<ShortName>Block_pickup\Block_pickup_2.wav</ShortName>
+					<Path>SFX\Block_pickup\Block_pickup_2_10C4C929.wem</Path>
+				</File>
 				<File Id="381341711" Language="SFX">
 					<ShortName>Wrong_placement_8.wav</ShortName>
-					<Path>SFX\Wrong_placement_8_B0D8C243.wem</Path>
+					<Path>SFX\Wrong_placement_8_70E971B9.wem</Path>
 				</File>
 				<File Id="419324749" Language="SFX">
 					<ShortName>RewardSound_1.wav</ShortName>
 					<Path>SFX\RewardSound_1_10C4C929.wem</Path>
 				</File>
+				<File Id="470687907" Language="SFX">
+					<ShortName>Boost.wav</ShortName>
+					<Path>SFX\Boost_E9C3DFDE.wem</Path>
+				</File>
+				<File Id="473451160" Language="SFX">
+					<ShortName>Block_placement_1.wav</ShortName>
+					<Path>SFX\Block_placement_1_10C4C929.wem</Path>
+				</File>
 				<File Id="476616975" Language="SFX">
 					<ShortName>RewardSound_2.wav</ShortName>
 					<Path>SFX\RewardSound_2_10C4C929.wem</Path>
+				</File>
+				<File Id="491197109" Language="SFX">
+					<ShortName>Block_pickup\Block_pickup_5.wav</ShortName>
+					<Path>SFX\Block_pickup\Block_pickup_5_10C4C929.wem</Path>
+				</File>
+				<File Id="496698886" Language="SFX">
+					<ShortName>Beever_2.wav</ShortName>
+					<Path>SFX\Beever_2_10C4C929.wem</Path>
+				</File>
+				<File Id="511612750" Language="SFX">
+					<ShortName>Good_block_placement\Block_placement_6.wav</ShortName>
+					<Path>SFX\Good_block_placement\Block_placement_6_10C4C929.wem</Path>
+				</File>
+				<File Id="519396098" Language="SFX">
+					<ShortName>Good_block_placement\Block_placement_1.wav</ShortName>
+					<Path>SFX\Good_block_placement\Block_placement_1_10C4C929.wem</Path>
+				</File>
+				<File Id="581129746" Language="SFX">
+					<ShortName>Block_Drop\Block_drop_5.wav</ShortName>
+					<Path>SFX\Block_Drop\Block_drop_5_10C4C929.wem</Path>
+				</File>
+				<File Id="587303831" Language="SFX">
+					<ShortName>Good_block_placement\Block_placement_7.wav</ShortName>
+					<Path>SFX\Good_block_placement\Block_placement_7_10C4C929.wem</Path>
+				</File>
+				<File Id="658248967" Language="SFX">
+					<ShortName>Block_Drop\Block_drop_3.wav</ShortName>
+					<Path>SFX\Block_Drop\Block_drop_3_10C4C929.wem</Path>
 				</File>
 				<File Id="663341410" Language="SFX">
 					<ShortName>Tractor_1.wav</ShortName>
@@ -62,9 +166,57 @@
 					<ShortName>RewardSound_3.wav</ShortName>
 					<Path>SFX\RewardSound_3_10C4C929.wem</Path>
 				</File>
+				<File Id="715554400" Language="SFX">
+					<ShortName>Block_Drop\Block_drop_1.wav</ShortName>
+					<Path>SFX\Block_Drop\Block_drop_1_10C4C929.wem</Path>
+				</File>
+				<File Id="737340064" Language="SFX">
+					<ShortName>Block_pickup\Block_pickup_1.wav</ShortName>
+					<Path>SFX\Block_pickup\Block_pickup_1_10C4C929.wem</Path>
+				</File>
+				<File Id="738978333" Language="SFX">
+					<ShortName>WoodCrash\Wood_crash_2.wav</ShortName>
+					<Path>SFX\WoodCrash\Wood_crash_2_10C4C929.wem</Path>
+				</File>
+				<File Id="768219087" Language="SFX">
+					<ShortName>WoodCrash\Wood_crash_5.wav</ShortName>
+					<Path>SFX\WoodCrash\Wood_crash_5_10C4C929.wem</Path>
+				</File>
+				<File Id="848646655" Language="SFX">
+					<ShortName>Good_block_placement\Block_placement_3.wav</ShortName>
+					<Path>SFX\Good_block_placement\Block_placement_3_10C4C929.wem</Path>
+				</File>
+				<File Id="871780561" Language="SFX">
+					<ShortName>WoodCrash\Wood_crash_7.wav</ShortName>
+					<Path>SFX\WoodCrash\Wood_crash_7_10C4C929.wem</Path>
+				</File>
+				<File Id="873960245" Language="SFX">
+					<ShortName>WoodCrash\Wood_crash_3.wav</ShortName>
+					<Path>SFX\WoodCrash\Wood_crash_3_10C4C929.wem</Path>
+				</File>
 				<File Id="876659920" Language="SFX">
 					<ShortName>Impact_3.wav</ShortName>
-					<Path>SFX\Impact_3_64AAD20B.wem</Path>
+					<Path>SFX\Impact_3_25AC6A15.wem</Path>
+				</File>
+				<File Id="951247375" Language="SFX">
+					<ShortName>Good_block_placement\Block_placement_5.wav</ShortName>
+					<Path>SFX\Good_block_placement\Block_placement_5_10C4C929.wem</Path>
+				</File>
+				<File Id="975090587" Language="SFX">
+					<ShortName>Block_pickup\Block_pickup_6.wav</ShortName>
+					<Path>SFX\Block_pickup\Block_pickup_6_10C4C929.wem</Path>
+				</File>
+				<File Id="984019292" Language="SFX">
+					<ShortName>WoodCrash\Wood_crash_1.wav</ShortName>
+					<Path>SFX\WoodCrash\Wood_crash_1_10C4C929.wem</Path>
+				</File>
+				<File Id="1023657284" Language="SFX">
+					<ShortName>WoodCrash\Wood_crash_4.wav</ShortName>
+					<Path>SFX\WoodCrash\Wood_crash_4_10C4C929.wem</Path>
+				</File>
+				<File Id="1071838985" Language="SFX">
+					<ShortName>Block_pickup\Block_pickup_9.wav</ShortName>
+					<Path>SFX\Block_pickup\Block_pickup_9_10C4C929.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>

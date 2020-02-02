@@ -4,24 +4,46 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class InputHandler : Singleton<InputHandler>
-{
+{		
 	protected override void Awake()
 	{
-		EventManager.PlayerSpawn.AddListener((player) => OnPlayerSpawn(player.playerId));
+		EventManager.PlayerSpawn.AddListener((player) => OnPlayerSpawn(player));
 	}
 
-	private void OnPlayerSpawn(int id)
+	private void OnPlayerSpawn(PlayerController pc)
 	{
-		Player player = ReInput.players.GetPlayer(id);
+		PickUpToolController pickUpTool = pc.GetComponentInChildren<PickUpToolController>(pc);
+
+		Player player = ReInput.players.GetPlayer(pc.playerId);
 		if (player != null)
 		{
-			player.AddInputEventDelegate((ctx) => SampleInputs(ctx.playerId), UpdateLoopType.FixedUpdate);
+			var gameplayRuleSet = ReInput.mapping.GetControllerMapEnablerRuleSetInstance(RewiredConsts.MapEnablerRuleSet.Gameplay);
+			ChangeControlScheme(player, gameplayRuleSet);
+
+			player.AddInputEventDelegate((ctx) => pc.Move(ctx.GetAxis()), UpdateLoopType.FixedUpdate, RewiredConsts.Action.Move);
+			player.AddInputEventDelegate((ctx) => pc.Rotate(ctx.GetAxis()), UpdateLoopType.FixedUpdate, RewiredConsts.Action.Rotate);
+			player.AddInputEventDelegate((ctx) => pc.Dash(ctx.GetButtonDown()), UpdateLoopType.FixedUpdate, RewiredConsts.Action.Dash);
+			player.AddInputEventDelegate((ctx) => pickUpTool.RequestShapePickUp(), UpdateLoopType.FixedUpdate, InputActionEventType.ButtonJustPressed, RewiredConsts.Action.PickUpBlock);
+			player.AddInputEventDelegate((ctx) => pickUpTool.RequestShapePlacement(), UpdateLoopType.FixedUpdate, InputActionEventType.ButtonJustPressed, RewiredConsts.Action.DumpBlock);
 		}
 	}
 
-	private void SampleInputs(int playerId)
+	// To find the usable maps, refer to the RewiredConsts.MapEnablerRuleSet syntax
+	public void ChangeControlScheme(PlayerController pc, ControllerMapEnabler.RuleSet desiredMap)
 	{
-		Player player = ReInput.players.GetPlayer(playerId);
-		throw new System.Exception("Continue once you have player scripts from Antoine :)");
+		Player player = ReInput.players.GetPlayer(pc.playerId);
+		if (player != null)
+		{
+			player.controllers.maps.mapEnabler.ruleSets.Clear();
+			player.controllers.maps.mapEnabler.ruleSets.Add(desiredMap);
+			player.controllers.maps.mapEnabler.Apply();
+		}
+	}
+
+	public void ChangeControlScheme(Player player, ControllerMapEnabler.RuleSet desiredMap)
+	{
+		player.controllers.maps.mapEnabler.ruleSets.Clear();
+		player.controllers.maps.mapEnabler.ruleSets.Add(desiredMap);
+		player.controllers.maps.mapEnabler.Apply();
 	}
 }

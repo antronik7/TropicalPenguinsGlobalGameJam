@@ -56,6 +56,81 @@ public class Shape : MonoBehaviour
 		transform.hasChanged = false;
 	}
 
+	public Vector2Int[] GetPlacements(Vector2Int origin)
+	{
+		Vector2Int dir;
+		Vector2Int dir2;
+		switch (Type)
+		{
+			case ShapeType.Block:
+				return new Vector2Int[] { origin };
+
+			case ShapeType.ShortLine:
+				//  ʘ━    ʘ    ━ʘ     ┃
+				//        ┃           ʘ
+				dir = (IsRotated ? Vector2Int.down : Vector2Int.right) * (IsInverted ? -1 : 1);
+				return new Vector2Int[] { origin, origin + dir };
+
+			case ShapeType.MedLine:
+				//        ┃           ┃
+				//  ━ʘ━   ʘ    ━ʘ━    ʘ
+				//        ┃           ┃
+				dir = IsRotated ? Vector2Int.down : Vector2Int.right;
+				return new Vector2Int[] { origin, origin + dir, origin - dir };
+
+			case ShapeType.ShortL:
+				//  ┃                  ┃
+				//  ʘ━    ʘ━    ━ʘ    ━ʘ
+				//        ┃      ┃     
+				dir = (IsRotated ? Vector2Int.down : Vector2Int.up) * (IsInverted ? -1 : 1);
+				dir2 = IsInverted ? Vector2Int.left : Vector2Int.right;
+				return new Vector2Int[] { origin, origin + dir, origin + dir2 };
+
+			case ShapeType.LongLine:
+				//          ┃            ┃
+				//  ━ʘ━━    ʘ    ━━ʘ━    ┃
+				//          ┃            ʘ
+				//          ┃            ┃
+				dir = (IsRotated ? Vector2Int.down : Vector2Int.right) * (IsInverted ? -1 : 1);
+				return new Vector2Int[] { origin, origin - dir, origin + dir, origin + dir * 2 };
+
+			case ShapeType.LongL:
+				//    ┃    ┃           ━┓
+				//  ━ʘ┛    ʘ    ┏ʘ━     ʘ
+				//         ┗━   ┃       ┃  
+				dir = (IsRotated ? Vector2Int.down : Vector2Int.right) * (IsInverted ? -1 : 1);
+				dir2 = (IsRotated ? Vector2Int.right : Vector2Int.up) * (IsInverted ? -1 : 1);
+				return new Vector2Int[] { origin, origin - dir, origin + dir, origin + dir + dir2 };
+
+			case ShapeType.Square:
+				//  ʘ┓    ┏ʘ    ┏┓    ┏┓
+				//  ┗┛    ┗┛    ┗ʘ    ʘ┛
+				dir = (IsRotated ? Vector2Int.up : Vector2Int.down);
+				dir2 = (IsRotated ? Vector2Int.left : Vector2Int.right) * (IsInverted ? -1 : 1);
+				return new Vector2Int[] { origin, origin + dir, origin + dir2, origin + dir + dir2 };
+
+			case ShapeType.T:
+				//   ┃     ┃             ┃
+				//  ━ʘ━    ʘ━    ━ʘ━    ━ʘ
+				//         ┃      ┃      ┃
+				dir = (IsRotated ? Vector2Int.up : Vector2Int.right);
+				dir2 = (IsRotated ? Vector2Int.right : Vector2Int.up) * (IsInverted ? -1 : 1);
+				return new Vector2Int[] { origin, origin + dir, origin - dir, origin + dir2 };
+
+			case ShapeType.Zigzag:
+				//          ┃    ━┓      ┃
+				//  ━ʘ     ┏ʘ     ʘ━    ʘ┛ 
+				//   ┗━    ┃            ┃  
+				dir = (IsRotated ? Vector2Int.down : Vector2Int.right) * (IsInverted ? -1 : 1);
+				dir2 = (IsRotated ? Vector2Int.left : Vector2Int.down) * (IsInverted ? -1 : 1);
+				return new Vector2Int[] { origin, origin - dir, origin + dir2, origin + dir + dir2 };
+
+			case ShapeType.Count:
+			default:
+				return null;
+		}
+	}
+
 	public void Crumble(PlayerController controller = null)
 	{
 		double rand = Random.value;

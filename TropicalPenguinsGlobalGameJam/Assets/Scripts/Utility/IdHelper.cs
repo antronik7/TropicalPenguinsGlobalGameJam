@@ -5,6 +5,7 @@ using UnityEngine;
 public class IdHelper
 {
 	private Queue<int> availableIds;
+	private int idCount;
 
 	public IdHelper(int idCount)
 	{
@@ -18,6 +19,8 @@ public class IdHelper
 		{
 			availableIds.Enqueue(i);
 		}
+
+		this.idCount = idCount;
 	}
 
 	public int GetFreeId()
@@ -42,5 +45,13 @@ public class IdHelper
 		{
 			availableIds.Enqueue(id);
 		}
+	}
+
+	public bool IsInvalidId(int id)
+	{
+		if (id < 0 || id > idCount - 1)
+			return true;
+		else
+			return false;
 	}
 }

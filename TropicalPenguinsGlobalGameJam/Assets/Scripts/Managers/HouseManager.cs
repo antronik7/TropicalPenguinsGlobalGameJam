@@ -22,7 +22,6 @@ public class HouseManager : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-		bool test = true;
 		InitializeConstants();
 		InitializeHouseGrid();
 		//int[] cursor = { 1, 1 }; c
@@ -128,6 +127,7 @@ public class HouseManager : MonoBehaviour
 
 			// invert the grid values because of line storage
 			houseGridBool[cursor[0] + grid[i, 1], cursor[1] + grid[i, 0]] = true;
+			 
 		}
 	}
 
@@ -182,17 +182,17 @@ public class HouseManager : MonoBehaviour
 			if (playerShape != null)
 			{
 				player.EnableControls(false);
-				//int[,] shapeCoord = Shape.whatever();
-				//myUITetris.GetComponent<TetrisUIController>().OpenUI(player.playerId, shapeCoord, houseGridBool);
-			}
+				Vector2Int[] shapeCoord = playerShape.GetPlacements(Vector2Int.zero);
 
+				int[,] sc = new int[shapeCoord.Length, 2];
+				for (int i = 0; i < shapeCoord.Length; ++i )
+				{
+					Vector2Int vi = shapeCoord[i];
+					sc[i, 0] = vi.x;
+					sc[i, 1] = vi.y;
+				}
+				myUITetris.GetComponent<TetrisUIController>().OpenUI(player.playerId, sc, houseGridBool);
+			}
 		}
 	}
-
-	public void OpenUI(int player, int[] cursor, Shape shape)
-	{
-		//int[,] shapeCoord = Shape.whatever();
-		//myUITetris.GetComponent<TetrisUIController>().OpenUI(player, shapeCoord, houseGridBool);
-	}
-
 }

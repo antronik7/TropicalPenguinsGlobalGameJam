@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class HouseManager : MonoBehaviour
 {
@@ -9,7 +10,16 @@ public class HouseManager : MonoBehaviour
 	public const int nbPlayers = 4;
 	private int[] playersBlocksPlaced;
 	public const int maxCubes = 16;
-	protected int nbCubes = 0;
+	private int _nbCubes = 0;
+	protected TextMeshProUGUI houseScore;
+
+	protected int nbCubes { get { return _nbCubes; } 
+		set 
+		{
+			_nbCubes = value;
+			houseScore.SetText(_nbCubes.ToString() + "/" + maxCubes.ToString());
+		} }
+
 
 	// Start is called before the first frame update
 	void Start()
@@ -65,10 +75,8 @@ public class HouseManager : MonoBehaviour
 		// double the points for who finished it
 		EventManager.PlayerScored.Invoke(player, playersBlocksPlaced[player.playerId]);
 
-		//*************
-		// TODO play demolition / new house animation
-		//*************
-
+		// animation for when house is complete
+		gameObject.GetComponent<HouseAnimationScript>().Play();
 	}
 
 	private void InitializeConstants()

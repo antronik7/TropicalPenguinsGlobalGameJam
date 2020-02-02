@@ -32,6 +32,25 @@ public class PickUpToolController : MonoBehaviour
 		}
 	}
 
+	private void OnTriggerEnter(Collider other)
+	{
+		Debug.Log("Enter");
+		if (isTryingToPickUp || isHoldingShape)
+			return;
+
+		if (other.transform.parent != null && other.transform.parent.GetComponent<Shape>() != null)
+		{
+			isTryingToPickUp = true;
+			shapeToPickUp = other.transform.parent.gameObject;
+		}
+	}
+
+	private void OnTriggerExit(Collider other)
+	{
+		if (other.transform.parent != null && other.transform.parent.gameObject == shapeToPickUp)
+			ResetPickUp();
+	}
+
 	public void RequestShapePlacement()
 	{
 		if (isHoldingShape)
@@ -51,24 +70,6 @@ public class PickUpToolController : MonoBehaviour
 		}
 	}
 
-	private void OnTriggerEnter(Collider other)
-	{
-		Debug.Log("Enter");
-		if (isTryingToPickUp || isHoldingShape)
-			return;
-
-		if (other.transform.parent != null && other.transform.parent.GetComponent<Shape>() != null)
-		{
-			isTryingToPickUp = true;
-			shapeToPickUp = other.transform.parent.gameObject;
-		}
-	}
-
-	private void OnTriggerExit(Collider other)
-	{
-		if (other.transform.parent != null && other.transform.parent.gameObject == shapeToPickUp)
-			ResetPickUp();
-	}
 
 	public void PickUpShape(Shape shapeOverride = null)
 	{

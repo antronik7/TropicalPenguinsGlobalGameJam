@@ -2,27 +2,37 @@ using UnityEngine;
 
 public class PlayerUI : MonoBehaviour
 {
-	public RectTransform rectTransform => (RectTransform)transform;
+	public Vector2 uiDisplacement;
 
-	public PlayerController playerController;
-	private Canvas canvas;
+	public PlayerController playerController { get; set; }
+	public Canvas canvas { get; set; }
 
-
-	private void OnEnable()
+	private void Start()
 	{
-		canvas = rectTransform.GetComponentInParent<Canvas>();
+		canvas = transform.GetComponentInParent<Canvas>();
+		canvas.worldCamera = Camera.main;
+
+		playerController.pickUpController.OnTryingToPickupChanged += OnTryingToPickupChanged;
+
+		gameObject.SetActive(false);
 	}
-	private void FixedUpdate()
+
+	public void OnTryingToPickupChanged(bool b)
 	{
-		RectTransform rt = rectTransform;
+		gameObject.SetActive(b);
+		UpdatePos();
+	}
+
+	private void UpdatePos()
+	{
 		Vector3 screenPos = canvas.worldCamera.WorldToScreenPoint(playerController.transform.position);
 
 		RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, screenPos, canvas.worldCamera, out Vector2 movePos);
 
-		transform.position = canvas.transform.TransformPoint(movePos);
+		transform.position = canvas.transform.TransformPoint(movePos + uiDisplacement);
 
-		Debug.Log(playerController.transform.position, playerController);
-		Debug.Log("Camera", canvas.worldCamera);
-		Debug.Log("Canvas", canvas);
+		Debug.Log(transform.position);
 	}
+
+	private void FixedUpdate() => UpdatePos();
 }

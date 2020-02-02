@@ -96,7 +96,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2460646820ed15846ac1c9d2b67cab3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dontDestroyOnLoad: 1
 --- !u!1 &3674583819679479186
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,7 +355,7 @@ MonoBehaviour:
       - _enabled: 1
         _categoryId: 1
         _layoutId: 0
-      - _enabled: 1
+      - _enabled: 0
         _categoryId: 2
         _layoutId: 0
       _defaultMouseMaps: []
@@ -381,7 +380,7 @@ MonoBehaviour:
       - _enabled: 1
         _categoryId: 1
         _layoutId: 0
-      - _enabled: 1
+      - _enabled: 0
         _categoryId: 2
         _layoutId: 0
       _defaultMouseMaps: []
@@ -406,7 +405,7 @@ MonoBehaviour:
       - _enabled: 1
         _categoryId: 1
         _layoutId: 0
-      - _enabled: 1
+      - _enabled: 0
         _categoryId: 2
         _layoutId: 0
       _defaultMouseMaps: []
@@ -431,7 +430,7 @@ MonoBehaviour:
       - _enabled: 1
         _categoryId: 1
         _layoutId: 0
-      - _enabled: 1
+      - _enabled: 0
         _categoryId: 2
         _layoutId: 0
       _defaultMouseMaps: []
@@ -539,10 +538,19 @@ MonoBehaviour:
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 2
-    - _id: 12
-      _name: RotateBlock
+    - _id: 14
+      _name: DoMeARotate
       _type: 1
-      _descriptiveName: Rotate Block
+      _descriptiveName: ClockwiseStuff
+      _positiveDescriptiveName: 
+      _negativeDescriptiveName: 
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 2
+    - _id: 15
+      _name: DoMeACounterRotate
+      _type: 1
+      _descriptiveName: CounterClockwiseStuff
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
       _behaviorId: 0
@@ -571,7 +579,7 @@ MonoBehaviour:
       - categoryId: 1
         actionIds: 0000000001000000020000000300000004000000
       - categoryId: 2
-        actionIds: 06000000070000000c000000080000000b000000
+        actionIds: 0600000007000000080000000b0000000e0000000f000000
     inputBehaviors:
     - _id: 0
       _name: Default
@@ -709,9 +717,20 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: 12
-        _elementType: 1
-        _elementIdentifierId: 8
+        _actionId: 14
+        _elementType: 0
+        _elementIdentifierId: 5
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 15
+        _elementType: 0
+        _elementIdentifierId: 4
         _axisRange: 0
         _invert: 0
         _axisContribution: 0
@@ -877,7 +896,7 @@ MonoBehaviour:
           _customControllerSourceId: -1
           _controllerId: -1
     playerIdCounter: 5
-    actionIdCounter: 13
+    actionIdCounter: 16
     actionCategoryIdCounter: 3
     inputBehaviorIdCounter: 1
     mapCategoryIdCounter: 3

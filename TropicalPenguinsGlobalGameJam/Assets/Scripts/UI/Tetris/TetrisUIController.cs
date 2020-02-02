@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TetrisUIController : Singleton<TetrisUIController>
+public class TetrisUIController : MonoBehaviour
 {
     public int[,] ShapePosArray;
     private int[] CursorPos;
@@ -14,7 +14,7 @@ public class TetrisUIController : Singleton<TetrisUIController>
     bool isBlockPosValid;
     bool isSetup;
 
-	private int currentUserPlayerId = -1;
+	private PlayerController currentPlayer;
 
     // Start is called before the first frame update
     void Start()
@@ -38,15 +38,14 @@ public class TetrisUIController : Singleton<TetrisUIController>
      * <param name="shapePosArray"> Array of the positions of the blocks to be placed relative to the pivot</param>
      * <param name="houseBlockGrid"> Array of bool, describing where the house blocks are</param>
      **/
-    public void OpenUI(int playerId, int[,] shapePosArray, bool[,] houseBlockGrid)
+    public void OpenUI(PlayerController player, int[,] shapePosArray, bool[,] houseBlockGrid)
     {
         gameObject.SetActive(true);
         SetGridUI(houseBlockGrid);
         SetShape(shapePosArray, 0);
         isSetup = true;
 
-		InputHandler.Instance.ChangeControlScheme(playerId, ControlScheme.TetrisGameplay);
-		currentUserPlayerId = playerId;
+		currentPlayer = player;
 	}
 
     void SetGridUI(bool[,] houseBlockGrid)
@@ -143,16 +142,16 @@ public class TetrisUIController : Singleton<TetrisUIController>
     /**
      * <summary>Closes the Tetris UI</summary>
      **/
-    public void Close()
+    public void Close(bool playerForceClose = false)
     {
         BlockView.Close();
         gameObject.SetActive(false);
 
-		if (currentUserPlayerId < 0)
+		if (currentPlayer == null || playerForceClose)
 			return;
 
-		InputHandler.Instance.ChangeControlScheme(currentUserPlayerId, ControlScheme.TetrisGameplay);
-		currentUserPlayerId = -1;
+		currentPlayer.CloseTetrisUI();
+		currentPlayer = null;
 	}
 
 	// Update is called once per frame

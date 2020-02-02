@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
 	//Sounds
 	[SerializeField]
 	private AK.Wwise.RTPC RPM;
+
 	[SerializeField]
 	private AK.Wwise.Event StartEngine;
 	[SerializeField]
@@ -56,6 +58,7 @@ public class PlayerController : MonoBehaviour
 	private Vector3 velocityBeforeDash;
 	Vector3 lastPosition = Vector3.zero;
 	float dashTimeStamp = 0f;
+	private TetrisUIController localUIController;
 
 	void Awake()
 	{
@@ -122,18 +125,6 @@ public class PlayerController : MonoBehaviour
 
 	public void Move(float input)
 	{
-		//float signVelocity = Mathf.Sign(Vector3.Dot(myRigidbody.velocity.normalized, transform.forward));
-		//myRigidbody.velocity = transform.forward * myRigidbody.velocity.magnitude * signVelocity;
-
-		//myRigidbody.AddForce(transform.forward * axisRightTrigger * 40f);
-		//myRigidbody.AddForce(transform.forward * axisLeftTrigger * 25f * -1f);
-
-		//if (Mathf.Abs(myRigidbody.velocity.magnitude) >= maxSpeedPlayer)
-		//{
-		//    myRigidbody.velocity = maxSpeedPlayer * transform.forward * signVelocity;
-		//}
-
-		//return;
 		if (isDashing || !areControlsEnable)
 			return;
 
@@ -215,5 +206,38 @@ public class PlayerController : MonoBehaviour
 	public void SetId(int id)
 	{
 		playerId = id;
+	}
+
+	public void OpenTetrisUI(TetrisUIController uiController)
+	{
+		EnableControls(false);
+		localUIController = uiController;
+		InputHandler.ChangeControlScheme(playerId, ControlScheme.TetrisGameplay);
+	}
+
+	public void PlaceBlock()
+	{
+		localUIController.Place(playerId);
+	}
+
+	public void RotateBlock(bool clockwise)
+	{
+		localUIController.RotateBlock(clockwise, playerId);
+	}
+
+	public void MoveBlock(Vector2 direction)
+	{
+		localUIController.MoveBlock(direction, playerId);
+	}
+
+	public void CloseTetrisUI()
+	{
+		if (localUIController != null)
+		{
+			localUIController.Close(true);
+			localUIController = null;
+			EnableControls(true);
+			InputHandler.ChangeControlScheme(playerId, ControlScheme.MainGameplay);
+		}
 	}
 }

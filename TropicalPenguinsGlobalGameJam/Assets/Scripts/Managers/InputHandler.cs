@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputHandler : Singleton<InputHandler>
+public class InputHandler : MonoBehaviour
 {		
-	protected override void Awake()
+	protected void Awake()
 	{
 		EventManager.PlayerSpawn.AddListener((player) => OnPlayerSpawn(player));
 	}
@@ -26,16 +26,17 @@ public class InputHandler : Singleton<InputHandler>
 			player.AddInputEventDelegate((ctx) => pickUpTool.RequestShapePickUp(), UpdateLoopType.FixedUpdate, InputActionEventType.ButtonJustPressed, RewiredConsts.Action.PickUpBlock);
 			player.AddInputEventDelegate((ctx) => pickUpTool.RequestShapePlacement(), UpdateLoopType.FixedUpdate, InputActionEventType.ButtonJustPressed, RewiredConsts.Action.DumpBlock);
 
-			player.AddInputEventDelegate((ctx) => TetrisUIController.Instance.Place(player.id), UpdateLoopType.FixedUpdate, InputActionEventType.ButtonJustPressed, RewiredConsts.Action.PlaceBlock);
-			player.AddInputEventDelegate((ctx) => TetrisUIController.Instance.Close(), UpdateLoopType.FixedUpdate, InputActionEventType.ButtonJustPressed, RewiredConsts.Action.CancelPlaceBlock);
-			player.AddInputEventDelegate((ctx) => TetrisUIController.Instance.RotateBlock(ctx.GetAxis() > 0 ? true : false, player.id), UpdateLoopType.FixedUpdate, InputActionEventType.ButtonJustPressed, RewiredConsts.Action.RotateBlock);
-			player.AddInputEventDelegate((ctx) => TetrisUIController.Instance.MoveBlock(ctx.GetAxis() > 0 ? new Vector2(1, 0) : new Vector2(-1, 0), player.id), UpdateLoopType.FixedUpdate, InputActionEventType.ButtonJustPressed, RewiredConsts.Action.MoveBlockX);
-			player.AddInputEventDelegate((ctx) => TetrisUIController.Instance.MoveBlock(ctx.GetAxis() > 0 ? new Vector2(0, 1) : new Vector2(0, -1), player.id), UpdateLoopType.FixedUpdate, InputActionEventType.ButtonJustPressed, RewiredConsts.Action.MoveBlockY);
+			player.AddInputEventDelegate((ctx) => pc.PlaceBlock(), UpdateLoopType.FixedUpdate, InputActionEventType.ButtonJustPressed, RewiredConsts.Action.PlaceBlock);
+			player.AddInputEventDelegate((ctx) => pc.CloseTetrisUI(), UpdateLoopType.FixedUpdate, InputActionEventType.ButtonJustPressed, RewiredConsts.Action.CancelPlaceBlock);
+			player.AddInputEventDelegate((ctx) => pc.RotateBlock(true), UpdateLoopType.FixedUpdate, InputActionEventType.ButtonJustPressed, "DoMeARotate");
+			player.AddInputEventDelegate((ctx) => pc.RotateBlock(false), UpdateLoopType.FixedUpdate, InputActionEventType.ButtonJustPressed, RewiredConsts.Action.DoMeACounterRotate);
+			player.AddInputEventDelegate((ctx) => pc.MoveBlock(ctx.GetAxis() > 0 ? new Vector2(1, 0) : new Vector2(-1, 0)), UpdateLoopType.FixedUpdate, InputActionEventType.ButtonJustPressed, RewiredConsts.Action.MoveBlockX);
+			player.AddInputEventDelegate((ctx) => pc.MoveBlock(ctx.GetAxis() > 0 ? new Vector2(0, 1) : new Vector2(0, -1)), UpdateLoopType.FixedUpdate, InputActionEventType.ButtonJustPressed, RewiredConsts.Action.MoveBlockY);
 		}
 	}
 
 	// To find the usable maps, refer to the RewiredConsts.MapEnablerRuleSet syntax
-	public void ChangeControlScheme(PlayerController pc, ControlScheme scheme)
+	public static void ChangeControlScheme(PlayerController pc, ControlScheme scheme)
 	{
 		Player player = ReInput.players.GetPlayer(pc.playerId);
 		if (player != null)
@@ -46,7 +47,7 @@ public class InputHandler : Singleton<InputHandler>
 		}
 	}
 
-	public void ChangeControlScheme(int playerId, ControlScheme scheme)
+	public static void ChangeControlScheme(int playerId, ControlScheme scheme)
 	{
 		Player player = ReInput.players.GetPlayer(playerId);
 		if (player != null)
@@ -57,14 +58,14 @@ public class InputHandler : Singleton<InputHandler>
 		}
 	}
 
-	public void ChangeControlScheme(Player player, ControlScheme scheme)
+	public static void ChangeControlScheme(Player player, ControlScheme scheme)
 	{
 		player.controllers.maps.mapEnabler.ruleSets.Clear();
 		player.controllers.maps.mapEnabler.ruleSets.Add(GetRuleSetFromScheme(scheme));
 		player.controllers.maps.mapEnabler.Apply();
 	}
 
-	private ControllerMapEnabler.RuleSet GetRuleSetFromScheme(ControlScheme scheme)
+	private static ControllerMapEnabler.RuleSet GetRuleSetFromScheme(ControlScheme scheme)
 	{
 		ControllerMapEnabler.RuleSet ruleset;
 		switch (scheme)

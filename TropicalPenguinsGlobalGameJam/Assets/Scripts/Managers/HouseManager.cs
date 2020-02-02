@@ -25,18 +25,6 @@ public class HouseManager : MonoBehaviour
 	{
 		InitializeConstants();
 		InitializeHouseGrid();
-		//int[] cursor = { 1, 1 }; c
-		//int[,] blockGrid = { { 0, 0 }, { -1, 0 }, { -1, -1 } };
-		//PlaceBlock(1, cursor, blockGrid);
-		//ShapeType test = AvailableShapes();
-		//playersBlocksPlaced[0] = 4;
-		//HouseComplete(0);
-	}
-
-	// Update is called once per frame
-	void Update()
-	{
-
 	}
 
 	private void InitializeHouseGrid()
@@ -125,11 +113,10 @@ public class HouseManager : MonoBehaviour
 	{
 		for (int i = 0; i < grid.GetLength(0); i++)
 		{
-			//int x = cursor[0] + grid[i, 1];
-			//int y = cursor[1] + grid[i, 0];
-
-			// invert the grid values because of line storage
-			houseGridBool[cursor[0] + grid[i, 1], cursor[1] + grid[i, 0]] = true;
+			int row = cursor[0] + grid[i, 0];
+			int col = cursor[1] + grid[i, 1];
+			houseGridBool[row, col] = true;
+			childCubes[(houseDimensions * row) + col].transform.gameObject.SetActive(true);
 		}
 	}
 
@@ -183,7 +170,6 @@ public class HouseManager : MonoBehaviour
 			Shape playerShape = player.pickUpController.GetHoldedShape();
 			if (playerShape != null)
 			{
-				player.EnableControls(false);
 				Vector2Int[] shapeCoord = playerShape.GetPlacements(Vector2Int.zero);
 
 				int[,] sc = new int[shapeCoord.Length, 2];
@@ -193,16 +179,11 @@ public class HouseManager : MonoBehaviour
 					sc[i, 0] = vi.x;
 					sc[i, 1] = vi.y;
 				}
-				myUITetris.GetComponent<TetrisUIController>().OpenUI(player.playerId, sc, houseGridBool);
+				TetrisUIController tetrisUI = myUITetris.GetComponent<TetrisUIController>();
+				tetrisUI.OpenUI(player, sc, houseGridBool);
+
+				player.OpenTetrisUI(tetrisUI);
 			}
 		}
 	}
-
-	//IEnumerator InitializeAllRandoms()
-	//{
-	//	// suspend execution for 5 seconds
-	//	//yield return new WaitForSeconds();
-
-	//}
-
 }

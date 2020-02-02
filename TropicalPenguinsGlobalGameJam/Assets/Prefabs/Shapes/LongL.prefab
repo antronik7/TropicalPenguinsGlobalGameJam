@@ -400,7 +400,7 @@ Transform:
   m_GameObject: {fileID: 4222348375493468033}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4222348374121812110}
   - {fileID: 4222348374900146055}
@@ -501,6 +501,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: a26d67f3a79dc3d44bab6208d3848908,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0913d0cf6ddcfd84d8aeaf793679aebe, type: 2}
+    - target: {fileID: -1504981713932161579, guid: a26d67f3a79dc3d44bab6208d3848908,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: a9179f00947fcb749a323d422adfa4c5, type: 2}
     - target: {fileID: -927199367670048503, guid: a26d67f3a79dc3d44bab6208d3848908,
         type: 3}
       propertyPath: m_Name
@@ -576,6 +586,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 03e06aadc74876a47b236fde99fcd71a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9397b420b7ffe5c4b84dd394e0c9808c, type: 2}
+    - target: {fileID: -1504981713932161579, guid: 03e06aadc74876a47b236fde99fcd71a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8afb9c565e458384ab7b8719c630437e, type: 2}
     - target: {fileID: -927199367670048503, guid: 03e06aadc74876a47b236fde99fcd71a,
         type: 3}
       propertyPath: m_Name
@@ -651,6 +671,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 005b225f9deb62c4f8ac018b563508c0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c4b6ad93357057c4d8061170fa31d744, type: 2}
+    - target: {fileID: -1504981713932161579, guid: 005b225f9deb62c4f8ac018b563508c0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: b3087372e834c664c97756ce67b23fb8, type: 2}
     - target: {fileID: -927199367670048503, guid: 005b225f9deb62c4f8ac018b563508c0,
         type: 3}
       propertyPath: m_Name
@@ -726,6 +756,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: a26d67f3a79dc3d44bab6208d3848908,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0913d0cf6ddcfd84d8aeaf793679aebe, type: 2}
+    - target: {fileID: -1504981713932161579, guid: a26d67f3a79dc3d44bab6208d3848908,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: a9179f00947fcb749a323d422adfa4c5, type: 2}
     - target: {fileID: -927199367670048503, guid: a26d67f3a79dc3d44bab6208d3848908,
         type: 3}
       propertyPath: m_Name
@@ -801,6 +841,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 03e06aadc74876a47b236fde99fcd71a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9397b420b7ffe5c4b84dd394e0c9808c, type: 2}
+    - target: {fileID: -1504981713932161579, guid: 03e06aadc74876a47b236fde99fcd71a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8afb9c565e458384ab7b8719c630437e, type: 2}
     - target: {fileID: -927199367670048503, guid: 03e06aadc74876a47b236fde99fcd71a,
         type: 3}
       propertyPath: m_Name

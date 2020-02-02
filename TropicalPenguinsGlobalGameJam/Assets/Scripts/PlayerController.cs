@@ -62,6 +62,7 @@ public class PlayerController : MonoBehaviour
 	Vector3 lastPosition = Vector3.zero;
 	float dashTimeStamp = 0f;
 	private TetrisUIController localUIController;
+	private CameraController cam;
 
 	void Awake()
 	{
@@ -112,6 +113,7 @@ public class PlayerController : MonoBehaviour
 				{
 					collision.transform.GetComponent<Shape>().Crumble();
 					BlockBreak.Post(gameObject);
+					cam.StartShake();
 				}
 				else if (controller = collision.transform.GetComponent<PlayerController>())
 				{
@@ -125,6 +127,8 @@ public class PlayerController : MonoBehaviour
 						shapeToCrumble.Crumble(controller);
 						BeaverShout.Post(gameObject);
 					}
+
+					cam.StartShake();
 				}
 
 				canDestroyBlock = false;
@@ -215,6 +219,11 @@ public class PlayerController : MonoBehaviour
 	public void SetId(int id)
 	{
 		playerId = id;
+	}
+
+	public void SetCameraController(CameraController cam)
+	{
+		this.cam = cam;
 	}
 
 	public void OpenTetrisUI(TetrisUIController uiController)

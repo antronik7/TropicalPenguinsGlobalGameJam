@@ -10,6 +10,8 @@ public class PickUpToolController : MonoBehaviour
 
 	[SerializeField]
 	AK.Wwise.Event blockPickupEvent;
+	
+	public PlayerController playerController;
 
 	//Variables
 	public bool isHoldingShape = false;
@@ -17,14 +19,6 @@ public class PickUpToolController : MonoBehaviour
 	private bool isTryingToPickUp = false;
 	private GameObject shapeToPickUp;
 	private int counterBtnPress = 0;
-
-	public PlayerController playerController;
-
-	// Start is called before the first frame update
-	void Start()
-	{
-
-	}
 
 	// Update is called once per frame
 	void Update()
@@ -35,23 +29,6 @@ public class PickUpToolController : MonoBehaviour
 			{
 				ResetPickUp();
 			}
-			else
-			{
-				if (Input.GetButtonDown("ButtonA"))
-				{
-					++counterBtnPress;
-
-					if (counterBtnPress >= nbrPressToPickUp)
-						PickUpShape();
-				}
-			}
-
-		}
-
-		if (isHoldingShape)
-		{
-			if (Input.GetButtonDown("ButtonX"))
-				PlaceShape();
 		}
 	}
 
@@ -73,6 +50,26 @@ public class PickUpToolController : MonoBehaviour
 		if (other.transform.parent != null && other.transform.parent.gameObject == shapeToPickUp)
 			ResetPickUp();
 	}
+
+	public void RequestShapePlacement()
+	{
+		if (isHoldingShape)
+		{
+			PlaceShape();
+		}
+	}
+
+	public void RequestShapePickUp()
+	{
+		if (isTryingToPickUp && shapeToPickUp != null)
+		{
+			++counterBtnPress;
+
+			if (counterBtnPress >= nbrPressToPickUp)
+				PickUpShape();
+		}
+	}
+
 
 	public void PickUpShape(Shape shapeOverride = null)
 	{

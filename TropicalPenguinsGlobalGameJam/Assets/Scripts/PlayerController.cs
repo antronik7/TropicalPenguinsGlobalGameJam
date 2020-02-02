@@ -46,9 +46,6 @@ public class PlayerController : MonoBehaviour
 	private bool isDashing = false;
 	private bool canDestroyBlock = true;
 	private bool areControlsEnable = true;
-	private float axisLeftTrigger;
-	private float axisRightTrigger;
-	private float axisHorizontal;
 	[SerializeField]
 	private float currentVelocity = 0f;
 	private Vector3 velocityBeforeDash;
@@ -69,26 +66,7 @@ public class PlayerController : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (areControlsEnable)
-		{
-			if (Input.GetButtonDown("ButtonB"))
-				Dash();
-
-			axisLeftTrigger = Input.GetAxis("LeftTrigger");
-			axisRightTrigger = Input.GetAxis("RightTrigger");
-			axisHorizontal = Input.GetAxis("Horizontal");
-		}
-
 		UpdatePlayerRPM();
-	}
-
-	private void FixedUpdate()
-	{
-		if (areControlsEnable)
-		{
-			Move();
-			Rotate();
-		}
 	}
 
 	void OnCollisionEnter(Collision collision)
@@ -105,7 +83,6 @@ public class PlayerController : MonoBehaviour
 	{
 		if (isDashing)
 		{
-			
 			if (canDestroyBlock)
 			{
 				PlayerController controller;
@@ -124,7 +101,6 @@ public class PlayerController : MonoBehaviour
 						shapeToCrumble.Crumble(controller);
 						BeaverShout.Post(gameObject);
 					}
-						
 				}
 
 				canDestroyBlock = false;
@@ -132,7 +108,7 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
-	private void Move()
+	public void Move(float input)
 	{
 		//float signVelocity = Mathf.Sign(Vector3.Dot(myRigidbody.velocity.normalized, transform.forward));
 		//myRigidbody.velocity = transform.forward * myRigidbody.velocity.magnitude * signVelocity;
@@ -146,6 +122,8 @@ public class PlayerController : MonoBehaviour
 		//}
 
 		//return;
+		if (isDashing)
+			return;
 
 		float speed = (transform.position - lastPosition).magnitude;
 		if (speed <= 0.001f)
@@ -155,7 +133,7 @@ public class PlayerController : MonoBehaviour
 
 		lastPosition = transform.position;
 
-		float movementVelocity = (axisRightTrigger * speedPlayer * Time.deltaTime) + (axisLeftTrigger * speedPlayer * Time.deltaTime * -1f);
+		float movementVelocity = input * speedPlayer * Time.deltaTime;
 		currentVelocity += movementVelocity;
 
 		if (Mathf.Abs(movementVelocity) == 0f || Mathf.Sign(currentVelocity) != Mathf.Sign(movementVelocity))
@@ -178,16 +156,16 @@ public class PlayerController : MonoBehaviour
 		myRigidbody.velocity = new Vector3(velocityPlayer.x, myRigidbody.velocity.y, velocityPlayer.z);
 	}
 
-	public void Rotate()
+	public void Rotate(float input)
 	{
-		float turn = axisHorizontal * turnSpeedPlayer * Time.deltaTime;
+		float turn = input * turnSpeedPlayer * Time.deltaTime;
 		Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
 		myRigidbody.MoveRotation(myRigidbody.rotation * turnRotation);
 	}
 
-	public void Dash()
+	public void Dash(bool input)
 	{
-		if (Time.timeSinceLevelLoad < dashTimeStamp)
+		if (Time.timeSinceLevelLoad < dashTimeStamp || input == false)
 			return;
 
 		dashTimeStamp = Time.timeSinceLevelLoad + dashDelay;
@@ -217,8 +195,6 @@ public class PlayerController : MonoBehaviour
 	{
 		RPM.SetValue(gameObject, Mathf.Abs(currentVelocity) * 100 / maxSpeedPlayer);
 	}
-
-	
 
 	public void SetId(int id)
 	{

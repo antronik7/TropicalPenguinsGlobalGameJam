@@ -8,6 +8,9 @@ public class PickUpToolController : MonoBehaviour
 	[SerializeField]
 	int nbrPressToPickUp = 5;
 
+	[SerializeField]
+	AK.Wwise.Event blockPickupEvent;
+
 	//Variables
 	public bool isHoldingShape = false;
 
@@ -83,6 +86,9 @@ public class PickUpToolController : MonoBehaviour
 		shapeToPickUp.GetComponent<Shape>().Owner = playerController;
 
 		ResetPickUp();
+
+		blockPickupEvent.Post(gameObject);
+		//EventManager.BlockPickupSound.Invoke();
 	}
 
 	private void PlaceShape()
@@ -105,6 +111,9 @@ public class PickUpToolController : MonoBehaviour
 
 	public Shape GetHoldedShape()
 	{
-		return shapeToPickUp.GetComponent<Shape>();
+		if (shapeToPickUp != null)
+			return shapeToPickUp.GetComponent<Shape>();
+		else
+			return null;
 	}
 }

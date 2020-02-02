@@ -28,6 +28,15 @@ public class PlayerController : MonoBehaviour
 
 	[SerializeField]
 	private AK.Wwise.Event StartEngine;
+	[SerializeField]
+	private AK.Wwise.Event PlayerImpact;
+	[SerializeField]
+	private AK.Wwise.Event BeaverShout;
+	[SerializeField]
+	private AK.Wwise.Event BlockBreak;
+	[SerializeField]
+	private AK.Wwise.Event Boost;
+
 
 	//Components
 	private Rigidbody myRigidbody;
@@ -96,19 +105,26 @@ public class PlayerController : MonoBehaviour
 	{
 		if (isDashing)
 		{
+			
 			if (canDestroyBlock)
 			{
 				PlayerController controller;
 				if (collision.transform.GetComponent<Shape>() != null)
 				{
 					collision.transform.GetComponent<Shape>().Crumble();
+					BlockBreak.Post(gameObject);
 				}
 				else if (controller = collision.transform.GetComponent<PlayerController>())
 				{
+					PlayerImpact.Post(gameObject);
+					Debug.Log("Collision");
 					Shape shapeToCrumble = controller.pickUpController.GetHoldedShape();
 
-					if (shapeToCrumble != null)
+					if (shapeToCrumble != null) {
 						shapeToCrumble.Crumble(controller);
+						BeaverShout.Post(gameObject);
+					}
+						
 				}
 
 				canDestroyBlock = false;
@@ -180,6 +196,7 @@ public class PlayerController : MonoBehaviour
 		velocityBeforeDash = myRigidbody.velocity;
 		Vector3 velocityPlayer = transform.forward * forceDash;
 		myRigidbody.velocity = new Vector3(velocityPlayer.x, myRigidbody.velocity.y, velocityPlayer.z);
+		Boost.Post(gameObject);
 		Invoke("StopDash", dashLenghtInMS);
 	}
 
@@ -198,8 +215,10 @@ public class PlayerController : MonoBehaviour
 
 	public void UpdatePlayerRPM()
 	{
-		RPM.SetValue(gameObject, currentVelocity * 100 / maxSpeedPlayer);
+		RPM.SetValue(gameObject, Mathf.Abs(currentVelocity) * 100 / maxSpeedPlayer);
 	}
+
+	
 
 	public void SetId(int id)
 	{

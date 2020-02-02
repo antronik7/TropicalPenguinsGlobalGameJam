@@ -9,18 +9,18 @@ public class HouseManager : MonoBehaviour
 	private const int houseDimensions = 4;
 	public const int nbPlayers = 4;
 	private int[] playersBlocksPlaced = new int[nbPlayers];
-	public const int maxCubes = 1;
+	public const int maxCubes = 2;
 	private int _nbCubes = 0;
 	[SerializeField]
 	protected TextMeshProUGUI houseScore;
-
+	 
 	protected int nbCubes
 	{
 		get { return _nbCubes; }
 		set
 		{
 			_nbCubes = value;
-			//houseScore.SetText(_nbCubes.ToString() + "/" + maxCubes.ToString());
+			houseScore.SetText(_nbCubes.ToString() + "/" + maxCubes.ToString());
 		}
 	}
 
@@ -39,6 +39,7 @@ public class HouseManager : MonoBehaviour
 		if (IsHouseComplete())
 		{
 			HouseComplete(player);
+			gameObject.GetComponent<HouseAnimationScript>().Play();
 		}
 	}
 

@@ -49,8 +49,6 @@ public class HouseAnimationScript : MonoBehaviour
     void Start()
     {
         standardY = transform.localPosition.y;
-        //Test
-        //Play();
     }
 
     public void Play()
@@ -61,17 +59,6 @@ public class HouseAnimationScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if(tempCounter < 5)
-        {
-            tempCounter += Time.deltaTime;
-        }
-        else if(!played)
-        {
-            Play();
-            played = true;
-        }
-
         if (playAnim)
         {
             switch (curState)

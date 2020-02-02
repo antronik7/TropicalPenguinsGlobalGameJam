@@ -17,6 +17,7 @@ public class PickUpToolController : MonoBehaviour
 	AK.Wwise.Event wallHit;
 
 	public PlayerController playerController;
+	public Animator animator;
 
 	//Variables
 	public bool isHoldingShape = false;
@@ -37,6 +38,12 @@ public class PickUpToolController : MonoBehaviour
 	private GameObject shapeToPickUp;
 	private GameObject holdedShape;
 	private int counterBtnPress = 0;
+
+
+	private void Awake()
+	{
+		//animator = transform.parent.GetComponentInChildren<Animator>();
+	}
 
 	// Update is called once per frame
 	void Update()
@@ -120,7 +127,9 @@ public class PickUpToolController : MonoBehaviour
 		ResetPickUp();
 
 		blockPickupEvent.Post(gameObject);
-		
+		animator.SetBool("HasBlock", true);
+		Debug.Log("HasBlock=true");
+
 	}
 
 	private void PlaceShape()
@@ -129,6 +138,7 @@ public class PickUpToolController : MonoBehaviour
 		holdedShape.transform.position = holdedShape.transform.position - (Vector3.up / 2f);
 		Rigidbody myRigbody = holdedShape.AddComponent<Rigidbody>();
 		blockDropEvent.Post(gameObject);
+		animator.SetBool("HasBlock", false);
 		myRigbody.isKinematic = true;
 		
 		holdedShape = null;

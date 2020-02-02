@@ -73,5 +73,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_MaisonB_04 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8579661061514862026, guid: 5c85b6d8bc7531342b44cc941d80ffe4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8062e4bf01d613140963101a4ada23e0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c85b6d8bc7531342b44cc941d80ffe4, type: 3}

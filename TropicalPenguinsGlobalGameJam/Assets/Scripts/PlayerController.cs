@@ -68,6 +68,8 @@ public class PlayerController : MonoBehaviour
 	{
 		myRigidbody = GetComponent<Rigidbody>();
 		animation = GetComponent<Animation>();
+
+		EventManager.GameplayEnd.AddListener(() => EnableControls(false));
 	}
 
 	// Start is called before the first frame update

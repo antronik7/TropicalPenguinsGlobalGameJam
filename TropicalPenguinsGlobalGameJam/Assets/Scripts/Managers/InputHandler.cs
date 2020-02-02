@@ -8,6 +8,7 @@ public class InputHandler : MonoBehaviour
 	protected void Awake()
 	{
 		EventManager.PlayerSpawn.AddListener((player) => OnPlayerSpawn(player));
+		EventManager.GameplayEnd.AddListener(() => FuckAllControls());
 	}
 
 	private void OnPlayerSpawn(PlayerController pc)
@@ -75,6 +76,16 @@ public class InputHandler : MonoBehaviour
 		}
 
 		return ruleset;
+	}
+
+	public static void FuckAllControls()
+	{
+		for (int i = 0; i < 4; i++)
+		{
+			Player player = ReInput.players.GetPlayer(i);
+			player.controllers.maps.mapEnabler.ruleSets.Clear();
+			player.controllers.maps.mapEnabler.Apply();
+		}
 	}
 }
 

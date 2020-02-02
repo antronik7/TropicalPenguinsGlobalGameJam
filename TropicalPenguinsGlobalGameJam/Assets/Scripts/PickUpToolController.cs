@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,7 +21,19 @@ public class PickUpToolController : MonoBehaviour
 	//Variables
 	public bool isHoldingShape = false;
 
-	private bool isTryingToPickUp = false;
+	private bool m_IsTryingToPickup = false;
+	private bool isTryingToPickUp
+	{
+		get => m_IsTryingToPickup;
+		set
+		{
+			m_IsTryingToPickup = value;
+			OnTryingToPickupChanged(m_IsTryingToPickup);
+		}
+	}
+	public event Action<bool> OnTryingToPickupChanged;
+
+
 	private GameObject shapeToPickUp;
 	private GameObject holdedShape;
 	private int counterBtnPress = 0;

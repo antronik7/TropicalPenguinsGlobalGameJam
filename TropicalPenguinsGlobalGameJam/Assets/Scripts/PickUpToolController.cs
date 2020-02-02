@@ -18,6 +18,7 @@ public class PickUpToolController : MonoBehaviour
 
 	private bool isTryingToPickUp = false;
 	private GameObject shapeToPickUp;
+	private GameObject holdedShape;
 	private int counterBtnPress = 0;
 
 	// Update is called once per frame
@@ -81,6 +82,8 @@ public class PickUpToolController : MonoBehaviour
 		shapeToPickUp.transform.parent = transform;
 		Destroy(shapeToPickUp.GetComponent<Rigidbody>());
 		shapeToPickUp.GetComponent<Shape>().Owner = playerController;
+		holdedShape = shapeToPickUp;
+		shapeToPickUp = null;
 
 		ResetPickUp();
 
@@ -90,12 +93,12 @@ public class PickUpToolController : MonoBehaviour
 
 	private void PlaceShape()
 	{
-		shapeToPickUp.transform.parent = null;
-		shapeToPickUp.transform.position = shapeToPickUp.transform.position - (Vector3.up / 2f);
-		Rigidbody myRigbody = shapeToPickUp.AddComponent<Rigidbody>();
+		holdedShape.transform.parent = null;
+		holdedShape.transform.position = holdedShape.transform.position - (Vector3.up / 2f);
+		Rigidbody myRigbody = holdedShape.AddComponent<Rigidbody>();
 		myRigbody.isKinematic = true;
 
-		shapeToPickUp = null;
+		holdedShape = null;
 		isHoldingShape = false;
 	}
 
@@ -108,8 +111,8 @@ public class PickUpToolController : MonoBehaviour
 
 	public Shape GetHoldedShape()
 	{
-		if (shapeToPickUp != null)
-			return shapeToPickUp.GetComponent<Shape>();
+		if (holdedShape != null)
+			return holdedShape.GetComponent<Shape>();
 		else
 			return null;
 	}

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TetrisUIController : MonoBehaviour
+public class TetrisUIController : Singleton<TetrisUIController>
 {
     public int[,] ShapePosArray;
     private int[] CursorPos;
@@ -13,6 +13,8 @@ public class TetrisUIController : MonoBehaviour
 
     bool isBlockPosValid;
     bool isSetup;
+
+	private int currentUserPlayerId = -1;
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +44,10 @@ public class TetrisUIController : MonoBehaviour
         SetGridUI(houseBlockGrid);
         SetShape(shapePosArray, 0);
         isSetup = true;
-    }
+
+		InputHandler.Instance.ChangeControlScheme(playerId, ControlScheme.TetrisGameplay);
+		currentUserPlayerId = playerId;
+	}
 
     void SetGridUI(bool[,] houseBlockGrid)
     {
@@ -56,10 +61,10 @@ public class TetrisUIController : MonoBehaviour
         UpdateBlockPosValidity();
     }
 
-    public void MoveBlock(int[] direction, int PlayerId)
+    public void MoveBlock(Vector2 direction, int PlayerId)
     {
-        CursorPos[0] = Mathf.Clamp(CursorPos[0] + direction[0], 0, GridUI.GridSize);
-        CursorPos[1] = Mathf.Clamp(CursorPos[1] + direction[1], 0, GridUI.GridSize);
+        CursorPos[0] = Mathf.Clamp(CursorPos[0] + (int)direction.x, 0, GridUI.GridSize);
+        CursorPos[1] = Mathf.Clamp(CursorPos[1] + (int)direction.y, 0, GridUI.GridSize);
         BlockView.DrawBlock(CursorPos, ShapePosArray);
         UpdateBlockPosValidity();
     }
@@ -126,6 +131,7 @@ public class TetrisUIController : MonoBehaviour
         {
             GridUI.AddGridBlocks(CursorPos, ShapePosArray);
             //UpdateHouse(CursorPos, ShapePosArray, PlayerId)
+            transform.root.GetComponent<HouseManager>().PlaceBlock(PlayerId, CursorPos, ShapePosArray);
             Close();
         }
         else
@@ -141,10 +147,16 @@ public class TetrisUIController : MonoBehaviour
     {
         BlockView.Close();
         gameObject.SetActive(false);
-    }
 
-    // Update is called once per frame
-    void Update()
+		if (currentUserPlayerId < 0)
+			return;
+
+		InputHandler.Instance.ChangeControlScheme(currentUserPlayerId, ControlScheme.TetrisGameplay);
+		currentUserPlayerId = -1;
+	}
+
+	// Update is called once per frame
+	void Update()
     {
         
     }

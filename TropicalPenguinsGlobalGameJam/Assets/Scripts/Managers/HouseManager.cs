@@ -18,11 +18,11 @@ public class HouseManager : MonoBehaviour
 	private int maxNbBlocksInit = 7;
 	private Vector3 housePosition;
 	private Shape[] childCubes;
+	public int seed;
 
 	// Start is called before the first frame update
 	void Start()
 	{
-		bool test = true;
 		InitializeConstants();
 		InitializeHouseGrid();
 		//int[] cursor = { 1, 1 }; c
@@ -44,7 +44,8 @@ public class HouseManager : MonoBehaviour
 		HideHouseGrid();
 		houseGridBool = new bool[houseDimensions, houseDimensions];
 		playersBlocksPlaced = new int[nbPlayers];
-		System.Random random = new System.Random((int)(housePosition.x * housePosition.z));
+		System.Random random = new System.Random(seed + (int)Time.time);
+
 		int blocksToInit = random.Next(minNbBlocksInit, maxNbBlocksInit + 1);
 		int nbBlocksPlaced = 0;
 		int row = 0;
@@ -53,13 +54,14 @@ public class HouseManager : MonoBehaviour
 		while (nbBlocksPlaced < blocksToInit)
 		{
 			row = random.Next(0, houseDimensions);
+			Debug.Log(row);
 			col = random.Next(0, houseDimensions);
 			if (houseGridBool[row, col] != true)
 			{
 				houseGridBool[row, col] = true;
 				nbBlocksPlaced++;
 				//magie
-				childCubes[(houseDimensions*row)+col].transform.gameObject.SetActive(true);
+				childCubes[ ( houseDimensions * row ) + col].transform.gameObject.SetActive(true);
 			}
 		}
 	}
@@ -182,17 +184,25 @@ public class HouseManager : MonoBehaviour
 			if (playerShape != null)
 			{
 				player.EnableControls(false);
-				//int[,] shapeCoord = Shape.whatever();
-				//myUITetris.GetComponent<TetrisUIController>().OpenUI(player.playerId, shapeCoord, houseGridBool);
-			}
+				Vector2Int[] shapeCoord = playerShape.GetPlacements(Vector2Int.zero);
 
+				int[,] sc = new int[shapeCoord.Length, 2];
+				for (int i = 0; i < shapeCoord.Length; ++i )
+				{
+					Vector2Int vi = shapeCoord[i];
+					sc[i, 0] = vi.x;
+					sc[i, 1] = vi.y;
+				}
+				myUITetris.GetComponent<TetrisUIController>().OpenUI(player.playerId, sc, houseGridBool);
+			}
 		}
 	}
 
-	public void OpenUI(int player, int[] cursor, Shape shape)
-	{
-		//int[,] shapeCoord = Shape.whatever();
-		//myUITetris.GetComponent<TetrisUIController>().OpenUI(player, shapeCoord, houseGridBool);
-	}
+	//IEnumerator InitializeAllRandoms()
+	//{
+	//	// suspend execution for 5 seconds
+	//	//yield return new WaitForSeconds();
+
+	//}
 
 }

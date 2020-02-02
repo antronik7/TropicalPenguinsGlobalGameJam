@@ -58,6 +58,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbrPressToPickUp: 1
+  blockPickupEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
   isHoldingShape: 0
   playerController: {fileID: 4187060022934643739}
 --- !u!1 &4187060022570898091
@@ -275,11 +279,33 @@ MonoBehaviour:
   RPM:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: 6a3ffdf102624294384b8c9279f3683f,
+      type: 2}
   StartEngine:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: a5fc0acff17cb3649948ab3178a23705,
+      type: 2}
+  PlayerImpact:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: c436d030266537449be5bde55daef09a,
+      type: 2}
+  BeaverShout:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: d510a71cb29982d4bb35259cc3dabba7,
+      type: 2}
+  BlockBreak:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 6f96b9ac3fd80834d80c566497a966c4,
+      type: 2}
+  Boost:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 31e28102fea24e448bf003a9717b44f6,
+      type: 2}
   currentVelocity: 0
 --- !u!114 &2221407274840625479
 MonoBehaviour:

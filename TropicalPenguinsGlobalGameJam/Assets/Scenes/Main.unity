@@ -737,11 +737,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1708929702, guid: 11a241447e974eb4da4578aa9ed4893b, type: 3}
-      propertyPath: blockPickupEvent.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: 534f56d2fb380674592522a928b20d2d,
-        type: 2}
     - target: {fileID: 4187060022934643737, guid: 11a241447e974eb4da4578aa9ed4893b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -797,54 +792,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4187060022934643739, guid: 11a241447e974eb4da4578aa9ed4893b,
-        type: 3}
-      propertyPath: speedPlayer
-      value: 7.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4187060022934643739, guid: 11a241447e974eb4da4578aa9ed4893b,
-        type: 3}
-      propertyPath: dashDelay
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4187060022934643739, guid: 11a241447e974eb4da4578aa9ed4893b,
-        type: 3}
-      propertyPath: RPM.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: 6a3ffdf102624294384b8c9279f3683f,
-        type: 2}
-    - target: {fileID: 4187060022934643739, guid: 11a241447e974eb4da4578aa9ed4893b,
-        type: 3}
-      propertyPath: StartEngine.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: a5fc0acff17cb3649948ab3178a23705,
-        type: 2}
-    - target: {fileID: 4187060022934643739, guid: 11a241447e974eb4da4578aa9ed4893b,
-        type: 3}
-      propertyPath: PlayerImpact.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: c436d030266537449be5bde55daef09a,
-        type: 2}
-    - target: {fileID: 4187060022934643739, guid: 11a241447e974eb4da4578aa9ed4893b,
-        type: 3}
-      propertyPath: BeaverShout.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: d510a71cb29982d4bb35259cc3dabba7,
-        type: 2}
     - target: {fileID: 4187060022934643741, guid: 11a241447e974eb4da4578aa9ed4893b,
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 4187060022934643742, guid: 11a241447e974eb4da4578aa9ed4893b,
-        type: 3}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4187060022934643742, guid: 11a241447e974eb4da4578aa9ed4893b,
-        type: 3}
-      propertyPath: m_Drag
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11a241447e974eb4da4578aa9ed4893b, type: 3}

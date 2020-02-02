@@ -10,7 +10,11 @@ public class PickUpToolController : MonoBehaviour
 
 	[SerializeField]
 	AK.Wwise.Event blockPickupEvent;
-	
+	[SerializeField]
+	AK.Wwise.Event blockDropEvent;
+	[SerializeField]
+	AK.Wwise.Event wallHit;
+
 	public PlayerController playerController;
 
 	//Variables
@@ -43,6 +47,10 @@ public class PickUpToolController : MonoBehaviour
 		{
 			isTryingToPickUp = true;
 			shapeToPickUp = other.transform.parent.gameObject;
+		}
+
+		if (other.CompareTag("Wall")) {
+			wallHit.Post(gameObject);
 		}
 	}
 
@@ -88,7 +96,7 @@ public class PickUpToolController : MonoBehaviour
 		ResetPickUp();
 
 		blockPickupEvent.Post(gameObject);
-		//EventManager.BlockPickupSound.Invoke();
+		
 	}
 
 	private void PlaceShape()
@@ -96,6 +104,7 @@ public class PickUpToolController : MonoBehaviour
 		holdedShape.transform.parent = null;
 		holdedShape.transform.position = holdedShape.transform.position - (Vector3.up / 2f);
 		Rigidbody myRigbody = holdedShape.AddComponent<Rigidbody>();
+		blockDropEvent.Post(gameObject);
 		myRigbody.isKinematic = true;
 
 		holdedShape = null;

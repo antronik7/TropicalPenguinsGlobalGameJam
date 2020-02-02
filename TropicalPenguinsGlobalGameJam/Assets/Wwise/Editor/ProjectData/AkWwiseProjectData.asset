@@ -191,7 +191,7 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 0ca7d626a178734fa597a590eb23076f
     GuidInternal: 
-    m_lastTime: -8586210037916868810
+    m_lastTime: -8586209886796895674
     List:
     - name: Main
       guid: 70eb0ec03ba64c4e978784dde35a537a
@@ -207,7 +207,7 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 659d196ba653af498dffdb836cd06945
     GuidInternal: 
-    m_lastTime: -8586210039854225650
+    m_lastTime: -8586209886796995573
     List:
     - name: Beever_Shout
       guid: 293d5d4101671246aedb967a4308e72e
@@ -230,6 +230,18 @@ MonoBehaviour:
       - ElementName: Block_break
         ObjectType: 3
       Path: Default Work Unit\Block_break
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Block_drop
+      guid: d031b0e065103640a6c0b0439ede0822
+      id: 2319829308
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Block_drop
+        ObjectType: 3
+      Path: Default Work Unit\Block_drop
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -362,6 +374,18 @@ MonoBehaviour:
       - ElementName: UI_Move
         ObjectType: 3
       Path: Default Work Unit\UI_Move
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: WallHit
+      guid: 602d758cf213b74d90ad3da687d3473d
+      id: 3961855540
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: WallHit
+        ObjectType: 3
+      Path: Default Work Unit\WallHit
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1

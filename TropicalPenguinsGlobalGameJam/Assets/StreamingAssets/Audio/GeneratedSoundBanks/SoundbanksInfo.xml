@@ -35,13 +35,9 @@
 				<Event Id="2651855531" Name="Tractor_Impact" ObjectPath="\Events\Default Work Unit\Tractor_Impact" DurationType="OneShot" DurationMin="0.696367" DurationMax="0.929539"/>
 				<Event Id="2858266821" Name="UI_Confirmation" ObjectPath="\Events\Default Work Unit\UI_Confirmation" DurationType="OneShot" DurationMin="0.068446" DurationMax="0.068446"/>
 				<Event Id="2644790697" Name="UI_Move" ObjectPath="\Events\Default Work Unit\UI_Move" DurationType="OneShot" DurationMin="0.231791" DurationMax="0.231791"/>
-				<Event Id="1299882867" Name="WoodCrash" ObjectPath="\Events\Default Work Unit\WoodCrash" DurationType="OneShot" DurationMin="0.743039" DurationMax="1.573960"/>
+				<Event Id="3961855540" Name="WallHit" ObjectPath="\Events\Default Work Unit\WallHit" DurationType="OneShot" DurationMin="1.068118" DurationMax="1.546347"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
-				<File Id="3001537" Language="SFX">
-					<ShortName>WoodCrash\Wood_crash_6.wav</ShortName>
-					<Path>SFX\WoodCrash\Wood_crash_6_10C4C929.wem</Path>
-				</File>
 				<File Id="10334656" Language="SFX">
 					<ShortName>UI_move_1.wav</ShortName>
 					<Path>SFX\UI_move_1_10C4C929.wem</Path>
@@ -92,7 +88,7 @@
 				</File>
 				<File Id="340237515" Language="SFX">
 					<ShortName>mechanical_shovel_4.wav</ShortName>
-					<Path>SFX\mechanical_shovel_4_B65EC232.wem</Path>
+					<Path>SFX\mechanical_shovel_4_BFAE822B.wem</Path>
 				</File>
 				<File Id="346208397" Language="SFX">
 					<ShortName>Good_block_placement\Block_placement_8.wav</ShortName>
@@ -112,7 +108,7 @@
 				</File>
 				<File Id="381341711" Language="SFX">
 					<ShortName>Wrong_placement_8.wav</ShortName>
-					<Path>SFX\Wrong_placement_8_70E971B9.wem</Path>
+					<Path>SFX\Wrong_placement_8_B0D8C243.wem</Path>
 				</File>
 				<File Id="419324749" Language="SFX">
 					<ShortName>RewardSound_1.wav</ShortName>
@@ -120,7 +116,7 @@
 				</File>
 				<File Id="470687907" Language="SFX">
 					<ShortName>Boost.wav</ShortName>
-					<Path>SFX\Boost_E9C3DFDE.wem</Path>
+					<Path>SFX\Boost_BA64E9C3.wem</Path>
 				</File>
 				<File Id="473451160" Language="SFX">
 					<ShortName>Block_placement_1.wav</ShortName>
@@ -174,10 +170,6 @@
 					<ShortName>Block_pickup\Block_pickup_1.wav</ShortName>
 					<Path>SFX\Block_pickup\Block_pickup_1_10C4C929.wem</Path>
 				</File>
-				<File Id="738978333" Language="SFX">
-					<ShortName>WoodCrash\Wood_crash_2.wav</ShortName>
-					<Path>SFX\WoodCrash\Wood_crash_2_10C4C929.wem</Path>
-				</File>
 				<File Id="768219087" Language="SFX">
 					<ShortName>WoodCrash\Wood_crash_5.wav</ShortName>
 					<Path>SFX\WoodCrash\Wood_crash_5_10C4C929.wem</Path>
@@ -196,7 +188,7 @@
 				</File>
 				<File Id="876659920" Language="SFX">
 					<ShortName>Impact_3.wav</ShortName>
-					<Path>SFX\Impact_3_25AC6A15.wem</Path>
+					<Path>SFX\Impact_3_64AAD20B.wem</Path>
 				</File>
 				<File Id="951247375" Language="SFX">
 					<ShortName>Good_block_placement\Block_placement_5.wav</ShortName>
@@ -209,10 +201,6 @@
 				<File Id="984019292" Language="SFX">
 					<ShortName>WoodCrash\Wood_crash_1.wav</ShortName>
 					<Path>SFX\WoodCrash\Wood_crash_1_10C4C929.wem</Path>
-				</File>
-				<File Id="1023657284" Language="SFX">
-					<ShortName>WoodCrash\Wood_crash_4.wav</ShortName>
-					<Path>SFX\WoodCrash\Wood_crash_4_10C4C929.wem</Path>
 				</File>
 				<File Id="1071838985" Language="SFX">
 					<ShortName>Block_pickup\Block_pickup_9.wav</ShortName>

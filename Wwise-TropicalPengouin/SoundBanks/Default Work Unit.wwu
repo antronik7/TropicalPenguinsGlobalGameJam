@@ -18,7 +18,7 @@
 						<ObjectRef Name="UI_Move" ID="{01DE94BE-606A-4908-98A5-7FE21BF2BA18}" WorkUnitID="{6B199D65-53A6-49AF-8DFF-DB836CD06945}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="House_complete" ID="{1AAB39B9-7E37-4BBB-9F66-F4DEBA2C8B67}" WorkUnitID="{6B199D65-53A6-49AF-8DFF-DB836CD06945}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Tractor_Impact" ID="{5316E9AD-97FB-4C70-831A-A73FEF58A29A}" WorkUnitID="{6B199D65-53A6-49AF-8DFF-DB836CD06945}" Filter="7" Origin="Manual"/>
-						<ObjectRef Name="WoodCrash" ID="{8C752D60-13F2-4DB7-90AD-3DA687D3473D}" WorkUnitID="{6B199D65-53A6-49AF-8DFF-DB836CD06945}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="WallHit" ID="{8C752D60-13F2-4DB7-90AD-3DA687D3473D}" WorkUnitID="{6B199D65-53A6-49AF-8DFF-DB836CD06945}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="BlockPlacement_wrong" ID="{14789D92-4C3F-4F2A-8C50-47150830FF48}" WorkUnitID="{6B199D65-53A6-49AF-8DFF-DB836CD06945}" Filter="7" Origin="Manual"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>

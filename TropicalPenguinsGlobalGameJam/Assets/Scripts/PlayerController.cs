@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour
 		//}
 
 		//return;
-		if (isDashing)
+		if (isDashing || !areControlsEnable)
 			return;
 
 		float speed = (transform.position - lastPosition).magnitude;
@@ -158,6 +158,9 @@ public class PlayerController : MonoBehaviour
 
 	public void Rotate(float input)
 	{
+		if (isDashing || !areControlsEnable)
+			return;
+
 		float turn = input * turnSpeedPlayer * Time.deltaTime;
 		Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
 		myRigidbody.MoveRotation(myRigidbody.rotation * turnRotation);
@@ -189,6 +192,7 @@ public class PlayerController : MonoBehaviour
 	public void EnableControls(bool value)
 	{
 		areControlsEnable = value;
+		myRigidbody.velocity = Vector3.zero;
 	}
 
 	public void UpdatePlayerRPM()

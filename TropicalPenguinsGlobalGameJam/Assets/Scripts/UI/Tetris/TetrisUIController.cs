@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class TetrisUIController : MonoBehaviour
 {
-    public int[,] BlocksPos;
+    public int[,] ShapePosArray;
     private int[] CursorPos;
 
     public TetrisGrid GridUI;
     //public GameObject BlockUI;
     public TetrisBlockUI BlockView;
 
-    bool isBlockPosValid = true;
+    bool isBlockPosValid;
+    bool isSetup;
 
     // Start is called before the first frame update
     void Start()
@@ -19,34 +20,47 @@ public class TetrisUIController : MonoBehaviour
         CursorPos = new int[] { 0, 0 };
 
         //Tests
-        SetGridUI(new int[,] { { 3, 0 }, { 0, 0 }, { 0 , 3 }, { 3 , 3 } });
-        SetBlock(new int[,] { {0,0}, {0,1}, {1,1} }, 0);
-        MoveBlock(new int[] { 0, 1 },0);
-        //RotateBlock(true,0);
+        /*SetGridUI(new bool[,] { { true, false, false, true } ,
+                                { false, false, false, false } ,
+                                { true, false, false, false } ,
+                                { true, false, false, true } });
+        SetShape(new int[,] { {0,0}, {0,1}, {1,1} }, 0);
+        MoveBlock(new int[] { 1, 0 },0);
+        //Place(0);
+        RotateBlock(true,0);*/
     }
 
-    void OpenUI(int playerId, int[,] blockPos, int[,] builtPos)
+    /**
+     * <summary>Opens the Tetris UI</summary>
+     * <param name="playerId"> Id of the player who opens the UI</param>
+     * <param name="shapePosArray"> Array of the positions of the blocks to be placed relative to the pivot</param>
+     * <param name="houseBlockGrid"> Array of bool, describing where the house blocks are</param>
+     **/
+    public void OpenUI(int playerId, int[,] shapePosArray, bool[,] houseBlockGrid)
     {
-        SetBlock(blockPos, 0);
+        gameObject.SetActive(true);
+        SetGridUI(houseBlockGrid);
+        SetShape(shapePosArray, 0);
+        isSetup = true;
     }
 
-    void SetGridUI(int[,] blockpos)
+    void SetGridUI(bool[,] houseBlockGrid)
     {
-        GridUI.SetGridBlocks(blockpos);
+        GridUI.SetGrid(houseBlockGrid);
     }
 
-    void SetBlock(int[,] blockpos, int Playerid)
+    void SetShape(int[,] blockpos, int Playerid)
     {
-        BlocksPos = blockpos;
-        BlockView.DrawBlock(CursorPos, BlocksPos);
+        ShapePosArray = blockpos;
+        BlockView.DrawBlock(CursorPos, ShapePosArray);
         UpdateBlockPosValidity();
     }
 
     public void MoveBlock(int[] direction, int PlayerId)
     {
         CursorPos[0] = Mathf.Clamp(CursorPos[0] + direction[0], 0, GridUI.GridSize);
-        CursorPos[1] += direction[1];
-        BlockView.DrawBlock(CursorPos, BlocksPos);
+        CursorPos[1] = Mathf.Clamp(CursorPos[1] + direction[1], 0, GridUI.GridSize);
+        BlockView.DrawBlock(CursorPos, ShapePosArray);
         UpdateBlockPosValidity();
     }
 
@@ -64,14 +78,14 @@ public class TetrisUIController : MonoBehaviour
             rotMat = new int[,] { { 0, 1 }, { -1, 0 } };
         }
 
-        for(int i = 0; i < BlocksPos.GetLength(0); ++i)
+        for(int i = 0; i < ShapePosArray.GetLength(0); ++i)
         {
-            int[] vec = new int[] { BlocksPos[i, 0], BlocksPos[i, 1] };
+            int[] vec = new int[] { ShapePosArray[i, 0], ShapePosArray[i, 1] };
             vec = RotateIntVector(vec, rotMat);
-            BlocksPos[i, 0] = vec[0];
-            BlocksPos[i, 1] = vec[1];
+            ShapePosArray[i, 0] = vec[0];
+            ShapePosArray[i, 1] = vec[1];
         }
-        BlockView.DrawBlock(CursorPos, BlocksPos);
+        BlockView.DrawBlock(CursorPos, ShapePosArray);
         UpdateBlockPosValidity();
     }
 
@@ -85,29 +99,48 @@ public class TetrisUIController : MonoBehaviour
 
     public bool UpdateBlockPosValidity()
     {
-        bool[,] gridIsEmpty = GridUI.gridIsEmpty;
+        bool[,] gridHasBlock = GridUI.gridHasBlock;
         bool oldValidity = isBlockPosValid;
         isBlockPosValid = true;
-        for (int i = 0; i < BlocksPos.GetLength(0) && isBlockPosValid; ++i)
+        for (int i = 0; i < ShapePosArray.GetLength(0) && isBlockPosValid; ++i)
         {
-            int posX = CursorPos[0] + BlocksPos[i, 0];
-            int posY = CursorPos[1] + BlocksPos[i, 1];
+            int posX = CursorPos[1] + ShapePosArray[i, 1];
+            int posY = CursorPos[0] + ShapePosArray[i, 0];
             if (posX < 0 || posY < 0 || posX > GridUI.GridSize || posY > GridUI.GridSize)
             {
                 isBlockPosValid = false;
-            }else if(!gridIsEmpty[posX, posY])
+            }
+            else if(gridHasBlock[posY, posX])
             {
                 isBlockPosValid = false;
             }
         }
-        if (oldValidity != isBlockPosValid)
+        if (!isSetup || oldValidity != isBlockPosValid)
             BlockView.ChangeValidity(isBlockPosValid);
-        return true;
+        return isBlockPosValid;
     }
 
     public void Place(int PlayerId)
     {
-        //UpdateHouse(cursor, Blockpos, PlayerId)
+        if (isBlockPosValid)
+        {
+            GridUI.AddGridBlocks(CursorPos, ShapePosArray);
+            //UpdateHouse(CursorPos, ShapePosArray, PlayerId)
+            Close();
+        }
+        else
+        {
+            //Play invalid placement sound
+        }
+    }
+
+    /**
+     * <summary>Closes the Tetris UI</summary>
+     **/
+    public void Close()
+    {
+        BlockView.Close();
+        gameObject.SetActive(false);
     }
 
     // Update is called once per frame

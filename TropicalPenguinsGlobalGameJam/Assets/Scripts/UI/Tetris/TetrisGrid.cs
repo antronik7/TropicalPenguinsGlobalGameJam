@@ -23,7 +23,7 @@ public class TetrisGrid : MonoBehaviour
 
     private GridLayout gridLayout;
     private Image[,] gridCells;
-    public bool[,] gridIsEmpty;
+    public bool[,] gridHasBlock;
 
     // Start is called before the first frame update
     void Start()
@@ -35,12 +35,12 @@ public class TetrisGrid : MonoBehaviour
         gridLayout = canvas.GetComponent<GridLayout>();
 
         gridCells = new Image[GridSize, GridSize];
-        gridIsEmpty = new bool[GridSize, GridSize];
+        gridHasBlock = new bool[GridSize, GridSize];
         for (int i = 0; i < GridSize; ++i)
         {
-            for(int j = GridSize - 1; j >= 0; --j)
+            for(int j = 0; j < GridSize; ++j)
             {
-                gridIsEmpty[i, j] = true;
+                gridHasBlock[i, j] = false;
                 GameObject newGridCell = Instantiate(gridCellTemplate);
                 newGridCell.transform.SetParent(canvas.transform, false);
                 gridCells[i, j] = newGridCell.GetComponent<Image>();
@@ -48,15 +48,32 @@ public class TetrisGrid : MonoBehaviour
         }
     }
 
-    public void SetGridBlocks(int[,] builtPos)
+    public void SetGrid(bool[,] house)
     {
-        for (int i = 0; i < builtPos.GetLength(0); ++i)
+        gridHasBlock = house;
+        for (int i = 0; i < house.GetLength(0); ++i)
         {
-            gridIsEmpty[builtPos[i, 0], builtPos[i, 1]] = false;
-            Image currentImg = gridCells[builtPos[i, 0], builtPos[i, 1]];
+            for (int j = house.GetLength(1) - 1; j >= 0; --j)
+            {
+                Image currentImg = gridCells[i,j];
+                if(gridHasBlock[i,j] && currentImg.sprite == EmptySprite)
+                    currentImg.sprite = BlockSprite;
+                else if(currentImg.sprite == BlockSprite)
+                    currentImg.sprite = EmptySprite;
+            }
+        }
+    }
+
+    public void AddGridBlocks(int[] cursorPos, int[,] ShapePosArray)
+    {
+        for (int i = 0; i < ShapePosArray.GetLength(0); ++i)
+        {
+            gridHasBlock[cursorPos[1] + ShapePosArray[i, 0], cursorPos[0] + ShapePosArray[i, 1]] = true;
+            Image currentImg = gridCells[cursorPos[1] + ShapePosArray[i, 0], cursorPos[0] + ShapePosArray[i, 1]];
             currentImg.sprite = BlockSprite;
         }
     }
+
 
     // Update is called once per frame
     void Update()

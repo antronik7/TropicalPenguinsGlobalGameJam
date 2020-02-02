@@ -173,6 +173,7 @@ MonoBehaviour:
   - {fileID: 1741089340}
   SpawnHeight: 6
   SpawningRateInSeconds: 3
+  MaxNumberOfBlocks: 10
 --- !u!4 &135088294
 Transform:
   m_ObjectHideFlags: 0
@@ -380,10 +381,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 595486380}
     m_Modifications:
+    - target: {fileID: 386038874113560226, guid: 03b0e416077cb6841a856ec95ebd69bc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1209079505168672727, guid: 03b0e416077cb6841a856ec95ebd69bc,
         type: 3}
       propertyPath: m_Name
       value: House (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6657143768992386919, guid: 03b0e416077cb6841a856ec95ebd69bc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7177651361495127346, guid: 03b0e416077cb6841a856ec95ebd69bc,
         type: 3}
@@ -438,6 +449,11 @@ PrefabInstance:
     - target: {fileID: 7177651361495127346, guid: 03b0e416077cb6841a856ec95ebd69bc,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7723910727620008203, guid: 03b0e416077cb6841a856ec95ebd69bc,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

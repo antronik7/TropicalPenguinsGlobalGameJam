@@ -17,14 +17,35 @@ public class GameplayUIController : MonoBehaviour
 	private void Awake()
 	{
 		PlayerUIArray = new PlayerUIOverlayElement[] { Player1, Player2, Player3, Player4 };
-		Timer.enabled = false;
+		Timer.gameObject.SetActive(false);
+
+		foreach (var playerUI in PlayerUIArray)
+		{
+			playerUI.gameObject.SetActive(false);
+		}
 
 		EventManager.GameplayStart.AddListener(() =>
 		{
-			Timer.enabled = true;
+			int playerCount = PlayerManager.Instance.PlayerCount;
+			for (int i = 0; i < playerCount; ++i)
+			{
+				PlayerUIArray[i].gameObject.SetActive(true);
+			}
+
+			Timer.gameObject.SetActive(true);
 			timerSpan = new TimeSpan(0, 0, 90);
 			Timer.SetText($"{timerSpan.Minutes}:{timerSpan.Seconds}");
 		});
+
+		EventManager.GameplayEnd.AddListener(() =>
+		{
+			foreach (var playerUI in PlayerUIArray)
+			{
+				playerUI.gameObject.SetActive(false);
+			}
+			Timer.gameObject.SetActive(false);
+		});
+
 		EventManager.PlayerScored.AddListener((player, previousScore, scoreIncrement) =>
 		{
 			PlayerUIArray[player.playerId].UpdateScore(previousScore + scoreIncrement);
@@ -42,11 +63,11 @@ public class GameplayUIController : MonoBehaviour
 	{
 		UpdateTimer((int)(Time.fixedDeltaTime * 1000));
 	}
-	public void OnEndGame()
-	{
-		MenuSpawnerManager menuSpawnerManager = MenuSpawnerManager.Instance;
-		menuSpawnerManager.SwitchUI(menuSpawnerManager.EndUI);
-	}
+	//public void OnEndGame()
+	//{
+	//	MenuSpawnerManager menuSpawnerManager = MenuSpawnerManager.Instance;
+	//	menuSpawnerManager.SwitchUI(menuSpawnerManager.EndUI);
+	//}
 
 
 	public void UpdateTimer(int deltaInMilli)

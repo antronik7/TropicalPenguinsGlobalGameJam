@@ -12,7 +12,9 @@ public class EventManager : Singleton<EventManager>
 
 	// EXAMPLE EVENTS
 
+	public static GameEvent GameplayReady = new GameEvent();
 	public static GameEvent GameplayStart = new GameEvent();
+	public static GameEvent GameplayEnd = new GameEvent();
 	public static GameEvent<PlayerController> PlayerSpawn = new GameEvent<PlayerController>();
 	public static GameEvent<PlayerController> PlayerDespawn = new GameEvent<PlayerController>();
 

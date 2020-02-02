@@ -9,7 +9,7 @@ public class HouseManager : MonoBehaviour
 	private const int houseDimensions = 4;
 	public const int nbPlayers = 4;
 	private int[] playersBlocksPlaced = new int[nbPlayers];
-	public const int maxCubes = 2;
+	public const int maxCubes = 16;
 	private int _nbCubes = 0;
 	[SerializeField]
 	protected TextMeshProUGUI houseScore;
@@ -45,11 +45,7 @@ public class HouseManager : MonoBehaviour
 
 	private bool CanPlaceBlock(int size)
 	{
-		if ((nbCubes + size) > maxCubes)
-		{
-			return false;
-		}
-		return true;
+		return nbCubes + size <= maxCubes;
 	}
 
 	public bool IsHouseComplete()

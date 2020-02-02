@@ -12,12 +12,14 @@ public class PlayerManager : Singleton<PlayerManager>
 	private List<PlayerController> players = new List<PlayerController>();
 	private IdHelper idHelper;
 
-    // Start is called before the first frame update
-    protected override void Awake()
-    {
+	public int PlayerCount { get => playerCount; }
+
+	// Start is called before the first frame update
+	protected override void Awake()
+	{
 		idHelper = new IdHelper(playerCount);
 
-		EventManager.GameplayStart.AddListener(() => OnGamePlayStart(playerCount));
+		EventManager.GameplayReady.AddListener(OnGamePlayReady);
 	}
 
 	private void Initialize()
@@ -45,6 +47,19 @@ public class PlayerManager : Singleton<PlayerManager>
 		}
 
 		EventManager.GameplayStart.RemoveListener(() => OnGamePlayStart(playerCount));
+		EventManager.GameplayEnd.AddListener(OnGamePlayEnd);
+	}
+
+	private void OnGamePlayEnd()
+	{
+		EventManager.GameplayEnd.RemoveListener(OnGamePlayEnd);
+		EventManager.GameplayReady.AddListener(OnGamePlayReady);
+	}
+
+	private void OnGamePlayReady()
+	{
+		EventManager.GameplayReady.RemoveListener(OnGamePlayReady);
+		EventManager.GameplayStart.AddListener(() => OnGamePlayStart(playerCount));
 	}
 
 	private PlayerController SpawnPlayer(PlayerController playerPrefab, Transform spawnPoint)
@@ -63,10 +78,10 @@ public class PlayerManager : Singleton<PlayerManager>
 	}
 
 	void Update()
-    {
+	{
 		if (ReInput.players.GetSystemPlayer().GetButtonDown(RewiredConsts.Action.GameplayStart))
 		{
 			EventManager.GameplayStart.Invoke();
 		}
-    }
+	}
 }

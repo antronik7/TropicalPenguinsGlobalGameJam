@@ -23,9 +23,9 @@ public class PlayerController : MonoBehaviour
 	[SerializeField]
 	float dashDelay = 3f;
 
+	//Sounds
 	[SerializeField]
 	private AK.Wwise.RTPC RPM;
-
 	[SerializeField]
 	private AK.Wwise.Event StartEngine;
 	[SerializeField]
@@ -36,6 +36,8 @@ public class PlayerController : MonoBehaviour
 	private AK.Wwise.Event BlockBreak;
 	[SerializeField]
 	private AK.Wwise.Event Boost;
+	[SerializeField]
+	private AK.Wwise.Event WallHit;
 
 
 	//Components
@@ -72,6 +74,11 @@ public class PlayerController : MonoBehaviour
 	void OnCollisionEnter(Collision collision)
 	{
 		DestroyBlock(collision);
+
+		if (collision.gameObject.CompareTag("Wall"))
+		{
+			WallHit.Post(gameObject);
+		}
 	}
 
 	void OnCollisionStay(Collision collision)

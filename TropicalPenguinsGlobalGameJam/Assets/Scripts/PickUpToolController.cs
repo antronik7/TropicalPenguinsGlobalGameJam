@@ -12,6 +12,8 @@ public class PickUpToolController : MonoBehaviour
 	AK.Wwise.Event blockPickupEvent;
 	[SerializeField]
 	AK.Wwise.Event blockDropEvent;
+	[SerializeField]
+	AK.Wwise.Event wallHit;
 
 	public PlayerController playerController;
 
@@ -45,6 +47,10 @@ public class PickUpToolController : MonoBehaviour
 		{
 			isTryingToPickUp = true;
 			shapeToPickUp = other.transform.parent.gameObject;
+		}
+
+		if (other.CompareTag("Wall")) {
+			wallHit.Post(gameObject);
 		}
 	}
 

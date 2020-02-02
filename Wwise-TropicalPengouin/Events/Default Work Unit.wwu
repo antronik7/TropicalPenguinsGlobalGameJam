@@ -167,7 +167,7 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="WoodCrash" ID="{8C752D60-13F2-4DB7-90AD-3DA687D3473D}">
+				<Event Name="WallHit" ID="{8C752D60-13F2-4DB7-90AD-3DA687D3473D}">
 					<ChildrenList>
 						<Action Name="" ID="{49D2D8EE-C77B-432E-9936-4EDD8A764F7C}" ShortID="1000162610">
 							<ReferenceList>

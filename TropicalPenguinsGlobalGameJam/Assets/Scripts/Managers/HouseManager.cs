@@ -9,7 +9,7 @@ public class HouseManager : MonoBehaviour
 	private const int houseDimensions = 4;
 	public const int nbPlayers = 4;
 	private int[] playersBlocksPlaced = new int[nbPlayers];
-	public const int maxCubes = 16;
+	public const int maxCubes = 6;
 	private int _nbCubes = 0;
 	[SerializeField]
 	protected TextMeshProUGUI houseScore;

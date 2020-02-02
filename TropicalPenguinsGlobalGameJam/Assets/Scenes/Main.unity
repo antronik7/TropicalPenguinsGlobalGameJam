@@ -2439,11 +2439,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1928337890}
     m_Modifications:
-    - target: {fileID: 18574869299777896, guid: 91ae45e0fa3a5784a8e4d6d70266f117,
-        type: 3}
-      propertyPath: Pouf
-      value: 
-      objectReference: {fileID: 1012626922}
     - target: {fileID: 255686457178030142, guid: 91ae45e0fa3a5784a8e4d6d70266f117,
         type: 3}
       propertyPath: m_Size.x
@@ -2504,11 +2499,6 @@ PrefabInstance:
       propertyPath: m_Center.x
       value: -0.11
       objectReference: {fileID: 0}
-    - target: {fileID: 1884263166620761275, guid: 91ae45e0fa3a5784a8e4d6d70266f117,
-        type: 3}
-      propertyPath: Pouf
-      value: 
-      objectReference: {fileID: 1359670390}
     - target: {fileID: 2599170189412388997, guid: 91ae45e0fa3a5784a8e4d6d70266f117,
         type: 3}
       propertyPath: m_Size.x
@@ -2754,16 +2744,6 @@ PrefabInstance:
       propertyPath: m_Center.x
       value: 0.19
       objectReference: {fileID: 0}
-    - target: {fileID: 7956017304355250221, guid: 91ae45e0fa3a5784a8e4d6d70266f117,
-        type: 3}
-      propertyPath: Pouf
-      value: 
-      objectReference: {fileID: 1881697136}
-    - target: {fileID: 8238085270452470078, guid: 91ae45e0fa3a5784a8e4d6d70266f117,
-        type: 3}
-      propertyPath: Pouf
-      value: 
-      objectReference: {fileID: 1664268631}
     - target: {fileID: 8629791555190086824, guid: 91ae45e0fa3a5784a8e4d6d70266f117,
         type: 3}
       propertyPath: m_Size.x
@@ -3151,12 +3131,6 @@ ReflectionProbe:
 --- !u!4 &989055990 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6952432314076731640, guid: 91ae45e0fa3a5784a8e4d6d70266f117,
-    type: 3}
-  m_PrefabInstance: {fileID: 708125700}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &1012626922 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 5841086746160943629, guid: 91ae45e0fa3a5784a8e4d6d70266f117,
     type: 3}
   m_PrefabInstance: {fileID: 708125700}
   m_PrefabAsset: {fileID: 0}
@@ -4139,12 +4113,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9083352804052503270, guid: 6aa88d852334f484eb4ed505e3bd80d1,
     type: 3}
   m_PrefabInstance: {fileID: 1339822047}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &1359670390 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 6629342811129998502, guid: 91ae45e0fa3a5784a8e4d6d70266f117,
-    type: 3}
-  m_PrefabInstance: {fileID: 708125700}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1384250218
 GameObject:
@@ -5375,12 +5343,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1641343690}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!198 &1664268631 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 4181262077653443089, guid: 91ae45e0fa3a5784a8e4d6d70266f117,
-    type: 3}
-  m_PrefabInstance: {fileID: 708125700}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1689273031
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6059,12 +6021,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 694a932fe5cbe5a4296cafeb1d737004, type: 3}
---- !u!198 &1881697136 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 401419174173708540, guid: 91ae45e0fa3a5784a8e4d6d70266f117,
-    type: 3}
-  m_PrefabInstance: {fileID: 708125700}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1911497377
 PrefabInstance:
   m_ObjectHideFlags: 0

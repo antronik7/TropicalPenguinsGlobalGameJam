@@ -52,7 +52,6 @@ public class PickUpToolController : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		Debug.Log("Enter");
 		if (isTryingToPickUp || isHoldingShape || other.transform.GetComponent<HouseManager>() != null)
 			return;
 
@@ -69,8 +68,11 @@ public class PickUpToolController : MonoBehaviour
 
 		if (other.transform.parent != null && other.transform.parent.GetComponent<Shape>() != null)
 		{
-			isTryingToPickUp = true;
-			shapeToPickUp = other.transform.parent.gameObject;
+			if(!other.transform.parent.GetComponent<Shape>().IsPicked)
+			{
+				shapeToPickUp = other.transform.parent.gameObject;
+				isTryingToPickUp = true;
+			}
 		}
 
 		if (other.CompareTag("Wall")) {
@@ -112,6 +114,7 @@ public class PickUpToolController : MonoBehaviour
 		isHoldingShape = true;
 		shapeToPickUp.transform.position = shapeToPickUp.transform.position + (Vector3.up / 2f);
 		shapeToPickUp.transform.parent = transform;
+		shapeToPickUp.transform.localEulerAngles = new Vector3(0f, shapeToPickUp.transform.localEulerAngles.y, 0f);
 		Destroy(shapeToPickUp.GetComponent<Rigidbody>());
 		shapeToPickUp.GetComponent<Shape>().Owner = playerController;
 		holdedShape = shapeToPickUp;
@@ -125,12 +128,18 @@ public class PickUpToolController : MonoBehaviour
 
 	private void PlaceShape()
 	{
+		holdedShape.GetComponent<Shape>().Owner = null;
 		holdedShape.transform.parent = null;
-		holdedShape.transform.position = holdedShape.transform.position - (Vector3.up / 2f);
+		holdedShape.transform.position = new Vector3 (holdedShape.transform.position.x, 0.5f, holdedShape.transform.position.z);
 		Rigidbody myRigbody = holdedShape.AddComponent<Rigidbody>();
 		blockDropEvent.Post(gameObject);
 		myRigbody.isKinematic = true;
-		
+
+		DropShape();
+	}
+
+	public void DropShape()
+	{
 		holdedShape = null;
 		isHoldingShape = false;
 	}

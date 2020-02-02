@@ -5,10 +5,15 @@
 			<ChildrenList>
 				<SoundBank Name="Main" ID="{C00EEB70-A63B-4E4C-9787-84DDE35A537A}">
 					<ObjectInclusionList>
+						<ObjectRef Name="BlockPickup" ID="{4B41B169-9F60-40C2-810A-A4E2A48177C7}" WorkUnitID="{6B199D65-53A6-49AF-8DFF-DB836CD06945}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="BlockPlacement_good" ID="{6D711839-B35B-42D8-B78B-E04429AFB38A}" WorkUnitID="{6B199D65-53A6-49AF-8DFF-DB836CD06945}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Play_Background_music" ID="{8000E825-E101-4301-B401-6DF66CC5D496}" WorkUnitID="{6B199D65-53A6-49AF-8DFF-DB836CD06945}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="StartEngine" ID="{F03E930B-73E9-441B-9BE5-B1C71081280A}" WorkUnitID="{6B199D65-53A6-49AF-8DFF-DB836CD06945}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Block_rotation" ID="{94164BA4-73A3-4582-A479-00DAE8584393}" WorkUnitID="{6B199D65-53A6-49AF-8DFF-DB836CD06945}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Beever_Shout" ID="{415D3D29-6701-4612-AEDB-967A4308E72E}" WorkUnitID="{6B199D65-53A6-49AF-8DFF-DB836CD06945}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Boost" ID="{63DDB4E5-8B2B-4792-BD7A-84F43A42FB8F}" WorkUnitID="{6B199D65-53A6-49AF-8DFF-DB836CD06945}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="UI_Confirmation" ID="{A4FEECED-9A1F-48D1-92DA-26C6EED79362}" WorkUnitID="{6B199D65-53A6-49AF-8DFF-DB836CD06945}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="UI_Move" ID="{01DE94BE-606A-4908-98A5-7FE21BF2BA18}" WorkUnitID="{6B199D65-53A6-49AF-8DFF-DB836CD06945}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="House_complete" ID="{1AAB39B9-7E37-4BBB-9F66-F4DEBA2C8B67}" WorkUnitID="{6B199D65-53A6-49AF-8DFF-DB836CD06945}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Tractor_Impact" ID="{5316E9AD-97FB-4C70-831A-A73FEF58A29A}" WorkUnitID="{6B199D65-53A6-49AF-8DFF-DB836CD06945}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="BlockPlacement_wrong" ID="{14789D92-4C3F-4F2A-8C50-47150830FF48}" WorkUnitID="{6B199D65-53A6-49AF-8DFF-DB836CD06945}" Filter="7" Origin="Manual"/>

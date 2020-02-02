@@ -13,13 +13,19 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID BEEVER_SHOUT = 3880659236U;
+        static const AkUniqueID BLOCK_BREAK = 2687994736U;
         static const AkUniqueID BLOCK_ROTATION = 3321968461U;
+        static const AkUniqueID BLOCKPICKUP = 1129509700U;
         static const AkUniqueID BLOCKPLACEMENT_GOOD = 2168726175U;
         static const AkUniqueID BLOCKPLACEMENT_WRONG = 1970298975U;
+        static const AkUniqueID BOOST = 2389703494U;
         static const AkUniqueID HOUSE_COMPLETE = 3181923571U;
         static const AkUniqueID PLAY_BACKGROUND_MUSIC = 65769146U;
         static const AkUniqueID STARTENGINE = 1087172201U;
         static const AkUniqueID TRACTOR_IMPACT = 2651855531U;
+        static const AkUniqueID UI_CONFIRMATION = 2858266821U;
+        static const AkUniqueID UI_MOVE = 2644790697U;
     } // namespace EVENTS
 
     namespace SWITCHES

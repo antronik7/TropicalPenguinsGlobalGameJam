@@ -10,6 +10,7 @@ public class GameplayUIController : MonoBehaviour
     public TextMeshProUGUI ScoreP2;
     public TextMeshProUGUI ScoreP3;
     public TextMeshProUGUI ScoreP4;
+    public TextMeshProUGUI Timer;
 
     private void Start()
     {
@@ -17,6 +18,7 @@ public class GameplayUIController : MonoBehaviour
         //UpdateScore(2, 4);
         //UpdateScore(3, 9);
         //UpdateScore(4, 16);
+        UpdateTimer(90);
     }
 
     public void OnEndGame()
@@ -43,5 +45,14 @@ public class GameplayUIController : MonoBehaviour
                 break;
             default: break;
         }
+    }
+
+    public void UpdateTimer(int seconds)
+    {
+        int min = seconds / 60;
+        int sec = seconds % 60;
+
+        string timerTxt = $"{min}:{sec}";
+        Timer.SetText(timerTxt);
     }
 }

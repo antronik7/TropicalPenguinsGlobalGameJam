@@ -41,7 +41,7 @@
 						<Action Name="" ID="{10CE13DF-188E-43CD-8A38-0FB464D06294}" ShortID="1066758793">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Good_block_placement" ID="{75E0068E-6886-4416-8E4C-2EDA677A7EB5}" WorkUnitID="{4C6EFE75-9599-4E74-992B-81F3EC47697D}"/>
+									<ObjectRef Name="Good_block_placement_01" ID="{F7303B6A-2CD6-4E53-B0C9-831C4CC69688}" WorkUnitID="{4C6EFE75-9599-4E74-992B-81F3EC47697D}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -75,6 +75,82 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Background_music" ID="{D5990FDA-5BFA-471B-ACA6-69F55E1DA01F}" WorkUnitID="{4C6EFE75-9599-4E74-992B-81F3EC47697D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Boost" ID="{63DDB4E5-8B2B-4792-BD7A-84F43A42FB8F}">
+					<ChildrenList>
+						<Action Name="" ID="{C48E720A-7BA9-44F2-870E-7F4D62BBCBBE}" ShortID="340896224">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Boost_1" ID="{6FBF1EF6-E9B8-4324-A1CF-58E7287F9C62}" WorkUnitID="{4C6EFE75-9599-4E74-992B-81F3EC47697D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Block_break" ID="{8AF4AE17-1E14-41C3-A3A7-D247B9F90A66}">
+					<ChildrenList>
+						<Action Name="" ID="{664DC88A-681B-4A47-A022-7F663C8CD06D}" ShortID="816813378">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Wood_break" ID="{D0951D30-F9CC-4587-8302-1F58AA37B3E0}" WorkUnitID="{4C6EFE75-9599-4E74-992B-81F3EC47697D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="UI_Move" ID="{01DE94BE-606A-4908-98A5-7FE21BF2BA18}">
+					<ChildrenList>
+						<Action Name="" ID="{0C034814-2CB4-4801-8622-F4F7322220AC}" ShortID="256365163">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="UI_move_1" ID="{564989C3-A37B-4DFC-A004-FB6C966E183F}" WorkUnitID="{4C6EFE75-9599-4E74-992B-81F3EC47697D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Beever_Shout" ID="{415D3D29-6701-4612-AEDB-967A4308E72E}">
+					<ChildrenList>
+						<Action Name="" ID="{628BAFF5-FA3E-45FB-AE86-97FCA6573D7A}" ShortID="1072557074">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="BeaverShout" ID="{1F25EA26-B110-4F82-B794-9B1BEF47A09E}" WorkUnitID="{4C6EFE75-9599-4E74-992B-81F3EC47697D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="UI_Confirmation" ID="{A4FEECED-9A1F-48D1-92DA-26C6EED79362}">
+					<ChildrenList>
+						<Action Name="" ID="{1A79FBF0-69E5-431C-906B-DB4DDCE6F500}" ShortID="9295034">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="UI_Confirmation" ID="{B2B0AD9B-E6D9-4AEB-A2B9-31834CAA32A8}" WorkUnitID="{4C6EFE75-9599-4E74-992B-81F3EC47697D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="BlockPickup" ID="{4B41B169-9F60-40C2-810A-A4E2A48177C7}">
+					<ChildrenList>
+						<Action Name="" ID="{5D73BD41-26BB-475E-AB55-F4A93479E73C}" ShortID="919759461">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="mechanical_shovel_4" ID="{2FB3891C-53FA-4329-998A-28D5B0B88371}" WorkUnitID="{4C6EFE75-9599-4E74-992B-81F3EC47697D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{547DB0EB-3DC9-4F8A-91BB-27D7151DD31F}" ShortID="964838311">
+							<PropertyList>
+								<Property Name="Delay" Type="Real64" Value="0.05"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Block_pickup" ID="{C5B278E5-3EF7-47B4-9C93-EFB2E7D83DEC}" WorkUnitID="{4C6EFE75-9599-4E74-992B-81F3EC47697D}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

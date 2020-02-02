@@ -79,6 +79,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b31ada6d14434f74e9a807f8197a87c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UIConfirmation:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 3074bc4473d1f324c8643e24a8a98d84,
+      type: 2}
 --- !u!1 &2103294922135367037
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,7 +511,7 @@ GameObject:
   - component: {fileID: 2103294923811962048}
   - component: {fileID: 2103294923811962051}
   m_Layer: 5
-  m_Name: Main Menu
+  m_Name: UIMainMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

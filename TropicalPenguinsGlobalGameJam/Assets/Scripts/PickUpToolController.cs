@@ -8,20 +8,17 @@ public class PickUpToolController : MonoBehaviour
 	[SerializeField]
 	int nbrPressToPickUp = 5;
 
+	[SerializeField]
+	AK.Wwise.Event blockPickupEvent;
+	
+	public PlayerController playerController;
+
 	//Variables
 	public bool isHoldingShape = false;
 
 	private bool isTryingToPickUp = false;
 	private GameObject shapeToPickUp;
 	private int counterBtnPress = 0;
-
-	public PlayerController playerController;
-
-	// Start is called before the first frame update
-	void Start()
-	{
-
-	}
 
 	// Update is called once per frame
 	void Update()
@@ -32,23 +29,6 @@ public class PickUpToolController : MonoBehaviour
 			{
 				ResetPickUp();
 			}
-			else
-			{
-				if (Input.GetButtonDown("ButtonA"))
-				{
-					++counterBtnPress;
-
-					if (counterBtnPress >= nbrPressToPickUp)
-						PickUpShape();
-				}
-			}
-
-		}
-
-		if (isHoldingShape)
-		{
-			if (Input.GetButtonDown("ButtonX"))
-				PlaceShape();
 		}
 	}
 
@@ -71,6 +51,26 @@ public class PickUpToolController : MonoBehaviour
 			ResetPickUp();
 	}
 
+	public void RequestShapePlacement()
+	{
+		if (isHoldingShape)
+		{
+			PlaceShape();
+		}
+	}
+
+	public void RequestShapePickUp()
+	{
+		if (isTryingToPickUp && shapeToPickUp != null)
+		{
+			++counterBtnPress;
+
+			if (counterBtnPress >= nbrPressToPickUp)
+				PickUpShape();
+		}
+	}
+
+
 	public void PickUpShape(Shape shapeOverride = null)
 	{
 		if (shapeOverride != null)
@@ -83,6 +83,9 @@ public class PickUpToolController : MonoBehaviour
 		shapeToPickUp.GetComponent<Shape>().Owner = playerController;
 
 		ResetPickUp();
+
+		blockPickupEvent.Post(gameObject);
+		//EventManager.BlockPickupSound.Invoke();
 	}
 
 	private void PlaceShape()
@@ -105,6 +108,9 @@ public class PickUpToolController : MonoBehaviour
 
 	public Shape GetHoldedShape()
 	{
-		return shapeToPickUp.GetComponent<Shape>();
+		if (shapeToPickUp != null)
+			return shapeToPickUp.GetComponent<Shape>();
+		else
+			return null;
 	}
 }

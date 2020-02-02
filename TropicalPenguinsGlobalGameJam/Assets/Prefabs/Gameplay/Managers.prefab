@@ -27,7 +27,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1329389248152812268}
   m_Father: {fileID: 3634756458286581834}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -46,8 +47,12 @@ MonoBehaviour:
   dontDestroyOnLoad: 0
   playerPrefab: {fileID: 4187060022934643739, guid: 11a241447e974eb4da4578aa9ed4893b,
     type: 3}
-  spawnPoints: []
-  playerCount: 0
+  playerCount: 2
+  spawnPoints:
+  - {fileID: 5494638353839639791}
+  - {fileID: 8251158540465464283}
+  - {fileID: 4128110829185954957}
+  - {fileID: 6370231506208902649}
 --- !u!1 &2108417350714425096
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,7 +207,7 @@ MonoBehaviour:
   _dontDestroyOnLoad: 1
   _userData:
     configVars:
-      updateLoop: 1
+      updateLoop: 3
       alwaysUseUnityInput: 0
       windowsStandalonePrimaryInputSource: 0
       osx_primaryInputSource: 0
@@ -349,7 +354,10 @@ MonoBehaviour:
       _startPlaying: 1
       _defaultJoystickMaps:
       - _enabled: 1
-        _categoryId: 0
+        _categoryId: 1
+        _layoutId: 0
+      - _enabled: 1
+        _categoryId: 2
         _layoutId: 0
       _defaultMouseMaps: []
       _defaultKeyboardMaps: []
@@ -371,7 +379,10 @@ MonoBehaviour:
       _startPlaying: 1
       _defaultJoystickMaps:
       - _enabled: 1
-        _categoryId: 0
+        _categoryId: 1
+        _layoutId: 0
+      - _enabled: 1
+        _categoryId: 2
         _layoutId: 0
       _defaultMouseMaps: []
       _defaultKeyboardMaps: []
@@ -393,7 +404,10 @@ MonoBehaviour:
       _startPlaying: 1
       _defaultJoystickMaps:
       - _enabled: 1
-        _categoryId: 0
+        _categoryId: 1
+        _layoutId: 0
+      - _enabled: 1
+        _categoryId: 2
         _layoutId: 0
       _defaultMouseMaps: []
       _defaultKeyboardMaps: []
@@ -415,7 +429,10 @@ MonoBehaviour:
       _startPlaying: 1
       _defaultJoystickMaps:
       - _enabled: 1
-        _categoryId: 0
+        _categoryId: 1
+        _layoutId: 0
+      - _enabled: 1
+        _categoryId: 2
         _layoutId: 0
       _defaultMouseMaps: []
       _defaultKeyboardMaps: []
@@ -877,3 +894,102 @@ MonoBehaviour:
     controllerMapEnablerSetIdCounter: 3
   _controllerDataFiles: {fileID: 11400000, guid: d21d2b20df8369642b76aafbb2576ba7,
     type: 2}
+--- !u!1001 &3754233969561308632
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2463813443824620839}
+    m_Modifications:
+    - target: {fileID: 2768385139329677108, guid: bd0262aaede425440a1b00bfb3ff62f4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2768385139329677108, guid: bd0262aaede425440a1b00bfb3ff62f4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2768385139329677108, guid: bd0262aaede425440a1b00bfb3ff62f4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2768385139329677108, guid: bd0262aaede425440a1b00bfb3ff62f4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2768385139329677108, guid: bd0262aaede425440a1b00bfb3ff62f4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2768385139329677108, guid: bd0262aaede425440a1b00bfb3ff62f4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2768385139329677108, guid: bd0262aaede425440a1b00bfb3ff62f4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2768385139329677108, guid: bd0262aaede425440a1b00bfb3ff62f4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2768385139329677108, guid: bd0262aaede425440a1b00bfb3ff62f4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2768385139329677108, guid: bd0262aaede425440a1b00bfb3ff62f4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2768385139329677108, guid: bd0262aaede425440a1b00bfb3ff62f4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8790054655650400641, guid: bd0262aaede425440a1b00bfb3ff62f4,
+        type: 3}
+      propertyPath: m_Name
+      value: PlayerSpawnPoints
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bd0262aaede425440a1b00bfb3ff62f4, type: 3}
+--- !u!4 &1329389248152812268 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2768385139329677108, guid: bd0262aaede425440a1b00bfb3ff62f4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3754233969561308632}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5494638353839639791 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8672058898404950327, guid: bd0262aaede425440a1b00bfb3ff62f4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3754233969561308632}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8251158540465464283 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5087861544909794819, guid: bd0262aaede425440a1b00bfb3ff62f4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3754233969561308632}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4128110829185954957 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 959347031694539093, guid: bd0262aaede425440a1b00bfb3ff62f4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3754233969561308632}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6370231506208902649 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7817734563672440865, guid: bd0262aaede425440a1b00bfb3ff62f4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3754233969561308632}
+  m_PrefabAsset: {fileID: 0}

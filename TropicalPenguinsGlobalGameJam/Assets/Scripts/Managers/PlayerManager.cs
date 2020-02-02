@@ -6,10 +6,10 @@ using UnityEngine;
 public class PlayerManager : Singleton<PlayerManager>
 {
 	[SerializeField] private PlayerController playerPrefab;
-	[SerializeField] private Transform[] spawnPoints;
 	[SerializeField] private int playerCount;
+	[SerializeField] private Transform[] spawnPoints;
 
-	private List<PlayerController> players;
+	private List<PlayerController> players = new List<PlayerController>();
 	private IdHelper idHelper;
 
     // Start is called before the first frame update
@@ -43,6 +43,8 @@ public class PlayerManager : Singleton<PlayerManager>
 			players.Add(player);
 			EventManager.PlayerSpawn.Invoke(player);
 		}
+
+		EventManager.GameplayStart.RemoveListener(() => OnGamePlayStart(playerCount));
 	}
 
 	private PlayerController SpawnPlayer(PlayerController playerPrefab, Transform spawnPoint)

@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:TropicalPenguinsGlobalGameJam/Assets/Prefabs/Assets_prefab/SM_BarrierB_Long_V3_01 Variant.prefab.meta
 guid: 820a0501b2f73d14aa924690bf7d72d0
 PrefabImporter:
+=======
+guid: 784d649fea532614f9eab3e2fc22d4b8
+folderAsset: yes
+DefaultImporter:
+>>>>>>> 7199e78416f80e0a5e83ed3720041931e868cefc:TropicalPenguinsGlobalGameJam/Assets/StreamingAssets/Audio/GeneratedSoundBanks/DecodedBanks/English(US).meta
   externalObjects: {}
   userData: 
   assetBundleName: 

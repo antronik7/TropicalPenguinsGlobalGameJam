@@ -13,10 +13,10 @@ public class GameplayUIController : MonoBehaviour
 
     private void Start()
     {
-        UpdateScore(1, 1);
-        UpdateScore(2, 4);
-        UpdateScore(3, 9);
-        UpdateScore(4, 16);
+        //UpdateScore(1, 1);
+        //UpdateScore(2, 4);
+        //UpdateScore(3, 9);
+        //UpdateScore(4, 16);
     }
 
     public void OnEndGame()

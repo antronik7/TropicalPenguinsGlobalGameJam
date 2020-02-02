@@ -26,12 +26,19 @@ public class TetrisUIController : MonoBehaviour
                                 { true, false, false, true } });
         SetShape(new int[,] { {0,0}, {0,1}, {1,1} }, 0);
         MoveBlock(new int[] { 1, 0 },0);
-        Place(0);*/
-        //RotateBlock(true,0);
+        //Place(0);
+        RotateBlock(true,0);*/
     }
 
+    /**
+     * <summary>Opens the Tetris UI</summary>
+     * <param name="playerId"> Id of the player who opens the UI</param>
+     * <param name="shapePosArray"> Array of the positions of the blocks to be placed relative to the pivot</param>
+     * <param name="houseBlockGrid"> Array of bool, describing where the house blocks are</param>
+     **/
     public void OpenUI(int playerId, int[,] shapePosArray, bool[,] houseBlockGrid)
     {
+        gameObject.SetActive(true);
         SetGridUI(houseBlockGrid);
         SetShape(shapePosArray, 0);
         isSetup = true;
@@ -127,6 +134,9 @@ public class TetrisUIController : MonoBehaviour
         }
     }
 
+    /**
+     * <summary>Closes the Tetris UI</summary>
+     **/
     public void Close()
     {
         BlockView.Close();

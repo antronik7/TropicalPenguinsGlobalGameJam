@@ -173,6 +173,10 @@ public class Shape : MonoBehaviour
 				controller.pickUpController.PickUpShape(newShape);
 			}
 		}
+		else
+		{
+			m_Owner.pickUpController.DropShape();
+		}
 
 		Destroy(gameObject);
 	}

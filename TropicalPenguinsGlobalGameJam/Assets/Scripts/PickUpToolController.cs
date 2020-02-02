@@ -53,8 +53,19 @@ public class PickUpToolController : MonoBehaviour
 	private void OnTriggerEnter(Collider other)
 	{
 		Debug.Log("Enter");
-		if (isTryingToPickUp || isHoldingShape)
+		if (isTryingToPickUp || isHoldingShape || other.transform.GetComponent<HouseManager>() != null)
 			return;
+
+		//pose pas trop de questions
+		if (other.transform.parent != null)
+		{
+			if (other.transform.parent.parent != null)
+			{
+				//empecher le joueur de pick up des morceaux de maison
+				if (other.transform.parent.parent.GetComponent<HouseManager>() != null)
+					return;
+			}
+		}
 
 		if (other.transform.parent != null && other.transform.parent.GetComponent<Shape>() != null)
 		{

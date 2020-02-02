@@ -25,6 +25,7 @@ public class HouseManager : MonoBehaviour
 	{
 		InitializeConstants();
 		InitializeHouseGrid();
+		AddBlockToHouse(new int[] { 0, 0 }, new int[,] { { 0, 0 } });
 	}
 
 	private void InitializeHouseGrid()
@@ -42,14 +43,14 @@ public class HouseManager : MonoBehaviour
 		while (nbBlocksPlaced < blocksToInit)
 		{
 			row = random.Next(0, houseDimensions);
-			Debug.Log(row);
 			col = random.Next(0, houseDimensions);
 			if (houseGridBool[row, col] != true)
 			{
 				houseGridBool[row, col] = true;
 				nbBlocksPlaced++;
 				//magie
-				childCubes[ ( houseDimensions * row ) + col].transform.gameObject.SetActive(true);
+				int childToActivate = (houseDimensions * row) + col;
+				childCubes[childToActivate].transform.gameObject.SetActive(true);
 			}
 		}
 	}
@@ -79,7 +80,7 @@ public class HouseManager : MonoBehaviour
 		{
 			//if collision
 			// invert the grid values because of line storage
-			if (houseGridBool[cursor[0] + grid[i, 1], cursor[1] + grid[i, 0]] == true)
+			if (houseGridBool[cursor[1] + grid[i, 1], cursor[0] + grid[i, 0]] == true)
 			{
 				return false;
 			}
@@ -113,10 +114,11 @@ public class HouseManager : MonoBehaviour
 	{
 		for (int i = 0; i < grid.GetLength(0); i++)
 		{
-			int row = cursor[0] + grid[i, 0];
-			int col = cursor[1] + grid[i, 1];
+			int row = cursor[1] + grid[i, 0];
+			int col = cursor[0] + grid[i, 1];
 			houseGridBool[row, col] = true;
-			childCubes[(houseDimensions * row) + col].transform.gameObject.SetActive(true);
+			int childToActivate = (houseDimensions * row) + col;
+			childCubes[childToActivate].transform.gameObject.SetActive(true);
 		}
 	}
 
@@ -176,8 +178,8 @@ public class HouseManager : MonoBehaviour
 				for (int i = 0; i < shapeCoord.Length; ++i )
 				{
 					Vector2Int vi = shapeCoord[i];
-					sc[i, 0] = vi.x;
-					sc[i, 1] = vi.y;
+					sc[i, 0] = vi.y;
+					sc[i, 1] = vi.x;
 				}
 				TetrisUIController tetrisUI = myUITetris.GetComponent<TetrisUIController>();
 				tetrisUI.OpenUI(player, sc, houseGridBool);

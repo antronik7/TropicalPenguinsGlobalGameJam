@@ -64,6 +64,9 @@ public class TetrisGrid : MonoBehaviour
         }
     }
 
+    // *****************************
+    // VALIDER x,y
+    // *****************************
     public void AddGridBlocks(int[] cursorPos, int[,] ShapePosArray)
     {
         for (int i = 0; i < ShapePosArray.GetLength(0); ++i)
@@ -73,7 +76,6 @@ public class TetrisGrid : MonoBehaviour
             currentImg.sprite = BlockSprite;
         }
     }
-
 
     // Update is called once per frame
     void Update()

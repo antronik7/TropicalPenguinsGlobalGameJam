@@ -5,122 +5,52 @@ using UnityEngine;
 
 public class HouseManager : MonoBehaviour
 {
-	// The referential for stocking the matrix is line storage, see below
-	// [0,1,2]
-	// [3,4,5] -> { { 0, 1, 2 }, { 3, 4, 5 }, { 6, 7, 8 } }
-	// [6,7,8]
-	public GameObject myUITetris;
 	private const int houseDimensions = 4;
-	private bool[,] houseGridBool;
 	public const int nbPlayers = 4;
 	private int[] playersBlocksPlaced;
-	private int minNbBlocksInit = 3;
-	private int maxNbBlocksInit = 7;
-	private Vector3 housePosition;
-	private Shape[] childCubes;
-	public int seed;
+	public const int maxCubes = 16;
+	protected int nbCubes = 0;
 
 	// Start is called before the first frame update
 	void Start()
 	{
 		InitializeConstants();
-		InitializeHouseGrid();
-		//AddBlockToHouse(new int[] { 0, 0 }, new int[,] { { 0, 0 } });
 	}
 
-	private void InitializeHouseGrid()
+	public void PlaceBlock(int score, PlayerController player)
 	{
-		HideHouseGrid();
-		houseGridBool = new bool[houseDimensions, houseDimensions];
-		playersBlocksPlaced = new int[nbPlayers];
-		System.Random random = new System.Random(seed + (int)Time.time);
+		PlayerScore(score, player);
+		nbCubes += score;
 
-		int blocksToInit = random.Next(minNbBlocksInit, maxNbBlocksInit + 1);
-		int nbBlocksPlaced = 0;
-		int row = 0;
-		int col = 0;
-
-		while (nbBlocksPlaced < blocksToInit)
+		if (IsHouseComplete())
 		{
-			row = random.Next(0, houseDimensions);
-			col = random.Next(0, houseDimensions);
-			if (houseGridBool[row, col] != true)
-			{
-				houseGridBool[row, col] = true;
-				nbBlocksPlaced++;
-				//magie
-				int childToActivate = (houseDimensions * row) + col;
-				childCubes[childToActivate].transform.gameObject.SetActive(true);
-			}
+			HouseComplete(player);
 		}
 	}
 
-	public bool PlaceBlock(int player, int[] cursor, int[,] blockGrid)
+	private bool CanPlaceBlock(int size)
 	{
-		bool returnValue = false;
-
-		if (CanPlaceBlock(cursor, blockGrid))
+		if ( (nbCubes + size) > maxCubes)
 		{
-			returnValue = true;
-			AddBlockToHouse(cursor, blockGrid);
-			GivePlayerPoints(player, blockGrid);
-
-			if (IsHouseComplete())
-			{
-				HouseComplete(player);
-			}
-		}
-
-		return returnValue;
-	}
-
-	private bool CanPlaceBlock(int[] cursor, int[,] grid)
-	{
-		for (int i = 0; i < grid.GetLength(0); i++)
-		{
-			// invert the grid values because of line storage
-			if (houseGridBool[cursor[1] + grid[i, 0], cursor[0] + grid[i, 1]] == true)
-			{
-				return false;
-			}
+			return false;
 		}
 		return true;
 	}
 
-	// loop grid, if a 0 is left its not complete
 	public bool IsHouseComplete()
 	{
-		for (int row = 0; row < houseGridBool.GetLength(0); row++)
+		if (nbCubes >= maxCubes)
 		{
-			for (int col = 0; col < houseGridBool.GetLength(1); col++)
-			{
-				if (houseGridBool[row, col] == false)
-				{
-					return false;
-				}
-			}
+			return true;
 		}
-		return true;
+		return false;
 	}
 
-	private void GivePlayerPoints(int player, int[,] blockGrid)
+	private void GivePlayerPoints(int playerID, int score)
 	{
 		//points seulement selon grosseur du block (1 pour 1)
-		playersBlocksPlaced[player] += blockGrid.Length;
+		playersBlocksPlaced[playerID] += score;
 	}
-
-	private void AddBlockToHouse(int[] cursor, int[,] grid)
-	{
-		for (int i = 0; i < grid.GetLength(0); i++)
-		{
-			int row = cursor[1] + grid[i, 0];
-			int col = cursor[0] + grid[i, 1];
-			houseGridBool[row, col] = true;
-			int childToActivate = (houseDimensions * row) + col;
-			childCubes[childToActivate].transform.gameObject.SetActive(true);
-		}
-	}
-
 
 	public ShapeType AvailableShapes()
 	{
@@ -130,41 +60,24 @@ public class HouseManager : MonoBehaviour
 		return randomShape;
 	}
 
-	private void HouseComplete(int player)
+	private void HouseComplete(PlayerController player)
 	{
 		// double the points for who finished it
-		playersBlocksPlaced[player] *= 2;
-
-		for (int i = 0; i < playersBlocksPlaced.Length; i++)
-		{
-			GameManager.instance.addToPlayerScore(i, playersBlocksPlaced[i]);
-		}
+		EventManager.PlayerScored.Invoke(player, playersBlocksPlaced[player.playerId]);
 
 		//*************
 		// TODO play demolition / new house animation
 		//*************
 
-		InitializeHouseGrid();
-	}
-
-
-	private void HideHouseGrid()
-	{
-		for (int i = 0; i < childCubes.Length; i++)
-		{
-			childCubes[i].transform.gameObject.SetActive(false);
-		}
 	}
 
 	private void InitializeConstants()
 	{
-		childCubes = GetComponentsInChildren<Shape>();
-		housePosition = gameObject.transform.position;
+		nbCubes = 0;
 	}
 
 	private void OnTriggerEnter(Collider other)
 	{
-		//PlayerController player = other.GetComponent<PlayerController>();
 		PlayerController player = other.transform.root.GetComponent<PlayerController>();
 		if (player != null)
 		{
@@ -172,19 +85,18 @@ public class HouseManager : MonoBehaviour
 			if (playerShape != null)
 			{
 				Vector2Int[] shapeCoord = playerShape.GetPlacements(Vector2Int.zero);
-
-				int[,] sc = new int[shapeCoord.Length, 2];
-				for (int i = 0; i < shapeCoord.Length; ++i )
+				int score = shapeCoord.Length;
+				if (CanPlaceBlock(score))
 				{
-					Vector2Int vi = shapeCoord[i];
-					sc[i, 0] = vi.y;
-					sc[i, 1] = vi.x;
+					PlaceBlock(score, player);
 				}
-				TetrisUIController tetrisUI = myUITetris.GetComponent<TetrisUIController>();
-				tetrisUI.OpenUI(player, sc, houseGridBool);
-
-				player.OpenTetrisUI(tetrisUI);
 			}
 		}
+	}
+
+	private void PlayerScore(int points, PlayerController player)
+	{
+		EventManager.PlayerScored.Invoke(player, points);
+		GivePlayerPoints(player.playerId, points);
 	}
 }

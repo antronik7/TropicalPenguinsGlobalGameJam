@@ -115,11 +115,17 @@ public class TetrisUIController : MonoBehaviour
         {
             GridUI.AddGridBlocks(ShapePosArray);
             //UpdateHouse(CursorPos, ShapePosArray, PlayerId)
+            Close();
         }
         else
         {
             //Play invalid placement sound
         }
+    }
+
+    public void Close()
+    {
+        gameObject.SetActive(false);
     }
 
     // Update is called once per frame

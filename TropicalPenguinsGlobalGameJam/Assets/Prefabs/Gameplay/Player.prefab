@@ -157,8 +157,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickUpController: {fileID: 1708929702}
-  bobCatBody: {fileID: 0}
-  materialColorPlayer: []
+  bobCatBody: {fileID: 4717705119885105184}
+  materialColorPlayer:
+  - {fileID: 2100000, guid: b2030b4e330def94a8d07012f3142de3, type: 2}
+  - {fileID: 2100000, guid: 28de463f581c2ae418b909e81e9f476b, type: 2}
+  - {fileID: 2100000, guid: a36471b50b3e7cb4f8b7587643d7e023, type: 2}
+  - {fileID: 2100000, guid: b4fdd4c91433bd142919edb1a48d8def, type: 2}
   speedPlayer: 5
   turnSpeedPlayer: 200
   maxSpeedPlayer: 7.5
@@ -507,6 +511,12 @@ Transform:
 --- !u!95 &1286609540915387559 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: -6057140222963153312, guid: bbf29376538f1ca41b2dfa24f25ce032,
+    type: 3}
+  m_PrefabInstance: {fileID: 4191236623032048327}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &4717705119885105184 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -336955994067844377, guid: bbf29376538f1ca41b2dfa24f25ce032,
     type: 3}
   m_PrefabInstance: {fileID: 4191236623032048327}
   m_PrefabAsset: {fileID: 0}

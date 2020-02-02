@@ -138,8 +138,12 @@ public class PickUpToolController : MonoBehaviour
 		DropShape();
 	}
 
-	public void DropShape()
+	public void DropShape(bool destroyShape = false)
 	{
+		if (destroyShape)
+		{
+			Destroy(holdedShape);
+		}
 		holdedShape = null;
 		isHoldingShape = false;
 	}

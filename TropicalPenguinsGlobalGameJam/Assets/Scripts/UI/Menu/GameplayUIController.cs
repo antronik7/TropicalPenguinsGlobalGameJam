@@ -62,8 +62,6 @@ public class GameplayUIController : MonoBehaviour
 	private void FixedUpdate()
 	{
 		UpdateTimer((int)(Time.fixedDeltaTime * 1000));
-		if (timerSpan.Ticks <= 0)
-			EventManager.GameplayEnd.Invoke();
 	}
 	//public void OnEndGame()
 	//{
@@ -82,5 +80,8 @@ public class GameplayUIController : MonoBehaviour
 			Timer.SetText($"{timerSpan.Minutes}:{timerSpan.Seconds}");
 		else
 			Timer.SetText($"{timerSpan.Seconds}");
+
+		if (timerSpan.Ticks <= 0)
+			EventManager.GameplayEnd.Invoke();
 	}
 }

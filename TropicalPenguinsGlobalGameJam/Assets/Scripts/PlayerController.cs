@@ -39,6 +39,9 @@ public class PlayerController : MonoBehaviour
 	[SerializeField]
 	private AK.Wwise.Event WallHit;
 
+	//FX
+	[SerializeField]
+	private ParticleSystem ImpactParticles;
 
 	//Components
 	private Rigidbody myRigidbody;
@@ -102,6 +105,8 @@ public class PlayerController : MonoBehaviour
 				{
 					PlayerImpact.Post(gameObject);
 					Debug.Log("Collision");
+					ImpactParticles.Play();
+					collision.gameObject.GetComponent<PlayerController>().ImpactParticles.Play();
 					Shape shapeToCrumble = controller.pickUpController.GetHoldedShape();
 
 					if (shapeToCrumble != null) {

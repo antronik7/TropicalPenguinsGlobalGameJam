@@ -26,7 +26,7 @@ public class PlayerManager : Singleton<PlayerManager>
 	{
 		foreach (PlayerController player in players)
 		{
-			Destroy(player);
+			Destroy(player.gameObject);
 		}
 
 		idHelper.Initialize(playerCount);
@@ -34,6 +34,7 @@ public class PlayerManager : Singleton<PlayerManager>
 
 	private void OnGamePlayStart(int playerCount)
 	{
+		Initialize();
 		if (playerCount > spawnPoints.Length)
 		{
 			throw new System.Exception("Not enough spawn points for the desired player count.");
@@ -60,7 +61,6 @@ public class PlayerManager : Singleton<PlayerManager>
 	{
 		EventManager.GameplayReady.RemoveListener(OnGamePlayReady);
 		EventManager.GameplayStart.AddListener(() => OnGamePlayStart(playerCount));
-		EventManager.GameplayStart.Invoke();
 	}
 
 	private PlayerController SpawnPlayer(PlayerController playerPrefab, Transform spawnPoint)

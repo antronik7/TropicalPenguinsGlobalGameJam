@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class InputHandler : MonoBehaviour
-{		
+{
 	protected void Awake()
 	{
 		EventManager.PlayerSpawn.AddListener((player) => OnPlayerSpawn(player));

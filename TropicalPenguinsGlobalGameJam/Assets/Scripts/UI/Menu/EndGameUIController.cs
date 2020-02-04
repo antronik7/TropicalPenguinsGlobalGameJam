@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Linq;
 
 public class EndGameUIController : MonoBehaviour
 {
@@ -13,11 +14,24 @@ public class EndGameUIController : MonoBehaviour
 	public TextMeshProUGUI HousesP2;
 	public TextMeshProUGUI HousesP3;
 	public TextMeshProUGUI HousesP4;
-	public TextMeshProUGUI ScoreP1;
-	public TextMeshProUGUI ScoreP2;
-	public TextMeshProUGUI ScoreP3;
-	public TextMeshProUGUI ScoreP4;
 
+	public List<TextMeshProUGUI> Scores;
+
+	private void Awake()
+	{
+		EventManager.GameplayEnd.AddListener(() =>
+		{
+			gameObject.SetActive(true);
+			UpdateScores(GameManager.Instance.playerScores);
+		});
+
+		EventManager.GameplayReady.AddListener(() =>
+		{
+			gameObject.SetActive(false);
+		});
+
+		gameObject.SetActive(false);
+	}
 	public void UpdateBlocks(int blocksP1, int blocksP2, int blocksP3, int blocksP4)
 	{
 		BlocksP1.SetText(blocksP1.ToString());
@@ -33,12 +47,12 @@ public class EndGameUIController : MonoBehaviour
 		HousesP3.SetText(houseP3.ToString());
 		HousesP4.SetText(houseP4.ToString());
 	}
-	public void UpdateScores(int scoreP1, int scoreP2, int scoreP3, int scoreP4)
+	public void UpdateScores(IEnumerable<int> scores)
 	{
-		ScoreP1.SetText(scoreP1.ToString());
-		ScoreP2.SetText(scoreP2.ToString());
-		ScoreP3.SetText(scoreP3.ToString());
-		ScoreP4.SetText(scoreP4.ToString());
+		foreach (var (score, text) in scores.Zip(Scores, (f, s) => (f, s)))
+		{
+			text.text = score.ToString();
+		}
 	}
 	public void ToMainMenu()
 	{

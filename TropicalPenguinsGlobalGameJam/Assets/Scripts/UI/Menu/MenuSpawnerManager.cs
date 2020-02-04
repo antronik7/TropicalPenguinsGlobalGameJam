@@ -18,8 +18,7 @@ public class MenuSpawnerManager : MonoBehaviour
 	{
 		EventManager.GameplayEnd.AddListener(() =>
 		{
-			int[] scores = GameManager.Instance.playerScores;
-			EndUI.UpdateScores(scores[0], scores[1], scores[2], scores[3]);
+			EndUI.UpdateScores(GameManager.Instance.playerScores);
 			MainMenuUI.gameObject.SetActive(false);
 			EndUI.gameObject.SetActive(false);
 		});

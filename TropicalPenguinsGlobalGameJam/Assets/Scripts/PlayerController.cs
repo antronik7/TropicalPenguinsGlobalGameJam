@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
 	{
 		StartEngine.Post(gameObject);
 
-		if(bobCatBody != null && materialColorPlayer.Length > 0)
+		if (bobCatBody != null && materialColorPlayer.Length > 0)
 		{
 			bobCatBody.material = materialColorPlayer[playerId];
 		}
@@ -125,7 +125,8 @@ public class PlayerController : MonoBehaviour
 					collision.gameObject.GetComponent<PlayerController>().ImpactParticles.Play();
 					Shape shapeToCrumble = controller.pickUpController.GetHoldedShape();
 
-					if (shapeToCrumble != null) {
+					if (shapeToCrumble != null)
+					{
 						shapeToCrumble.Crumble(controller);
 						BeaverShout.Post(gameObject);
 					}

@@ -13,7 +13,7 @@ public class GameplayUIController : MonoBehaviour
 
 	public List<Color> colors = new List<Color>(4);
 
-	public int maxTimerSeconds = 90;
+	public int maxTimerSeconds = 300;
 
 	private TimeSpan timerSpan;
 	private bool isSet = false;
@@ -41,7 +41,7 @@ public class GameplayUIController : MonoBehaviour
 			}
 
 			Timer.gameObject.SetActive(true);
-			timerSpan = new TimeSpan(0, 0, maxTimerSeconds);
+			timerSpan = new TimeSpan(0, 0, 300);
 			Timer.SetText($"{timerSpan.Minutes}:{timerSpan.Seconds}");
 			isSet = true;
 		});
@@ -86,10 +86,15 @@ public class GameplayUIController : MonoBehaviour
 			return;
 
 		timerSpan = timerSpan.Subtract(new TimeSpan(0, 0, 0, 0, deltaInMilli));
+
+        string secondString = timerSpan.Seconds.ToString();
+        if (timerSpan.Seconds < 10)
+            secondString = "0" + secondString;
+
 		if (timerSpan.Minutes > 0)
-			Timer.SetText($"{timerSpan.Minutes}:{timerSpan.Seconds}");
+			Timer.SetText($"{timerSpan.Minutes}:" + secondString);
 		else
-			Timer.SetText($"{timerSpan.Seconds}");
+			Timer.SetText(secondString);
 
 		if (timerSpan.Ticks <= 0)
 			EventManager.GameplayEnd.Invoke();

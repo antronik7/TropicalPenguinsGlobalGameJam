@@ -77,4 +77,9 @@ public class PlayerManager : Singleton<PlayerManager>
 		players.Remove(pc);
 		Destroy(pc.gameObject);
 	}
+
+    public void SetPlayerCount(int value)
+    {
+        playerCount = value;
+    }
 }

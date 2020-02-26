@@ -29,6 +29,8 @@ public class VariantSwapper : MonoBehaviour
 	// This cancer is really hack-ish :) x    D
 	private void SwitchToVariant()
 	{
+        return;
+
 		if (variant == null)
 			return;
 		variantInstance.SetActive(true);

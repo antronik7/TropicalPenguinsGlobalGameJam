@@ -23,11 +23,36 @@ public class MainMenuUIController : MonoBehaviour
 		gameObject.SetActive(false);
 	}
 
-	public void OnPressPlay()
+    public void OnPressPlay1()
+    {
+        PlayerManager.Instance.SetPlayerCount(1);
+        OnPressPlay();
+    }
+
+    public void OnPressPlay2()
+    {
+        PlayerManager.Instance.SetPlayerCount(2);
+        OnPressPlay();
+    }
+
+    public void OnPressPlay3()
+    {
+        PlayerManager.Instance.SetPlayerCount(3);
+        OnPressPlay();
+    }
+
+    public void OnPressPlay4()
+    {
+        PlayerManager.Instance.SetPlayerCount(4);
+        OnPressPlay();
+    }
+
+    private void OnPressPlay()
 	{
 		//Debug.Log("play");
 		EventManager.GameplayStart.Invoke();
 		UIConfirmation.Post(gameObject);
+        BlockSpawner.Instance.StartSpawningBlocks();
 	}
 
 	public void OnPressQuit()

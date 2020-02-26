@@ -63,9 +63,6 @@ public class BlockSpawner : Singleton<BlockSpawner>
 
 		// Have a Dictionnary instead for constant time get
 		ShapePrefabs = m_ShapePrefabs.ToDictionary(s => s.Type);
-
-		// Start Spawn Coroutine
-		StartCoroutine("SpawnBlockCoroutine");
 	}
 
 	public IEnumerator<Vector3> BuildNextBlockEnumerator()
@@ -176,4 +173,10 @@ public class BlockSpawner : Singleton<BlockSpawner>
 	public void GetPositions(Vector2Int pivot)
 	{
 	}
+
+    public void StartSpawningBlocks()
+    {
+        // Start Spawn Coroutine
+        StartCoroutine("SpawnBlockCoroutine");
+    }
 }

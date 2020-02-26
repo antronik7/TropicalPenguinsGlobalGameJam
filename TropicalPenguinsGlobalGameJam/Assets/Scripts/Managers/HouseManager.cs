@@ -9,7 +9,7 @@ public class HouseManager : MonoBehaviour
 	private const int houseDimensions = 4;
 	public const int nbPlayers = 4;
 	private int[] playersBlocksPlaced = new int[nbPlayers];
-	public const int maxCubes = 6;
+	public const int maxCubes = 10;
 	private int _nbCubes = 0;
 	[SerializeField]
 	protected TextMeshProUGUI houseScore;
@@ -74,11 +74,16 @@ public class HouseManager : MonoBehaviour
 
 	private void HouseComplete(PlayerController player)
 	{
-		// double the points for who finished it
-		EventManager.PlayerScored.Invoke(player, GameManager.Instance.playerScores[player.playerId], playersBlocksPlaced[player.playerId]);
+        for (int i = 0; i < nbPlayers; ++i)
+        {
+            EventManager.PlayerScored.Invoke(player, GameManager.Instance.playerScores[i], playersBlocksPlaced[i]);
+        }
 
-		// animation for when house is complete
-		gameObject.GetComponent<HouseAnimationScript>().Play();
+        // double the points for who finished it
+        EventManager.PlayerScored.Invoke(player, GameManager.Instance.playerScores[player.playerId], playersBlocksPlaced[player.playerId]);
+
+        // animation for when house is complete
+        gameObject.GetComponent<HouseAnimationScript>().Play();
 		InitializeConstants();
 	}
 
@@ -111,7 +116,7 @@ public class HouseManager : MonoBehaviour
 
 	private void PlayerScore(int points, PlayerController player)
 	{
-		EventManager.PlayerScored.Invoke(player, GameManager.Instance.playerScores[player.playerId], points);
+		//EventManager.PlayerScored.Invoke(player, GameManager.Instance.playerScores[player.playerId], points);
 		GivePlayerPoints(player.playerId, points);
 	}
 }

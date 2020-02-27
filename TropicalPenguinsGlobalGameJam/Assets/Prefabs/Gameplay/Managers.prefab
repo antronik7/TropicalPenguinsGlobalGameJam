@@ -414,8 +414,8 @@ MonoBehaviour:
       _defaultCustomControllerMaps: []
       _startingCustomControllers: []
       _assignMouseOnStart: 0
-      _assignKeyboardOnStart: 1
-      _excludeFromControllerAutoAssignment: 1
+      _assignKeyboardOnStart: 0
+      _excludeFromControllerAutoAssignment: 0
       _controllerMapLayoutManagerSettings:
         _enabled: 1
         _loadFromUserDataStore: 1
@@ -1216,6 +1216,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MenuSpawnerManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3787581510763067561, guid: 6dd84a2e929a3bf4e991dc707ca7c61f,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3787581510763067561, guid: 6dd84a2e929a3bf4e991dc707ca7c61f,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3787581510763067561, guid: 6dd84a2e929a3bf4e991dc707ca7c61f,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3787581510763067561, guid: 6dd84a2e929a3bf4e991dc707ca7c61f,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3787581510763067561, guid: 6dd84a2e929a3bf4e991dc707ca7c61f,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6dd84a2e929a3bf4e991dc707ca7c61f, type: 3}

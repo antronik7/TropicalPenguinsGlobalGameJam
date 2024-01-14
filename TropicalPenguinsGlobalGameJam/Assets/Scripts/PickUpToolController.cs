@@ -9,7 +9,13 @@ public class PickUpToolController : MonoBehaviour
 	[SerializeField]
 	int nbrPressToPickUp = 5;
 
-	[SerializeField]
+    [SerializeField]
+    Transform armAnim;
+
+    [SerializeField]
+    Transform clawAnim;
+
+    [SerializeField]
 	AK.Wwise.Event blockPickupEvent;
 	[SerializeField]
 	AK.Wwise.Event blockDropEvent;
@@ -130,10 +136,10 @@ public class PickUpToolController : MonoBehaviour
 		ResetPickUp();
 
 		blockPickupEvent.Post(gameObject);
-		animator.SetBool("HasBlock", true);
-		Debug.Log("HasBlock=true");
-
-	}
+        //animator.SetBool("HasBlock", true);
+        armAnim.localEulerAngles = new Vector3(-65f, 90f, -90f);
+        clawAnim.localEulerAngles = new Vector3(0f, -50f, 0f);
+    }
 
 	private void PlaceShape()
 	{
@@ -142,8 +148,8 @@ public class PickUpToolController : MonoBehaviour
 		holdedShape.transform.position = new Vector3 (holdedShape.transform.position.x, 0.5f, holdedShape.transform.position.z);
 		Rigidbody myRigbody = holdedShape.AddComponent<Rigidbody>();
 		blockDropEvent.Post(gameObject);
-		animator.SetBool("HasBlock", false);
-		myRigbody.isKinematic = true;
+        //animator.SetBool("HasBlock", false);
+        myRigbody.isKinematic = true;
 
 		DropShape();
 	}
@@ -156,7 +162,10 @@ public class PickUpToolController : MonoBehaviour
 		}
 		holdedShape = null;
 		isHoldingShape = false;
-	}
+
+        armAnim.localEulerAngles = new Vector3(-90f, 90f, -90f);
+        clawAnim.localEulerAngles = new Vector3(0f, 0f, 0f);
+    }
 
 	private void ResetPickUp()
 	{

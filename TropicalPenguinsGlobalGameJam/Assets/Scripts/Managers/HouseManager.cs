@@ -109,7 +109,7 @@ public class HouseManager : MonoBehaviour
 					player.pickUpController.DropShape(true);
 				}
 			}
-			other.gameObject.GetComponentInChildren<Animator>().SetBool("HasBlock", false);
+			//other.gameObject.GetComponentInChildren<Animator>().SetBool("HasBlock", false);
 		}
 
 	}

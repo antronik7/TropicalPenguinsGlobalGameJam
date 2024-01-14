@@ -30,8 +30,6 @@ public class PlayerUI : MonoBehaviour
 		RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, screenPos, canvas.worldCamera, out Vector2 movePos);
 
 		transform.position = canvas.transform.TransformPoint(movePos + uiDisplacement);
-
-		Debug.Log(transform.position);
 	}
 
 	private void FixedUpdate() => UpdatePos();
